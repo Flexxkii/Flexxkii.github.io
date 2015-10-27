@@ -1,0 +1,89 @@
+/* Fonts */
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic,700,700italic,900,900italic,100,100italic,300,300italic);
+
+body {
+    background: url('http://i.imgur.com/N22RpSr.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#backgroundCover {
+    background-color: black;
+    opacity: 0.5;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: -2;
+}
+
+#navigatieBar {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+}
+
+#navigatie {
+    text-decoration: none;
+    color: #FFF;
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 10px 15px 10px 15px;
+    margin-right: 0px;
+    background-color:  #2ecc71;
+    transition: background-color .25s ease;
+}
+
+#navigatie:hover, #navigatieBegin:hover, #navigatieEinde:hover {
+    background-color: #24a35a;
+    transition: background-color .25s ease;
+}
+
+#navigatie:active, #navigatieEinde:active, #navigatieBegin:active {
+    background-color: #FFF;
+    color: #2ecc71;
+    transition: background-color color .25s ease;
+}
+
+#navigatieBegin {
+    text-decoration: none;
+    color: #FFF;
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 10px 15px 10px 15px;
+    margin-right: 0px;
+    background-color: #2ecc71;
+    transition: background-color .25s ease;
+    border-top-left-radius: 100px;
+    border-bottom-left-radius: 100px;
+}
+
+#navigatieEinde {
+    text-decoration: none;
+    color: #FFF;
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 10px 15px 10px 15px;
+    margin-right: 0px;
+    background-color: #2ecc71;
+    transition: background-color .25s ease;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+}
+
+#teodor {
+    color: #fff;
+    font-family: roboto;
+    font-weight: bold;
+    font-size: 25px;
+    text-transform: uppercase;
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    top: 20px;
+    left: 20px;
+}
