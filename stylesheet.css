@@ -68,6 +68,17 @@ body {
   right: 15%;
 }
 
+#logo {
+position: absolute;
+width: 200px;
+margin-left: 50px;
+top: 30px;
+}
+
+.logofill {
+    fill:#FFF;
+}
+
 @-webkit-keyframes anim-1 {
     50% {opacity: 0;-webkit-transform: translate3d(1em, 0, 0);transform: translate3d(1em, 0, 0);}
     51% {opacity: 0;-webkit-transform: translate3d(-1em, -40%, 0);transform: translate3d(-1em, -40%, 0);}
