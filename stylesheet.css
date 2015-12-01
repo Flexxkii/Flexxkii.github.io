@@ -7,7 +7,7 @@
     margin: 0px 25px 10px 10px;
 }
 
-.navigatie * {
+.navigatie {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-transition: all 0.35s ease;
