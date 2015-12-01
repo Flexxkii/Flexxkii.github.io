@@ -1,7 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
-
 .navigatie {
-    font-family: "Raleway",Arial,sans-serif;
+    font-family: "Roboto",Arial,sans-serif;
     text-align: right;
     text-transform: uppercase;
     font-weight: 500;
