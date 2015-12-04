@@ -1,3 +1,25 @@
+.Main {
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;  
+}
+
+.Main1 {
+  background-color: #212121;
+  position: absolute;
+  width: 60%;
+  height: 60%;
+  top: 150px;
+}
+
+.Main2 {
+  background-color: #212121;
+  position: absolute;
+  width: 60%;
+  height: 30%;
+  top: 250px;
+}
+
 .navigatie {
     font-family: "Roboto",Arial,sans-serif;
     text-align: right;
@@ -56,7 +78,7 @@
 }
 
 body {
-  background-color: #212121;
+  background-color: #1c1c1c;
   padding: 50px 0;
 }
 
