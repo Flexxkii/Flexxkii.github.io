@@ -31,6 +31,37 @@ body {
   font-size: 12px;
   padding: 20px;
   margin: 0px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+/* taal knopje */
+.taal {
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 1px;
+  position: fixed;
+  top: 10px;
+  right: 30px;
+  z-index: 99;
+  font-size: 13px;
+  background-color: #2ecc71;
+  color: #FFF;
+  padding: 4px 8px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color .25s ease;
+}
+
+.taal:hover {
+  background-color: #24a35a;
+  text-decoration: none;
+  transition: background-color .25s ease;
+}
+
+.taal:active {
+  background-color: #1b7a43;
+  text-decoration: none;
+  transition: background-color .25s ease;
 }
 
 /* Navigatie balk */
@@ -40,7 +71,7 @@ body {
     text-transform: uppercase;
     font-weight: 500;
     letter-spacing: 1px;
-    margin: 0px 25px 10px 10px;
+    margin: 0px;
 }
 
 .navigatie {
@@ -108,8 +139,6 @@ body {
 }
 
 #logofill:hover {
-    fill: transparent;
-    stroke: #2ecc71;
-    stroke-width: 10px;
+    fill: #2ecc71;
     transition: all .25s ease;
 }
