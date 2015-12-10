@@ -4,7 +4,7 @@ body {
   font-family: "Roboto",Arial,sans-serif;
 }
 
-// Home pagina content
+/* Home pagina content */
 .Home_main {position: relative;margin-top: -100px;}
 .Home_main1{left:0px;}
 .Home_main2 {right:0px;}
@@ -33,7 +33,7 @@ body {
   margin: 0px;
 }
 
-// Navigatie balk
+/* Navigatie balk */
 .navigatie {
     font-family: "Roboto",Arial,sans-serif;
     text-align: right;
@@ -97,7 +97,7 @@ body {
   right: 15%;
 }
 
-// Logo
+/* Logo */
 #logofill {
     fill:#FFF;
     transition: all .25s ease;
