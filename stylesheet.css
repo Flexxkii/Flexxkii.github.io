@@ -11,7 +11,14 @@ body {
     left: 40%;
   }
 
+
+}
+
+@media (max-width: 320px) {
   .Home_main {width: 255px;}
+}
+
+@media (max-width: 800px) {
   .navigatie {display: none!important;}
 }
 
