@@ -22,6 +22,12 @@ body {
   .navigatie {display: none!important;}
 }
 
+.Home_center {
+  width: 960px;
+  margin: 0 auto;
+  position: relative;
+}
+
 /* Home pagina content */
 .Home_main {position: relative;margin-top: -100px;}
 .Home_main1{left:0px;}
