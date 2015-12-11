@@ -5,19 +5,14 @@ body {
 }
 
 @media (max-width: 1050px) {                  
-   .taal {
-      position: fixed;
-      bottom: 10px;
-      left: 40%;
-    }
-   .Home_main {
-    width: 255px;
-    }
+  .taal {
+    position: fixed;
+    bottom: 10px;
+    left: 40%;
+  }
 
-    .navigatie {
-      display: none!important;
-    }
-   }
+  .Home_main {width: 255px;}
+  .navigatie {display: none!important;}
 }
 
 /* Home pagina content */
