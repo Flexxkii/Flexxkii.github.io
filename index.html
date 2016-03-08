@@ -1,72 +1,462 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>Home pagina</title>
-        <!-- Mobile features -->
-	    <link rel="apple-touch-startup-image" href="http://i.imgur.com/DpgwiMq.png">
-	    <link rel="icon" type="image/png" href="http://i.imgur.com/DpgwiMq.png">
-	    <link rel="apple-touch-icon" type="image/png" href="http://i.imgur.com/DpgwiMq.png">
-	    <link rel="icon" sizes="144x144" href="http://i.imgur.com/DpgwiMq.png">
-	    <link rel="icon" sizes="192x192" href="http://i.imgur.com/DpgwiMq.png">
-	    <!-- Google Chrome op android kleur -->
-	    <meta name="mobile-web-app-capable" content="yes">
-	    <meta name="theme-color" content="#2ECC71">
-	    <!-- Homescreen tile voor Safari en iOS -->
-	    <meta name="apple-mobile-web-app-capable" content="yes">
-	    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"
-	    <meta name="apple-mobile-web-app-title" content="TITLE">
-	    <link rel="apple-touch-icon-precomposed" href="http://i.imgur.com/DpgwiMq.png">
-	    <!-- Tile icon voor Windows 10 (144x144 + tile kleur) -->
-	    <meta name="msapplication-TileImage" content="favicon.ico">
-	    <meta name="msapplication-square310x310logo" content="http://i.imgur.com/DpgwiMq.png">
-	    <meta name="msapplication-TileColor" content="#2ECC71">
-		<!-- Charset -->
-		<meta charset="UTF-8" />
-		<!-- Scaling enzo... 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">-->
-		<!-- Favicon -->
-		<link rel="icon" type="image/png" href="http://i.imgur.com/DpgwiMq.png">
-		<!-- Stylesheet -->
-		<link rel="stylesheet" type="text/css" href="stylesheet.css" />
-		<!-- Google Roboto Font -->
-		<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,400italic,500,500italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-	</head>
-	<body>
-		<svg version="1.1" id="logofill" x="0px" y="0px" viewBox="500 550 500 400" xml:space="preserve">
-			<path class="logofill" d="M631.2,599.9c-50.6,0-112.3,17-112.3,85.4v166.1c0,19,11.5,30.5,30.1,30.5h164.6c18.6,0,30.1-11.5,30.1-30.5 V685.3C743.5,616.9,681.8,599.9,631.2,599.9z"/>
-			<path class="logofill" d="M797.3,881.9h159c19.8,0,31.6-20.6,17.4-43.5l-58.5-94.9l58.5-94.9c14.2-22.9,2.4-43.5-17.4-43.5h-159 c-19,0-30.1,11.1-30.1,30.1v220.3C767.2,874.4,778.3,881.9,797.3,881.9z"/>
-		</svg>
-		<ul class="navigatie">
-			<li class="taal"><a href="engels/index.html">Nederlands | Dutch</a></li>
-			<li class="current"><a href="index.html">Home</a></li>
-			<li class="nav-item"><a href="info.html">Info</a></li>
-			<li class="nav-item"><a href="afspraken.html">Afspraken</a></li>
-			<li class="nav-item"><a href="vergunningen.html">Vergunningen</a></li>
-			<li class="nav-item"><a href="Toeristen.html">Toeristen</a></li>
-		</ul>
-		<div class="Home_center">
-		<div class="Home_main">
-			<div class="Home_main1">
-				<div class="Home_main1_p"></div>
-				<p class="Home_main1_T">
-					Dit website gemaakt door Andrew Charmes & Teodor Anthony.
-					We moesten dit maken voor een project, hierdoor kunnen we het kennis van Scrum gebruiken en toepassen.
-					We gebruiken Trello, Photoshop, Sublime Text Editor en Github als host.
-				</p>
-			</div>
-			<div class="Home_main2">
-				<!-- AIzaSyBDNuqT5XmWVIcz985lpPBuwW_gzgsZeiQ -->
-				<iframe
-					width="100%"
-					height="100%"
-					frameborder="0" style="border:0;border-radius:5px;"
-					src="https://www.google.com/maps/embed/v1/place
-					?key=AIzaSyBDNuqT5XmWVIcz985lpPBuwW_gzgsZeiQ
-					&q=Gemeente+Noordoostpolder" allowfullscreen>
-				</iframe>
-			</div>
-		</div>
-		</div>
-	</body>
+  <!--[if IE 8 ]><html class="no-js oldie ie8" lang="en"> <![endif]-->
+  <!--[if IE 9 ]><html class="no-js oldie ie9" lang="en"> <![endif]-->
+  <!--[if (gte IE 9)|!(IE)]><!-->
+  <html class="no-js" lang="en">
+  <!--<![endif]-->
+  <head>
+    <!--- basic page needs -->
+    <meta charset="utf-8">
+    <title>EXO™</title>
+    <meta content="EXO™'s portfolio" name="description">
+    <meta content="Teodor Anthony" name="author">
+    <!-- mobile specific metas -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1" name="viewport">
+    <!-- CSS -->
+    <link href="css/base.css" rel="stylesheet">
+    <link href="css/vendor.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <!-- script -->
+    <script src="js/modernizr.js"></script>
+    <!-- favicons -->
+    <link href="favicon.png" rel="shortcut icon">
+  </head>
+  <body>
+    <!-- header -->
+    <header id="main-header">
+      <div class="row">
+        <div class="logo"><a href="index.html">EXO™</a></div>
+        <nav id="nav-wrap"><a class="mobile-btn" href="#nav-wrap" title="Show navigation"><span class="menu-icon">Menu</span></a> <a class="mobile-btn" href="#" title="Hide navigation"><span class="menu-icon">Menu</span></a>
+          <ul class="nav" id="nav">
+            <li><a class="smoothscroll" href="#hero">Home.</a></li>
+            <li class="current"><a class="smoothscroll" href="#portfolio">Works.</a></li>
+            <li><a class="smoothscroll" href="#services">Services.</a></li>
+            <li><a class="smoothscroll" href="#footer">Contact.</a></li>
+          </ul>
+        </nav>
+        <ul class="header-social">
+          <li><a href="http://hackforums.net/member.php?action=profile&uid=2451258"><i class="fa fa-header"></i></a></li>
+          <li><a href="http://leipearmeen.deviantart.com/"><i class="fa fa-deviantart"></i></a></li>
+          <li><a href="https://www.youtube.com/user/mraxerz"><i class="fa fa-youtube-play"></i></a></li>
+        </ul>
+      </div>
+    </header>
+    <!-- end header -->
+
+    <!-- homepage hero -->
+    <section id="hero">
+      <div class="row hero-content">
+        <div class="twelve columns hero-container"><!-- hero-slider start-->
+          <div class="flexslider" id="hero-slider">
+            <ul class="slides"><!-- slide -->
+              <li>
+                <div class="flex-caption">
+                  <h1 class="">Hi! I'm EXO. I create awesome and stunning flat UI designs and more.</h1>
+                  <h3 class="">I worked with many people and learned a lot of Do's and Dont's.</h3>
+                </div>
+              </li> <!-- slide -->
+            </ul>
+          </div> <!-- end hero-slider -->
+        </div> <!-- end twelve columns-->
+      </div> <!-- end row -->
+      <div id="more"><a class="smoothscroll" href="#portfolio">Scroll down!<i class="fa fa-chevron-down"></i></a></div>
+    </section>
+    <!-- end homepage hero -->
+
+    <!-- portfolio -->
+    <section id="portfolio">
+      <div class="row section-head">
+        <div class="twelve columns">
+          <h1>My Latest Projects<span>.</span></h1>
+          <hr>
+          <p>Some of my latest design I made for my customers.</p>
+        </div>
+      </div> <!-- end section-head -->
+      <div class="row items"><!-- portfolio-wrapper -->
+        <div class="bgrid-fourth s-bgrid-third tab-bgrid-half" id="portfolio-wrapper">
+          <div class="bgrid folio-item">
+            <div class="item-wrap">
+              <a href="#modal-01">
+                <img alt="Solar Stealth" src="images/portfolio/images/Preview_01.gif">
+                <div class="overlay"></div>
+                <div class="portfolio-item-meta">
+                  <h5>Solar Stealth</h5>
+                  <p>Thread design</p>
+                  <p style="font-size: 10px;">for Solar. - UID 2027637</p>
+                </div>
+                <div class="link-icon"><i class="fa fa-plus"></i></div>
+              </a>
+            </div>
+          </div>
+          <!-- item end -->
+          <div class="bgrid folio-item">
+            <div class="item-wrap">
+              <a href="#modal-02">
+                <img alt="Solar Spreading" src="images/portfolio/images/Preview_02.gif">
+                <div class="overlay">
+                  <div class="portfolio-item-meta">
+                    <h5>Solar Spreading</h5>
+                    <p>Thread design</p>
+                    <p style="font-size: 10px;">for Solar. - UID 2027637</p>
+                  </div>
+                </div>
+                <div class="link-icon"><i class="fa fa-plus"></i></div>
+              </a>
+            </div>
+          </div>
+          <!-- item end -->
+          <div class="bgrid folio-item">
+            <div class="item-wrap">
+              <a href="#modal-03">
+                <img alt="Craft Infect" src="images/portfolio/images/Preview_03.gif">
+                <div class="overlay">
+                  <div class="portfolio-item-meta">
+                    <h5>Craft Infect</h5>
+                    <p>Thread design</p>
+                    <p style="font-size: 10px;">for Solar. - UID 2027637</p>
+                  </div>
+                </div>
+                <div class="link-icon"><i class="fa fa-plus"></i></div>
+              </a>
+            </div>
+          </div>
+          <!-- item end -->
+          <div class="bgrid folio-item">
+            <div class="item-wrap">
+              <a href="#modal-04">
+                <img alt="TechSploit" src="images/portfolio/images/Preview_04.gif">
+                <div class="overlay">
+                  <div class="portfolio-item-meta">
+                    <h5>TechSploit</h5>
+                    <p>Thread Design</p>
+                    <p style="font-size: 10px;">for Thinkbox - UID 2908995</p>
+                  </div>
+                </div>
+                <div class="link-icon"><i class="fa fa-plus"></i></div>
+              </a>
+            </div>
+          </div>
+          <!-- item end -->
+          <div class="bgrid folio-item">
+            <div class="item-wrap">
+              <a href="#modal-05">
+                <img alt="IncomeBank" src="images/portfolio/images/Preview_05.png">
+                <div class="overlay">
+                  <div class="portfolio-item-meta">
+                    <h5>IncomeBank</h5>
+                    <p>Thread design</p>
+                    <p style="font-size: 10px;">for Ginsum - UID 2282311</p>
+                  </div>
+                </div>
+                <div class="link-icon"><i class="fa fa-plus"></i></div>
+              </a>
+            </div>
+          </div>
+          <!-- item end -->
+          <div class="bgrid folio-item">
+            <div class="item-wrap">
+              <a href="#modal-06">
+                <img alt="EbolaSpreading" src="images/portfolio/images/Preview_06.gif">
+                <div class="overlay">
+                  <div class="portfolio-item-meta">
+                    <h5>EbolaSpreading</h5>
+                    <p>Thread Design</p>
+                    <p style="font-size: 10px;">for tl:dr - UID 2752008</p>
+                  </div>
+                </div>
+                <div class="link-icon"><i class="fa fa-plus"></i></div>
+              </a>
+            </div>
+          </div>
+          <!-- item end -->
+          <div class="bgrid folio-item">
+            <div class="item-wrap">
+              <a href="#modal-07">
+                <img alt="Udemy Ripper" src="images/portfolio/images/Preview_07.gif">
+                <div class="overlay">
+                  <div class="portfolio-item-meta">
+                    <h5>Udemy Ripper</h5>
+                    <p>Thread Design</p>
+                    <p style="font-size: 10px;">for ReX - UID 1165237</p>
+                  </div>
+                </div>
+                <div class="link-icon"><i class="fa fa-plus"></i></div>
+              </a>
+            </div>
+          </div>
+          <!-- item end -->
+          <div class="bgrid folio-item">
+            <div class="item-wrap">
+              <a href="#modal-08">
+                <img alt="Premium Lynda Account Method" src="images/portfolio/images/Preview_08.gif">
+                <div class="overlay">
+                  <div class="portfolio-item-meta">
+                    <h5>Premium Lynda Account Method</h5>
+                    <p>Thread Design</p>
+                    <p style="font-size: 10px;">for ReX - UID 1165237</p>
+                  </div>
+                </div>
+                <div class="link-icon"><i class="fa fa-plus"></i></div>
+              </a>
+            </div>
+          </div> <!-- item end -->
+        </div>
+        <!-- end portfolio-wrapper -->
+
+        <!-- modal popup -->
+        <div class="popup-modal mfp-hide" id="modal-01">
+          <div class="media">
+            <img alt="Solar Stealth" src="images/portfolio/modals/SolarStealth.png">
+          </div>
+          <div class="description-box">
+            <h4>Solar Stealth</h4>
+            <p>Made for Solar. - UID 2027637</p>
+            <span class="categories">Thread design</span>
+          </div>
+          <div class="link-box group">
+            <a class="popup-modal-dismiss" href="#">Close</a>
+          </div>
+        </div>
+        <!-- modal-01 end -->
+        <div class="popup-modal mfp-hide" id="modal-02">
+          <div class="media">
+            <img alt="Solar Spreading" src="images/portfolio/modals/SolarSpreader.png">
+          </div>
+          <div class="description-box">
+            <h4>Solar Spreading</h4>
+            <p>Made for Solar. - UID 2027637</p>
+            <span class="categories">Thread design</span>
+          </div>
+          <div class="link-box">
+            <a class="popup-modal-dismiss" href="#">Close</a>
+          </div>
+        </div>
+        <!-- modal-02 end -->
+        <div class="popup-modal mfp-hide" id="modal-03">
+          <div class="media">
+            <img alt="Craft Infect" src="images/portfolio/modals/craftinfect.png">
+          </div>
+          <div class="description-box">
+            <h4>Craft Infect</h4>
+            <p>Made for Solar. - UID 2027637</p>
+            <span class="categories">Thread design</span>
+          </div>
+          <div class="link-box">
+            <a class="popup-modal-dismiss" href="#">Close</a>
+          </div>
+        </div>
+        <!-- modal-03 end -->
+        <div class="popup-modal mfp-hide" id="modal-04">
+          <div class="media">
+            <img alt="TechSploit" src="images/portfolio/modals/TechSploit.png">
+          </div>
+          <div class="description-box">
+            <h4>TechSploit</h4>
+            <p>Made for Thinkbox - UID 2908995</p>
+            <span class="categories">Thread design</span>
+          </div>
+          <div class="link-box">
+            <a class="popup-modal-dismiss" href="#">Close</a>
+          </div>
+        </div>
+        <!-- modal-04 end -->
+        <div class="popup-modal slider mfp-hide" id="modal-05">
+          <div class="media">
+            <img alt="IncomeBank" src="images/portfolio/modals/IncomeBank.png">
+          </div>
+          <div class="description-box">
+            <h4>IncomeBankt</h4>
+            <p>Made for Ginsum - UID 2282311</p>
+            <span class="categories">Thread design</span>
+          </div>
+          <div class="link-box">
+            <a class="popup-modal-dismiss" href="#">Close</a>
+          </div>
+        </div>
+        <!-- modal-05 end -->
+        <div class="popup-modal mfp-hide" id="modal-06">
+          <div class="media">
+            <img alt="EbolaSpreading" src="images/portfolio/modals/EbolaSpreading.png">
+          </div>
+          <div class="description-box">
+            <h4>EbolaSpreading</h4>
+            <p>Made for tl:dr - UID 2752008</p>
+            <span class="categories">Thread design</span>
+          </div>
+          <div class="link-box">
+            <a class="popup-modal-dismiss" href="#">Close</a>
+          </div>
+        </div>
+        <!-- modal-06 end -->
+        <div class="popup-modal mfp-hide" id="modal-07">
+          <div class="media">
+            <img alt="Udemy Ripper" src="images/portfolio/modals/UdemyRipper.png">
+          </div>
+          <div class="description-box">
+            <h4>Udemy Ripper</h4>
+            <p>Made for ReX - UID 1165237</p>
+            <span class="categories">Thread design</span>
+          </div>
+          <div class="link-box">
+            <a class="popup-modal-dismiss" href="#">Close</a>
+          </div>
+        </div>
+        <!-- modal-07 end -->
+        <div class="popup-modal mfp-hide" id="modal-08">
+          <div class="media">
+            <img alt="Premium Lynda Account Method" src="images/portfolio/modals/PremiumLyndaAccountMethod.png">
+          </div>
+          <div class="description-box">
+            <h4>Premium Lynda Account Method</h4>
+            <p>Made for ReX - UID 1165237</p>
+            <span class="categories">Thread design</span>
+          </div>
+          <div class="link-box">
+            <a class="popup-modal-dismiss" href="#">Close</a>
+          </div>
+        </div>
+        <!-- modal-08 end -->
+      </div> <!-- end row -->
+    </section>
+    <!-- end portfolio -->
+
+    <!-- Services Section -->
+    <section id="services">
+      <div class="row section-head">
+        <div class="twelve columns">
+          <h1>My Services<span>.</span></h1>
+          <hr>
+          <p>Here are some services that I provide.</p>
+        </div>
+      </div>
+      <!-- end section-head -->
+      <div class="row mobile-no-padding">
+        <div class="service-list bgrid-third s-bgrid-half tab-bgrid-whole group">
+          <div class="bgrid">
+            <h3>Thread design.</h3>
+            <div class="service-content">
+              <p>I make flat thread design price at $20.</p>
+            </div>
+          </div>
+          <!-- end bgrid -->
+          <div class="bgrid">
+            <h3>Signature design.</h3>
+            <div class="service-content">
+              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+            </div>
+          </div>
+          <!-- end bgrid -->
+          <div class="bgrid">
+            <h3>Avatar.</h3>
+            <div class="service-content">
+              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+            </div>
+          </div>
+          <!-- end bgrid -->
+          <div class="bgrid">
+            <h3>other things.</h3>
+            <div class="service-content">
+              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+            </div>
+          </div> <!-- end bgrid -->
+        </div> <!-- end service-list -->
+      </div> <!-- end row -->
+    </section>
+    <!-- end services -->
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+      <div class="row content flex-container">
+        <div class="flexslider" id="testimonial-slider">
+          <ul class="slides">
+            <li>
+              <p>Thanks for the thread design!</p>
+              <div class="testimonial-author">
+                <img alt="Author image" src="images/avatars/avatar-1.jpg">
+                <div class="author-info">Fiz <span class="position">UID, 2553288.</span></div>
+              </div>
+            </li>
+            <!-- end slide -->
+            <li>
+              <p>Made great design for my thread and sig! :)</p>
+              <div class="testimonial-author">
+                <img alt="Author image" src="images/avatars/avatar-2.png">
+                <div class="author-info">Akzius <span>UID, 2908357.</span></div>
+              </div>
+            </li>
+            <!-- end slide -->
+            <li>
+              <p>Thanks for the graphics!</p>
+              <div class="testimonial-author">
+                <img alt="Author image" src="images/avatars/avatar-3.gif">
+                <div class="author-info">Æ†µ ™ <span>UID, 1645305.</span></div>
+              </div>
+            </li>
+            <!-- end slide -->
+            <li>
+              <p>Great GFX work, thanks man :D</p>
+              <div class="testimonial-author">
+                <img alt="Author image" src="images/avatars/avatar-4.png">
+                <div class="author-info">Mr.Peanut <span>UID, 2126148.</span></div>
+              </div>
+            </li>
+            <!-- end slide -->
+            <li>
+              <p>Amazing GFX designer! Really recommend to anyone needed this. Huge vouch! :)</p>
+              <div class="testimonial-author">
+                <img alt="Author image" src="images/avatars/avatar-5.png">
+                <div class="author-info">Solar. <span>UID, 2027637.</span></div>
+              </div>
+            </li>
+            <!-- end slide -->
+          </ul>
+          <!-- end slides -->
+        </div> <!-- end flexslider -->
+      </div> <!-- end row -->
+    </section> 
+    <!-- end testimonials section -->
+
+    <!-- Footer -->
+    <section id="footer">
+      <footer>
+        <div class="row section-head">
+          <div class="twelve columns">
+            <h1>Contact<span>.</span></h1>
+            <hr id="hrfooter">
+          </div>
+        </div>
+        <div class="row">
+          <div class="twelve columns content group">
+            <ul class="social-links">
+              <li><a href="http://hackforums.net/member.php?action=profile&uid=2451258"><i class="fa fa-header"></i></a></li>
+              <li><a href="http://leipearmeen.deviantart.com/"><i class="fa fa-deviantart"></i></a></li>
+              <li><a href="https://www.youtube.com/user/mraxerz"><i class="fa fa-youtube-play"></i></a></li>
+            </ul>
+            <hr>
+            <div class="info">
+              <div class="footer-logo"></div>
+              <p>Designer | Dutch | 420</p>
+            </div>
+            <ul class="copyright">
+              <li>&copy; Copyright 2015 EXO™.</li>
+            </ul>
+          </div>
+        </div> <!-- end row -->
+      </footer>
+      <!-- end footer -->
+      <div id="preloader">
+        <div id="loader"></div>
+      </div>
+    </section>
+    <!-- Java Script -->
+    <script src="js/jquery-1.12.1.min.js"></script> 
+    <script src="js/jquery-migrate-1.3.0.min.js"></script> 
+    <script src="js/jquery.flexslider-min.js"></script> 
+    <script src="js/jquery.waypoints.min.js"></script> 
+    <script src="js/jquery.validate.min.js"></script> 
+    <script src="js/jquery.fittext.js"></script> 
+    <script src="js/jquery.placeholder.min.js"></script> 
+    <script src="js/jquery.magnific-popup.min.js"></script> 
+    <script src="js/main.js"></script>
+  </body>
 </html>
