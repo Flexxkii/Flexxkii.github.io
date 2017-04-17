@@ -1,0 +1,43 @@
+body {
+  overflow: hidden;
+  background-color: #00b1e9;
+}
+#patterndiv {
+  width: 143vw;
+  height: 144vh;
+  overflow: hidden;
+  position: absolute;
+}
+#pattern {
+  opacity: 0.2;
+  position: absolute;
+  z-index: -1;
+  width: 250vw;
+  height: auto;
+  max-width: 250%;
+  margin-top: -3em;
+}
+
+#content {
+  width: 150%;
+  height: 50em;
+  text-align: center;
+}
+
+#logo {
+  width:25em;
+  margin-top:10em;
+}
+
+#appIcon {
+  width: 15em;
+  margin: 10em 0em 5em 0em;
+}
+
+#laden {
+  font-weight:900;
+  color:white;
+  font-style:italic;
+  font-size:3em;
+  margin:0;
+}
