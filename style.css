@@ -1,0 +1,40 @@
+body {
+  background: linear-gradient(-45deg, #006a8b, #00b1e9);
+  background-repeat:no-repeat;
+  height:100vh;
+  width:100vw;
+  overflow:hidden;
+}
+
+#pattern {
+  margin-top:-15vh;
+  margin-left:-15vw;
+  width:auto;
+  height:120vh;
+  opacity:0.2;
+  position:absolute;
+  z-index:-1;
+}
+
+#content {
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+}
+
+#logo {
+  width: 75vw;
+  margin-top:20vh;
+}
+
+#appIcon {
+  width:25vw;
+  margin-top:20vh;
+}
+
+#laden {
+  font-weight:900;
+  color:white;
+  font-style:italic;
+  font-size:10vw;
+}
