@@ -1,27 +1,29 @@
 body {
-  overflow: hidden;
-  background-color: #00b1e9;
-  font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+    background-color: #00b1e9;
+    font-family: 'Roboto', sans-serif;
+    width: 100vw;
+    max-width: 100%;
+    margin: 0;
 }
 #patterndiv {
-  width: 143vw;
-  height: 144vh;
-  overflow: hidden;
-  position: absolute;
+    width: 100vw;
+    height: 144vh;
+    overflow: hidden;
+    position: absolute;
+    max-width: 100%;
 }
 #pattern {
-  opacity: 0.2;
-  position: absolute;
-  z-index: -1;
-  width: 250vw;
-  height: auto;
-  max-width: 250%;
-  margin-top: -3em;
+    opacity: 0.2;
+    position: absolute;
+    z-index: -1;
+    height: 118vh;
+    margin-top: -5em;
 }
 
 #content {
-  width: 100%;
-  text-align: center;
+    width: 100%;
+    text-align: center;
 }
 
 #logo {
