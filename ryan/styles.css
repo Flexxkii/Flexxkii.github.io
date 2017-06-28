@@ -1,0 +1,158 @@
+@charset "UTF-8";
+/* CSS Document */
+
+#background {
+	position:fixed;
+	z-index:-1;
+	margin:center;
+	width:1600px;
+	left:-10px;
+	top:-10px;
+	}
+	
+#hoofddiv{
+	position: relative;
+    width: 80%;
+    height: 3200px;
+    background-color: rgba(255, 255, 255, 0.64);
+    left: 10%;
+    top: -20px;
+    box-shadow: 1px 1px 32px 15px rgba(0,0,0,0.20);
+	}
+	
+.tekst  {
+	position:relative;
+	left:65px;
+	top:50px;
+	font-family:lobster;
+	}
+	
+#opd1 {
+	width:1000px;
+	height:600px;
+	position:relative;
+	background-color:white;
+	margin:auto;
+	top:100px;
+	box-shadow: 1px 1px 32px 15px rgba(0,0,0,0.20);
+	}
+
+#video1div {
+	width:1000px;
+	height:300px;
+	position:relative;
+	margin:auto;
+	
+	}
+	
+
+	
+	
+.tekst2 {
+ 	position:relative;
+	left:500px;
+	top:-300px;
+	font-family:lobster;
+	}
+
+#video1 {
+	position:relative;
+	width:450px;
+	height:auto;
+	padding:30px;
+	top:-5px;
+	}
+	
+
+#video2 {
+	position:relative;
+	width:450px;
+	height:auto;
+	left:525px;
+	top:-155px;
+	}
+	
+
+	
+#opd2 {
+	width:1000px;
+	height:600px;
+	position:relative;
+	background-color:white;
+	margin:auto;
+	box-shadow: 1px 1px 32px 15px rgba(0,0,0,0.20);
+	top:200px;
+	
+	}
+	
+.audio2 {
+	position:relative;
+	left:500px;
+	top:250px;
+	}
+	
+.audio1 {
+	position:relative;
+	left:100px;
+	top:150px;
+	}
+
+
+#opd3 {
+	width:1000px;
+	height:600px;
+	position:relative;
+	background-color:white;
+	margin:auto;
+	box-shadow: 1px 1px 32px 15px rgba(0,0,0,0.20);
+	top:300px;
+	}
+	
+.tekst3 {
+	position:relative;
+	font-family:lobster;
+	text-align:right;
+	left:800px;
+	
+	
+	}
+	
+#opd3video {
+	position:relative;
+	width:450px;
+	height:auto;
+	padding:30px;
+	top:100px;
+	left:450px;
+	}
+	
+
+	
+#divje {
+	width:1000px;
+	height:6
+	00px;
+	position:relative;
+	margin:auto;
+	}
+	
+.tekstopd3 {
+	position:relative;
+	top:300px;
+	left:170px;
+	}
+	
+#opd4 {
+	position:relative;
+	top:650px;
+	width:1000px;
+	height:600px;
+	background-color:white;
+	}
+
+
+.opd4geluid {
+	position:relative;
+	left:400px;
+	top:100px;
+	}
