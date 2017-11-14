@@ -9,6 +9,8 @@ input:focus, select:focus, textarea:focus, button:focus, [contenteditable="true"
     overflow: hidden;
 }
 
+.content, .hoofd, .jumbo, .qoutes {width: 100vw!important;}
+
 /*		--- 	Hoofd	 --- 	*/
 .hoofd {
     position: fixed;
@@ -22,6 +24,7 @@ input:focus, select:focus, textarea:focus, button:focus, [contenteditable="true"
     padding-right: 2em;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, .1);
     z-index: 10;
+    transition: height .25s ease;
 }
 
 .social {font-size: 2vw;}
@@ -85,6 +88,21 @@ input:focus, select:focus, textarea:focus, button:focus, [contenteditable="true"
     transform: translateY(-4px);
 }
 
+.fa-search, .fa-times {display: none;}
+.fa-times {z-index: 10;font-size: 3vw;}
+
+.mobileinput {
+    width: 100vw;
+    position: absolute;
+    height: 100vh;
+    display: inline-block !important;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+    transition: all .25s ease;
+    font-size: 3vw!important;
+}
+
 /*		--- 	Navigatie	 --- 	*/
 @keyframes load {
     0% {transform: translateY(-50px);}
@@ -104,31 +122,7 @@ input:focus, select:focus, textarea:focus, button:focus, [contenteditable="true"
 
 ul {display: flex;list-style-type: none;}
 li {padding-right: 25px;z-index: 2;}
-.active, li a:hover {
-    background: linear-gradient(212deg, #1475f7, #e53d35);
-    background-size: 400% 400%;
-
-    -webkit-animation: AnimationName 30s ease infinite;
-    -moz-animation: AnimationName 30s ease infinite;
-    animation: AnimationName 30s ease infinite;
-    color: white;
-}
-
-@-webkit-keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@-moz-keyframes AnimationName {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
-@keyframes AnimationName { 
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
+li a:hover {color: grey;}
 
 li a {
     background-color: none;
@@ -247,7 +241,7 @@ li a {
     background-color: #f6f6f6;
     color: #212121;
     grid-gap: 50px;
-    padding: 2em;
+    padding: 2em 4em;
 }
 
 .artikel {
@@ -333,17 +327,31 @@ li a {
     color: #f6f6f6;
     background-color: #242E3D;
     grid-template-columns: 1fr 1fr 3fr 1fr;
-    padding: 2em 0em;
-    align-items: flex-end;
+    padding: 2em 4em 1em 4em;
     transition: all .25s ease;
 }
 
 .footer div {padding: 0 2em;}
+.footer div:nth-child(3) {justify-content: flex-end; padding-bottom: 1em; font-size: 1.25vw;}
+.footer div:nth-child(3) span {font-size: 1.5vw;}
 .footer div a, .footer div span {opacity: .5;color: white; text-decoration: none;padding-bottom: .5em;transition: all .25s ease;}
 .footer div a:hover {opacity: 1;color: #007AFF;}
-.social span {font-size: 2vw;opacity: .75;}
+.social span {font-size: 1.5vw;padding: 1em;}
 .footer div:last-child {flex-direction: row;}
 .footer div {
     display: flex;
     flex-direction: column;
+}
+
+/*		--- 	Media queries	 --- 	*/
+@media only screen and (max-width: 1000px) {
+    .jumbo img {height: 400px;}
+    .artikel {grid-template-columns: 100px 1fr;}
+    .artikel div:last-of-type p:last-of-type {padding: 0;}
+}
+@media only screen and (max-width: 800px) {
+    .jumbo img {height: 300px;}
+    .hoofd span {font-size: 1.5vw;}
+    .fa-search {display: inherit;}
+    .hoofd input {display: none;}
 }
