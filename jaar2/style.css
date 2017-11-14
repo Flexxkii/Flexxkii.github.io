@@ -4,7 +4,7 @@ input:focus, select:focus, textarea:focus, button:focus, [contenteditable="true"
 	display: grid;
 	grid-template-rows: 100px 50px 420px 250px 500px auto auto;
     justify-content: center;
-    width: 100vw;
+    width: 100%;
     max-width:100%;
     overflow: hidden;
 }
@@ -24,7 +24,7 @@ input:focus, select:focus, textarea:focus, button:focus, [contenteditable="true"
     z-index: 10;
 }
 
-.social {font-size: 1.5em;}
+.social {font-size: 2vw;}
 .social i {padding-right: .5em;transition: all .25s ease;}
 .social i:hover {transform: scale(1.2)}
 .fa-facebook-official:hover {color: darkslateblue}
@@ -49,6 +49,7 @@ input:focus, select:focus, textarea:focus, button:focus, [contenteditable="true"
     border-radius: 100%;
     margin: -1em;
     transition: all .25s ease;
+    font-size: 1vw;
 }
 
 .winkelmandje .fa:hover {
@@ -65,12 +66,14 @@ input:focus, select:focus, textarea:focus, button:focus, [contenteditable="true"
 .hoofd span {
     color: #212121;
     opacity: .75;
+    font-size: 1vw;
 }
 
 .hoofd input {
     border:none;
     border-radius: 10px;
-    padding: .5em;
+    padding: .5vw;
+    font-size: 1vw;
     color: darkgrey;
     transition: all .25s ease;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
@@ -129,13 +132,12 @@ li {padding-right: 25px;z-index: 2;}
 
 li a {
     background-color: none;
-    border-radius: 5px;
     border-bottom: 2px solid transparent;
     color: #1475f7;
     text-decoration: none;
     padding: 1em;
     font-weight: 800;
-    font-size: 70%;
+    font-size: 1vw;
     transition: all .5s ease;
 }
 
@@ -167,7 +169,7 @@ li a {
 .jumbo h1 {
     color: white;
     text-shadow: 0px 2px 10px rgba(0, 0, 0, .25);
-    font-size: 4em;
+    font-size: 3vw;
     font-weight: 200;
     width: 45%;
     position: absolute;
@@ -233,7 +235,7 @@ li a {
 .features div i {font-size: 35pt;padding:.5em;transition: all .25s ease;}
 .features div i:hover {transform: translateY(-10px)}
 .features div p {font-size: 9pt;}
-.features div span {text-transform: uppercase;font-weight: 700;letter-spacing: 0px;}
+.features div span {text-transform: uppercase;font-weight: 700;letter-spacing: 0px;font-size: 1.25vw;}
 
 /*		--- 	Nieuws	 --- 	*/
 .nieuws {
@@ -339,7 +341,7 @@ li a {
 .footer div {padding: 0 2em;}
 .footer div a, .footer div span {opacity: .5;color: white; text-decoration: none;padding-bottom: .5em;transition: all .25s ease;}
 .footer div a:hover {opacity: 1;color: #007AFF;}
-.social span {font-size: 50%;opacity: .75;}
+.social span {font-size: 2vw;opacity: .75;}
 .footer div:last-child {flex-direction: row;}
 .footer div {
     display: flex;
