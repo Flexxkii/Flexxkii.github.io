@@ -2,7 +2,7 @@ body{margin:0;padding:0;font-family: 'Montserrat'}
 input:focus, select:focus, textarea:focus, button:focus, [contenteditable="true"]:focus {outline: none;}
 #content {
 	display: grid;
-	grid-template-rows: 100px 50px 420px 250px 500px auto auto;
+	grid-template-rows: 100px 50px auto auto auto auto auto;
     justify-content: center;
     width: 100%;
     max-width:100%;
@@ -60,7 +60,7 @@ input:focus, select:focus, textarea:focus, button:focus, [contenteditable="true"
     padding: 1.5em;
 }
 
-.logo svg:hover {transform: scale(7);}
+.logo svg:hover {transform: scale(1.2);}
 .logo svg {
     transition: all .25s ease;
     height: 40px;
@@ -141,6 +141,7 @@ li a {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    height: 420px;
 }
 
 .jumbo img {
@@ -351,7 +352,11 @@ li a {
 }
 @media only screen and (max-width: 800px) {
     .jumbo img {height: 300px;}
-    .hoofd span {font-size: 1.5vw;}
+    .hoofd span, .fa-bars, .winkelmandje .fa-shopping-cart, .fa-search {font-size: 4vw;}
+    .social, .info , .winkelmandje span:first-of-type {display: none;}
     .fa-search {display: inherit;}
     .hoofd input {display: none;}
+    .features {grid-template-columns: 1fr 1fr;padding: 4em;}
+    .nieuws {grid-template-columns: 1fr;}
+    .artikel {grid-template-columns: 300px 1fr;}
 }
