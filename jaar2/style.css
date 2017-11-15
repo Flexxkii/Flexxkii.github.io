@@ -357,7 +357,14 @@ li a {
 .productinfo {padding: 0 2em;}
 .productimg {align-self: center;}
 .productimg img {width: 100%;}
-.product {display: grid; grid-template-columns: 200px 1fr; background-color: white;}
+.product {display: grid; grid-template-columns: 200px 1fr; background-color: white;flex-direction: row-reverse}
+hr {width: 80%; opacity: .25;}
+
+/*		--- 	Over Ons pagina	 --- 	*/
+.infopagina {grid-row: 3;}
+.brand {padding: 100pt; display: flex; flex-direction: column; text-align: center;}
+.brand span {padding-top: 50pt; font-size: 50pt; font-weight: 900; color: #242e3d;}
+.about {padding: 30pt 25pt; font-weight: 300; opacity: .75; font-size: 15pt;}
 
 /*		--- 	Media queries	 --- 	*/
 @media only screen and (max-width: 1000px) {
