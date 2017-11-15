@@ -349,8 +349,15 @@ li a {
 
 /*		--- 	Producten pagina	 --- 	*/
 .producten {grid-row: 3;}
-.header {padding: 5em;text-align: center;color: #212121}
+.header {padding: 5em;text-align: center;color: #212121;background-color: #f6f6f6;}
 .header h1 {font-weight: 800;font-size: 25pt;}
+.header h3 {font-size: 10pt; font-weight: 400; opacity: .75;}
+.productenlijst {padding: 4em;}
+.product {padding: 2em;}
+.productinfo {padding: 0 2em;}
+.productimg {align-self: center;}
+.productimg img {width: 100%;}
+.product {display: grid; grid-template-columns: 200px 1fr; background-color: white;}
 
 /*		--- 	Media queries	 --- 	*/
 @media only screen and (max-width: 1000px) {
@@ -379,6 +386,7 @@ li a {
     .nav ul {flex-direction: column; padding: 8em 4em;}
     .nav ul li {padding-bottom: 2em}
     .nav ul li a {font-size: 20pt;}
+    .producten {grid-row: 2 / 7;}
 }
 
 @media only screen and (max-width: 650px) {
