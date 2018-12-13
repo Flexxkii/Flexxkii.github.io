@@ -1,0 +1,101 @@
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        font-size: 72px;
+        font-family: Montserrat-Light, Montserrat;
+        font-weight: 300;
+      }
+
+      .cls-1, .cls-7 {
+        fill: #e6e6e6;
+      }
+
+      .cls-2 {
+        letter-spacing: -0.02em;
+      }
+
+      .cls-3, .cls-4, .cls-5, .cls-6 {
+        font-family: Montserrat-Bold, Montserrat;
+        font-weight: 700;
+      }
+
+      .cls-4 {
+        letter-spacing: -0.01em;
+      }
+
+      .cls-5 {
+        letter-spacing: -0.02em;
+      }
+
+      .cls-6 {
+        letter-spacing: 0em;
+      }
+
+      .cls-7 {
+        opacity: 0.7;
+        font-size: 25px;
+        font-family: Montserrat-Regular, Montserrat;
+      }
+
+      .cls-8 {
+        letter-spacing: -0.01em;
+      }
+
+      .cls-9 {
+        letter-spacing: -0.01em;
+      }
+
+      .cls-10 {
+        letter-spacing: 0em;
+      }
+
+      .cls-11 {
+        letter-spacing: -0.01em;
+      }
+
+      .cls-12 {
+        letter-spacing: -0.01em;
+      }
+
+      .cls-13 {
+        letter-spacing: -0.03em;
+      }
+
+      .cls-14 {
+        letter-spacing: -0.02em;
+      }
+
+      .cls-15 {
+        letter-spacing: -0.01em;
+      }
+
+      .cls-16 {
+        letter-spacing: -0.01em;
+      }
+
+      .cls-17 {
+        letter-spacing: -0.02em;
+      }
+
+      .cls-18 {
+        letter-spacing: -0.02em;
+      }
+
+      .cls-19 {
+        letter-spacing: -0.01em;
+      }
+
+      .cls-20 {
+        fill: #f2f2f2;
+        opacity: 0.1;
+      }
+    </style>
+  </defs>
+  <title>1</title>
+  <g>
+    <text class="cls-1" transform="translate(209 374.32)"><tspan class="cls-2">F</tspan><tspan x="44.06" y="0">ocus on</tspan><tspan x="0" y="86.4">what </tspan><tspan class="cls-3" x="199.65" y="86.4">ma</tspan><tspan class="cls-4" x="319.6" y="86.4">t</tspan><tspan class="cls-5" x="350.06" y="86.4">t</tspan><tspan class="cls-3" x="380.16" y="86.4">e</tspan><tspan class="cls-6" x="425.59" y="86.4">r</tspan><tspan class="cls-3" x="456.48" y="86.4">s.</tspan></text>
+    <text class="cls-7" transform="translate(209 541.61)">Design, user <tspan class="cls-8" x="161.35" y="0">e</tspan><tspan x="176.07" y="0">xpe</tspan><tspan class="cls-9" x="221.47" y="0">r</tspan><tspan x="231.3" y="0">ie</tspan><tspan class="cls-10" x="253.12" y="0">n</tspan><tspan class="cls-11" x="270.1" y="0">c</tspan><tspan x="283.95" y="0">e a</tspan><tspan class="cls-10" x="320.35" y="0">n</tspan><tspan x="337.32" y="0">d usabli</tspan><tspan class="cls-12" x="435.02" y="0">t</tspan><tspan class="cls-13" x="444.92" y="0">y</tspan><tspan x="457.62" y="0">. I al</tspan><tspan class="cls-14" x="505.04" y="0">w</tspan><tspan class="cls-12" x="526.62" y="0">a</tspan><tspan class="cls-15" x="541.12" y="0">y</tspan><tspan x="554.52" y="0">s st</tspan><tspan class="cls-16" x="595.67" y="0">a</tspan><tspan x="610.17" y="0">y </tspan><tspan x="0" y="30">up </tspan><tspan class="cls-17" x="40.32" y="30">t</tspan><tspan x="50" y="30">o da</tspan><tspan class="cls-18" x="103.92" y="30">t</tspan><tspan x="113.6" y="30">e with t</tspan><tspan class="cls-10" x="207.72" y="30">h</tspan><tspan x="224.7" y="30">e la</tspan><tspan class="cls-17" x="267.82" y="30">t</tspan><tspan x="277.5" y="30">est design t</tspan><tspan class="cls-19" x="423.29" y="30">r</tspan><tspan x="433" y="30">e</tspan><tspan class="cls-10" x="448.09" y="30">n</tspan><tspan x="465.07" y="30">d.</tspan><tspan x="0" y="90">C</tspan><tspan class="cls-10" x="17.97" y="90">h</tspan><tspan x="34.95" y="90">e</tspan><tspan class="cls-9" x="50.05" y="90">c</tspan><tspan x="63.92" y="90">k out </tspan><tspan class="cls-12" x="134.7" y="90">m</tspan><tspan x="160.97" y="90">y </tspan><tspan class="cls-8" x="181.07" y="90">w</tspan><tspan x="202.67" y="90">o</tspan><tspan class="cls-9" x="218.35" y="90">r</tspan><tspan x="228.17" y="90">k bel</tspan><tspan class="cls-8" x="288.52" y="90">o</tspan><tspan x="303.82" y="90">w</tspan></text>
+  </g>
+  <path class="cls-20" d="M1430,790c-227.84,10-291-254-517-283s44.47-277.06,87-279c186-73,247.33,125.92,455,63C1669.41,226,1818,773,1430,790Z"/>
+</svg>

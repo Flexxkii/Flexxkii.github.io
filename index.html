@@ -74,26 +74,22 @@
 	.quotes span {opacity: .5}
 
 	.nav-mini {
-		z-index: 999;
-	    height: 50px;
-	    width: 100vw;
-	    display: flex;
-	    justify-content: space-around;
-	    align-items: center;
-	    position: fixed;
-	    top: -50px;
-	    background: var(--grijs	);
-	    transition: all .5s ease;
+		height: 25px !important;
+		top: 0;
+		background: var(--grijs );
 	}
 
-	.nav-mini nav {
-		justify-self: center;
-	    align-self: center;
-	    display: flex;
+	nav {
 	    width: 33%;
+	    display: flex;
 	}
 
-	.naam {font-size: 1em!important}
+	.naam {
+		font-size: 1em!important;
+		opacity: 0;
+		position: fixed;
+		top: 13px;
+	}
 
 	.nav-mini a span {
 		font-size: .5em;
@@ -112,15 +108,17 @@
 	    justify-content: space-evenly;
 	    align-items: center;
 	    padding: 1em 0;
+	    position: fixed;
+	    transition: all .5s ease;
 	}
 
-	.nav img {height: 100px;opacity: 0;}
+	.nav img {height: 100px;opacity: 0;transition: all .25s ease;}
 
 	.nav a, .nav-mini a {
 		text-decoration: none;
 	    color: white;
 	    font-weight: 900;
-	    font-size: .8em;
+	    font-size: .7em;
 	    padding: 1em;
     	display: inline-flex;
 	}
@@ -304,6 +302,62 @@
 	  to {margin-top: 24px;}
 	}
 
+	.on {opacity: 1!important}
+	.off {opacity: 0!important}
+
+	#about {
+		height: 100vh;
+	}
+
+	.knopjes {
+	    position: absolute;
+	    bottom: 10vh;
+	    left: 10vw;
+	    font-weight: 800;
+	    z-index: 99;
+	    text-decoration: none;
+	}
+
+	.knopjes a {
+	    color: white;
+	    text-decoration: none;
+	    border-bottom: 2px solid white;
+	    padding: 1em 2em;
+	    margin-right: 2em;
+	    transition: all .25s ease;
+	}
+
+	.knopjes a:hover {
+		border-bottom: 4px solid white;
+		opacity: 1;
+	}
+
+	.scrolldown {
+		position: absolute;
+	    bottom: 10vh;
+	    right: 10vw;
+	    z-index: 99;
+	    width: 1vw;
+	}
+
+	.contact_me {
+	    opacity: .25
+	}
+
+	#work {
+		height: 100vh;
+    	background: green;
+	}
+
+	#contact {
+		height: 100vh;
+    	background: blue;
+	}
+
+	@media only screen and (max-width: 900px) {
+		.socials {display: none;}
+	}
+
 	</style>
 </head>
 <body>
@@ -328,67 +382,80 @@
 		<div class="donkerbg"></div>
 	</div>
 	<div class="nav">
-		<a href="index.html"><img src="logo.svg"></a>
+		<a href="index.html">
+			<img class="logo" src="logo.svg">
+			<span class="naam">Teodor Anthony's <span>PORTFOLIO</span></span>
+		</a>
 		<nav>
-			<a href="shop/">HOME</a>
-			<a href="shop/">ABOUT</a>
-			<a href="about/">WORK</a>
-			<a href="contact/">CONTACT</a>
+			<a href="#about">HOME</a>
+			<a href="#about">ABOUT</a>
+			<a href="#work">WORK</a>
+			<a href="#contact">CONTACT</a>
 		</nav>
 		<div class="socials">
-			<a href="https://www.instagram.com/Blackmorphiiine/"><i class="fab fa-instagram"></i></a>
-			<a href="https://www.facebook.com/Blackmorphiiine/"><i class="fab fa-facebook-f"></i></a>
-		</div>
-	</div>
-	<div class="nav-mini">
-		<a href="index.html" class="naam">Teodor Anthony's <span>PORTFOLIO</span></a>
-		<nav>
-			<a href="shop/">HOME</a>
-			<a href="shop/">ABOUT</a>
-			<a href="about/">WORK</a>
-			<a href="contact/">CONTACT</a>
-		</nav>
-		<div class="socials">
-			<a href="https://www.instagram.com/Blackmorphiiine/"><i class="fab fa-instagram"></i></a>
-			<a href="https://www.facebook.com/Blackmorphiiine/"><i class="fab fa-facebook-f"></i></a>
+			<a target="_blank" href="https://www.instagram.com/Blackmorphiiine/"><i class="fab fa-instagram"></i></a>
+			<a target="_blank" href="https://www.facebook.com/Blackmorphiiine/"><i class="fab fa-facebook-f"></i></a>
 		</div>
 	</div>
 	<div class="content">
-
+		<div id="about">
+			<img src="1.svg">
+			<div class="knopjes">
+				<a href="#about" class="about_me">ABOUT ME</a>
+				<a href="#contact" class="contact_me">CONTACT ME</a>
+			</div>
+			<img class="scrolldown" src="scrolldown.svg">
+		</div>
+		<div id="work">
+			
+		</div>
+		<div id="contact">
+			
+		</div>
 	</div>
 </body>
 
 <script type="text/javascript">
 	$(document).ready(function() {
 		$(".loading img, .quotes, .loading_tekst, .socials" ).animate({opacity: 1}, 4000, function() {
-		$(".loading_tekst").css("animation-name", "none");
-  		$(".loading").delay(2000).animate({opacity: 0}, 2000, function() {
-  			$(".content").css("display", "grid");
-			$(".nav img").animate({opacity: 1}, 2500,);
-			$(".nav, .content, .nav-mini").animate({opacity: 1}, 3000,);
-  		});		
-  	});
+			$(".loading_tekst").css("animation-name", "none");
+	  		$(".loading").delay(2000).animate({opacity: 0}, 2000, function() {
+	  			$(".content").css("display", "grid");
+				$(".nav img").animate({opacity: 1}, 2500,);
+				$(".nav, .content, .nav-mini").animate({opacity: 1}, 3000,);
+	  		});
+	
+  		});
+			var timeoutScroll,
+				    $navbar = $('.nav'),
+				    $window = $(window);
 
-	var timeoutScroll,
-	    $navbar = $('.nav-mini'),
-	    $window = $(window);
+			function setOffset() {bannerH = $('.nav').height();}
 
-	function setOffset() {bannerH = $('.nav-mini').height();}
+			function navTop() {
+				if ($window.scrollTop() > bannerH) {
+				    $navbar.addClass("nav-mini");
+				    $(".logo").removeClass("on");
+				    $(".logo").addClass("off");
+				    $(".naam").removeClass("off");
+				    $(".naam").addClass("on");
 
-	function navTop() {
-	    if ($window.scrollTop() > bannerH) {
-	        $navbar.stop().animate({top: 0}, 100);
-	    } else {
-	        $navbar.stop().animate({top: -50}, 100);
-	    }
-	}
+				} else {
+				        $navbar.removeClass("nav-mini");
+				        $(".logo").removeClass("off");
+				        $(".logo").addClass("on");
+				        $(".naam").removeClass("on");
+				    	$(".naam").addClass("off");
+				    }
+				}
 
-	setOffset();
+				setOffset();
 
-	$window.scroll(function () {
-	    clearTimeout(timeoutScroll);
-	    timeoutScroll = setTimeout(navTop, 35);
-	});
+				$window.scroll(function () {
+				    clearTimeout(timeoutScroll);
+				    timeoutScroll = setTimeout(navTop, 10);
+				});	
+	
 });
 </script>
 </html>
