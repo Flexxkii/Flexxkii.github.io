@@ -1,42 +1,394 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- Google Tag Manager -->
-	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-	})(window,document,'script','dataLayer','GTM-KV3GFHC');</script>
-	<!-- End Google Tag Manager -->
-	<title>poep</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body class="grijs-bg grid1">
-	<!-- Google Tag Manager (noscript) -->
-	<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KV3GFHC"
-	height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-	<!-- End Google Tag Manager (noscript) -->
-	
-	<nav>
-		<a href="#">Home</a>
-		<a href="#">Ride & Run</a>
-		<a href="#" class="geselecteerd">Accommodatie</a>
-		<a href="#">Over Ons</a>
-		<a href="#">Verenigingen</a>
-		<a href="#">Agenda</a>
-		<a href="#">Hal huur</a>
-		<a href="#">Vlooienmarkt</a>
-		<a href="#">Contact</a>
-	</nav>
-	<h1 class="h1tekst h1 groen">Accomodatie</h1>
-<div class="wit-bg padding2m toptekst box">
-	<p>
-		Net buiten het mooie dorp Balkbrug, aan het begin van het Reestdal, staat manege De Diamanthal. Deze manege ligt op een goede en gemakkelijk bereikbare locatie aan de Hoogeveenseweg 38 te Balkbrug. De parkeerfaciliteiten, alle op verhard terrein, zijn uitstekend.
+	<title>Teodor Anthony's portfolio</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/scrollreveal"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Space+Mono:400,400i,700,700i" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
+	<style type="text/css">
+	:root {
+		--grijs: #242a30;
+		--donkergrijs: #18191c;
+	}
 
-		Deze manege bestaat uit twee hallen die aan elkaar gekoppeld zijn. In totaal is er ± 4000 m2 vloeroppervlak. De Diamanthal is ingericht als manege en bestaat uit een inrijhal van 1500 m2 met een bak van 20x40m en een concourshal van 2500 m2 met een voor verschillende evenementen ideale bakmaat van 30x60m. Beide hallen zijn volledig geïsoleerd en recent voorzien van een Duitse kunststof wedstrijd bodem van hoge kwaliteit. Tevens is er een uitstekende kantine met een prima uitzicht over de grote concourshal.
-	</p>
+	body {
+		font-family: "Montserrat", sans-serif;
+		margin: 0;
+		padding: 0;
+		overflow-x: hidden;
+		background-color: var(--donkergrijs);
+	}
+
+	.loading {
+		z-index: -1;
+		position: absolute;
+		width: 100vw;
+		height: 100vh;
+		display: grid;
+		grid-template-columns: 33vw 33vw 33vw;
+		color: white;
+		justify-items: center;
+		align-items: center;
+		font-family: 'Space Mono', monospace;
+	}
+
+	.donkerbg {
+		position: fixed;
+		background: #000;
+		width: 100vw;
+		height: 100vh;
+		z-index: -1;
+	}
+
+	.loading img {opacity: 0;}
+
+	.quotes {
+		opacity: 0;
+		width: 33vw;
+		margin: 5em;
+		line-height: 25px;
+	}
+
+	.quotes p:before {
+		content: open-quote;
+		font-size: 10em;
+		font-weight: bolder;
+		opacity: .1;
+		position: absolute;
+		margin-left: -75px;
+	}
+
+	.quotes p:after {
+		content: close-quote;
+		font-size: 10em;
+		font-weight: bolder;
+		opacity: .1;
+		position: absolute;
+		margin-top: 50px;
+	}
+
+	.quotes span {opacity: .5}
+
+	.nav-mini {
+		z-index: 999;
+	    height: 50px;
+	    width: 100vw;
+	    display: flex;
+	    justify-content: space-around;
+	    align-items: center;
+	    position: fixed;
+	    top: -50px;
+	    background: var(--grijs	);
+	    transition: all .5s ease;
+	}
+
+	.nav-mini nav {
+		justify-self: center;
+	    align-self: center;
+	    display: flex;
+	    width: 33%;
+	}
+
+	.naam {font-size: 1em!important}
+
+	.nav-mini a span {
+		font-size: .5em;
+	    background: rgba(0, 0, 0, 0.25);
+	    color: rgba(255, 255, 255, 0.9);
+	    padding: .75em;
+	    border-radius: 2.5px;
+	    margin-left: 10px;
+	}
+
+	.nav {
+		z-index: 999;
+	    height: 100px;
+	    width: 100vw;
+	    display: flex;
+	    justify-content: space-evenly;
+	    align-items: center;
+	    padding: 1em 0;
+	}
+
+	.nav img {height: 100px;opacity: 0;}
+
+	.nav a, .nav-mini a {
+		text-decoration: none;
+	    color: white;
+	    font-weight: 900;
+	    font-size: .8em;
+	    padding: 1em;
+    	display: inline-flex;
+	}
+
+	.nav-mini nav a {font-size: .7em!important}
+
+	.socials, .nav, .nav-mini {display: flex;opacity: 0;z-index: 999}
+	.socials a {font-size: 1.25em;}
+
+	.socials a i {transition: all .25s ease;}
+	.socials a i:hover {transform: scale(1.25);}
+
+	.nav nav a, .nav-mini nav a {
+		border-bottom: 2px solid transparent;
+		transition: all .25s ease;
+	}
+
+	.nav nav a:hover {
+		transform: translateY(-10px);
+		border-bottom: 2px solid white;
+	}
+
+	.nav-mini nav a:hover {border-bottom: 2px solid white;}
+
+	.content {
+		opacity: 0;
+		height: 200vh;
+    	width: 100vw;
+    	display: none;
+    	left: 0;
+    	top: 0;
+    	z-index: 2;
+	}
+
+	.loading_tekst {
+	  	font-size: 0;
+	  	grid-column: 3 / 4;
+	  	animation: flickerAnimation 2s infinite;
+	  	cursor: crosshair;
+	}
+
+	.letter {
+	  	width: 24px;
+	  	display: inline-block;
+	  	vertical-align: middle;
+	  	position: relative;
+	  	overflow: hidden;
+	  	margin: 0 0;
+	  	font-family: sans-serif;
+	  	font-size: 24px;
+	  	font-weight: 600;
+	  	line-height: 24px;
+	  	text-transform: uppercase;
+	  	text-align: center;
+	  	color: #eee;
+	}
+	.letter:before {
+	  	position: absolute;
+	  	top: 0;
+	  	left: 0;
+	  	width: 100%;
+	  	word-break: break-all;
+	  	background-color: #000;
+	}
+
+	.letter:nth-child(1):before {
+	  	content: "9680321574";
+	  	margin-top: 0px;
+	    animation-name: letter1;
+	    animation-duration: 0s;
+	    animation-delay: 0.91s;
+	    animation-fill-mode: forwards;
+	}
+
+	@keyframes flickerAnimation {
+	  	0%   { opacity:1; }
+	  	50%  { opacity:0.5; }
+	  	100% { opacity:1; }
+	}
+
+	@keyframes letter1 {
+	  from {margin-top: 0px;}
+	  to {margin-top: 24px;}
+	}
+
+	.letter:nth-child(2):before {
+	  	content: "8731520469";
+	  	margin-top: -192px;
+	    animation-name: letter2;
+	    animation-duration: 1.8844444444s;
+	    animation-delay: 0.47s;
+	    animation-fill-mode: forwards;
+	}
+
+	@keyframes letter2 {
+	  from {margin-top: -192px;}
+	  to {margin-top: 24px;}
+	}
+
+	.letter:nth-child(3):before {
+	  	content: "1309572864";
+	  	margin-top: -192px;
+	   	animation-name: letter3;
+	    animation-duration: 2.3822222222s;
+	    animation-delay: 0.33s;
+	    animation-fill-mode: forwards;
+	}
+
+	@keyframes letter3 {
+	  from {margin-top: -192px;}
+	  to {margin-top: 24px;}
+	}
+
+	.letter:nth-child(4):before {
+	  	content: "4538092671";
+	  	margin-top: -72px;
+	    animation-name: letter4;
+	    animation-duration: 1.86s;
+	    animation-delay: 0.38s;
+	    animation-fill-mode: forwards;
+	}
+
+	@keyframes letter4 {
+	  from {margin-top: -72px;}
+	  to {margin-top: 24px;}
+	}
+
+	.letter:nth-child(5):before {
+	  	content: "3410268579";
+	  	margin-top: -192px;
+	    animation-name: letter5;
+	    animation-duration: 2.5244444444s;
+	    animation-delay: 0.29s;
+	    animation-fill-mode: forwards;
+	}
+
+	@keyframes letter5 {
+	  from {margin-top: -192px;}
+	  to {margin-top: 24px;}
+	}
+
+	.letter:nth-child(6):before {
+	  	content: "8761439250";
+	  	margin-top: -48px;
+	    animation-name: letter6;
+	    animation-duration: 2.3733333333s;
+	    animation-delay: 0.11s;
+	    animation-fill-mode: forwards;
+	}
+
+	@keyframes letter6 {
+	  from {margin-top: -48px;}
+	  to {margin-top: 24px;}
+	}
+
+	.letter:nth-child(7):before {
+	  	content: "7620413958";
+	  	margin-top: 0px;
+	    animation-name: letter7;
+	    animation-duration: 0s;
+	    animation-delay: 0.71s;
+	    animation-fill-mode: forwards;
+	}
+
+	@keyframes letter7 {
+	  from {margin-top: 0px;}
+	  to {margin-top: 24px;}
+	}
+
+	.letter:nth-child(8):before {
+	  	content: "2541983067";
+	  	margin-top: -96px;
+	    animation-name: letter8;
+	    animation-duration: 1.312s;
+	    animation-delay: 0.59s;
+	    animation-fill-mode: forwards;
+	}
+
+	@keyframes letter8 {
+	  from {margin-top: -96px;}
+	  to {margin-top: 24px;}
+	}
+
+	</style>
+</head>
+<body>
+	<div class="loading">
+		<img src="logo.svg" width="200px" height="200px">
+		<div class="quotes">
+			<p>
+				Ikigai can be described as an intersection between 4 different elements: what you're passionate about, where your skills lie, how you can earn a living and what the world needs.
+			</p>
+			<span>- Blinksit</span>
+		</div>
+
+<div class="loading_tekst">
+  		<span class="letter">l</span>
+  		<span class="letter">o</span>
+  		<span class="letter">a</span>
+  		<span class="letter">d</span>
+  		<span class="letter">i</span>
+  		<span class="letter">n</span>
+  		<span class="letter">g</span>
 </div>
-<div class="wit-bg padding2m thumbnail box">test2</div>
-<div class="groen-bg padding2m descriptie box">test3</div>
+		<div class="donkerbg"></div>
+	</div>
+	<div class="nav">
+		<a href="index.html"><img src="logo.svg"></a>
+		<nav>
+			<a href="shop/">HOME</a>
+			<a href="shop/">ABOUT</a>
+			<a href="about/">WORK</a>
+			<a href="contact/">CONTACT</a>
+		</nav>
+		<div class="socials">
+			<a href="https://www.instagram.com/Blackmorphiiine/"><i class="fab fa-instagram"></i></a>
+			<a href="https://www.facebook.com/Blackmorphiiine/"><i class="fab fa-facebook-f"></i></a>
+		</div>
+	</div>
+	<div class="nav-mini">
+		<a href="index.html" class="naam">Teodor Anthony's <span>PORTFOLIO</span></a>
+		<nav>
+			<a href="shop/">HOME</a>
+			<a href="shop/">ABOUT</a>
+			<a href="about/">WORK</a>
+			<a href="contact/">CONTACT</a>
+		</nav>
+		<div class="socials">
+			<a href="https://www.instagram.com/Blackmorphiiine/"><i class="fab fa-instagram"></i></a>
+			<a href="https://www.facebook.com/Blackmorphiiine/"><i class="fab fa-facebook-f"></i></a>
+		</div>
+	</div>
+	<div class="content">
+
+	</div>
 </body>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".loading img, .quotes, .loading_tekst, .socials" ).animate({opacity: 1}, 4000, function() {
+		$(".loading_tekst").css("animation-name", "none");
+  		$(".loading").delay(2000).animate({opacity: 0}, 2000, function() {
+  			$(".content").css("display", "grid");
+			$(".nav img").animate({opacity: 1}, 2500,);
+			$(".nav, .content, .nav-mini").animate({opacity: 1}, 3000,);
+  		});		
+  	});
+
+	var timeoutScroll,
+	    $navbar = $('.nav-mini'),
+	    $window = $(window);
+
+	function setOffset() {bannerH = $('.nav-mini').height();}
+
+	function navTop() {
+	    if ($window.scrollTop() > bannerH) {
+	        $navbar.stop().animate({top: 0}, 100);
+	    } else {
+	        $navbar.stop().animate({top: -50}, 100);
+	    }
+	}
+
+	setOffset();
+
+	$window.scroll(function () {
+	    clearTimeout(timeoutScroll);
+	    timeoutScroll = setTimeout(navTop, 35);
+	});
+});
+</script>
 </html>
