@@ -98,6 +98,7 @@
 	    padding: .75em;
 	    border-radius: 2.5px;
 	    margin-left: 10px;
+	    display: flex;
 	}
 
 	.nav {
@@ -305,9 +306,25 @@
 	.on {opacity: 1!important}
 	.off {opacity: 0!important}
 
-	#about {
-		height: 100vh;
+	#home {height: 100vh;}
+
+	.figure {
+		width: 60%;
+	    position: absolute;
+	    right: 0;
+	    top: 20vh;
 	}
+
+	.info {
+		color: white;
+	    width: 500px;
+	    left: 10vw;
+	    position: absolute;
+	    top: 20vh;
+	}
+
+	.info h2 {font-size: 3em;font-weight: 300;}
+	.info p {opacity: .7;}
 
 	.knopjes {
 	    position: absolute;
@@ -346,12 +363,10 @@
 
 	#work {
 		height: 100vh;
-    	background: green;
 	}
 
 	#contact {
 		height: 100vh;
-    	background: blue;
 	}
 
 	@media only screen and (max-width: 900px) {
@@ -387,7 +402,7 @@
 			<span class="naam">Teodor Anthony's <span>PORTFOLIO</span></span>
 		</a>
 		<nav>
-			<a href="#about">HOME</a>
+			<a href="#home">HOME</a>
 			<a href="#about">ABOUT</a>
 			<a href="#work">WORK</a>
 			<a href="#contact">CONTACT</a>
@@ -398,16 +413,26 @@
 		</div>
 	</div>
 	<div class="content">
-		<div id="about">
-			<img src="1.svg">
+		<div id="home">
+			<div class="info">
+				<h2>
+					Focus on what <b>matters.</b>
+				</h2>
+				<p>Design, user experience and usablity. I always stay up to date with the latest design trend.</p>
+				<p>Check out my work below</p>
+			</div>
+			<img class="figure" src="figure.svg">
 			<div class="knopjes">
 				<a href="#about" class="about_me">ABOUT ME</a>
 				<a href="#contact" class="contact_me">CONTACT ME</a>
 			</div>
 			<img class="scrolldown" src="scrolldown.svg">
 		</div>
+		<div id="about">
+			<img src="about.svg">
+		</div>
 		<div id="work">
-			
+			<img src="work.svg">
 		</div>
 		<div id="contact">
 			
@@ -467,8 +492,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
     $(document).click(function(event) {
     	var text = $(event.target).text();
-    	window.location = text;
-    	console.log(text);
+		var home = text.includes("HOME");
+		var about = text.includes("ABOUT");
+		var work = text.includes("WORK");
+		var contact = text.includes("CONTACT");
+		if(home || about || work || contact) {
+			document.title = text;
+		}
 	});
     
 });
