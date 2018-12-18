@@ -11,9 +11,11 @@
 	<link href="https://fonts.googleapis.com/css?family=Space+Mono:400,400i,700,700i" rel="stylesheet">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
 	<style type="text/css">
+	* {outline:0;}
 	:root {
 		--grijs: #242a30;
 		--donkergrijs: #18191c;
+		--sec: #2962ff;
 	}
 
 ::-webkit-scrollbar
@@ -127,10 +129,11 @@
 	    align-items: center;
 	    padding: 1em 0;
 	    position: fixed;
-	    transition: all .5s ease;
+	    transition: .5s ease;
+	    transition-property: height, opacity;
 	}
 
-	.nav img {height: 100px;opacity: 0;transition: all .25s ease;}
+	.nav img {height: 100px;opacity: 0;transition: .5s ease;transition-property: height, opacity;}
 
 	.nav a, .nav-mini a {
 		text-decoration: none;
@@ -147,7 +150,7 @@
 	.socials a {font-size: 1.25em;}
 
 	.socials a i {transition: all .25s ease;}
-	.socials a i:hover {transform: scale(1.25);}
+	.socials a i:hover {transform: scale(1.25);color: var(--sec);}
 
 	.nav nav a, .nav-mini nav a {
 		border-bottom: 2px solid transparent;
@@ -169,7 +172,8 @@
     	left: 0;
     	top: 0;
     	z-index: 2;
-    	grid-gap: 20vh;
+    	grid-gap: 100px;
+		grid-template-rows: auto auto auto auto;
 	}
 
 	.loading_tekst {
@@ -184,6 +188,12 @@
 	  	animation: flickerAnimation 2s infinite;
 	}
 
+	.loading_tekst span {
+		color: var(--sec);
+		opacity: 0;
+		transition: opacity 1s ease;
+	}
+
 	@keyframes flickerAnimation {
 	  	0%   { opacity:1; }
 	  	50%  { opacity:0.25; }
@@ -193,7 +203,7 @@
 	.on {opacity: 1!important}
 	.off {opacity: 0!important}
 
-	#home {height: 100vh;}
+	#home {height: 100vh;grid-row: 1;}
 
 	.figure {
 		width: 60%;
@@ -205,15 +215,19 @@
 
 	.info {
 		color: white;
-	    width: 500px;
+	    width: 400px;
 	    left: 10vw;
 	    position: absolute;
 	    top: 20vh;
+	    display: flex;
+    	flex-direction: column;
 	}
 
-	.info h2 {font-size: 3em;}
-	.info p {opacity: .7;}
-	.info a {color: white;font-weight: 800;text-decoration: none;}
+	.info h2 {font-size: 2em;}
+	.info h2 span {font-size: 3em;}
+	.info div p {opacity: .7;}
+	.info a {color: white;font-weight: 800;text-decoration: none;transition: color .25s ease;}
+	.info a:hover {color: var(--sec);}
 
 	.knopjes {
 	    position: absolute;
@@ -241,7 +255,7 @@
 	.scrolldown {
 		position: fixed;
 	    bottom: 10vh;
-	    right: 10vw;
+	    right: 5vw;
 	    z-index: 99;
 	    width: 3vw;
 	}
@@ -250,11 +264,10 @@
 	    opacity: .25
 	}
 
-	#contact {
-		height: 100vh;
-	}
+	#contact {height: 100vh;grid-row: 4;}
 
 	#about {
+		grid-row: 2;
 		height: auto;
 		display: grid;
 		grid-template-columns: 10vw 1fr 2fr 10vw;
@@ -304,6 +317,7 @@
 	}
 
 	#work {
+		grid-row: 3;
 		height: auto;
 		display: grid;
 		grid-template-columns: 10vw auto 10vw;
@@ -334,6 +348,12 @@
 		.gallerij_fotos {column-count: 2;}
 	}
 
+	@media (min-width: 320px) and (max-width: 480px) {
+  		.info h2 {font-size: 1em;}
+  		.info h2 span {font-size: 5em;}
+  
+	}
+
 	</style>
 </head>
 <body>
@@ -346,7 +366,7 @@
 			<span>- Blinksit</span>
 		</div>
 
-<div class="loading_tekst">loading</div>
+<div class="loading_tekst">loading <span>Done</span></div>
 		<div class="donkerbg"></div>
 	</div>
 	<div class="nav">
@@ -368,12 +388,14 @@
 	<div class="content">
 		<div id="home">
 			<div class="info">
-				<h2>Teodor Anthony's portfolio</h2>
-				<p>designer and coder based in the Netherlands,</p>
-				<p>Currently studying Media Designer at the Deltion College.</p>
-				<p>At the moment I'm looking for an intership as a front-end designer and or coder. So if you like my work and are interested in working with me than <a href="#contact">contact me</a>.</p>
-				<br>
-				<p>Check out my work below</p>
+				<h2>Teodor Anthony's <span>portfolio</span></h2>
+				<div>
+					<p>designer and coder based in the Netherlands,</p>
+					<p>Currently studying Media Designer at the Deltion College.</p>
+					<p>At the moment I'm looking for an intership as a front-end designer and or coder. So if you like my work and are interested in working with me than <a href="#contact">contact me</a>.</p>
+					<br>
+				</div>
+				<a href="#work">Check out my work below</a>
 			</div>
 			<img class="figure" src="figure.svg">
 			<div class="knopjes">
@@ -420,7 +442,7 @@
 	$(document).ready(function() {
 		$(".loading img, .quotes, .loading_tekst, .socials" ).animate({opacity: 1}, 4000, function() {
 			$(".loading_tekst").css("animation-name", "none");
-			$(".loading_tekst").html("loading done");
+			$(".loading_tekst span").css("opacity", "1");
 	  		$(".loading").delay(2000).animate({opacity: 0}, 2000, function() {
 	  			$(".content").css("display", "grid");
 				$(".nav img").animate({opacity: 1}, 2500,);
@@ -482,15 +504,18 @@ $.fn.is_on_screen = function(){
 $(window).scroll(function(){
 if( target_home.length > 0 ) {
     if( target_home.is_on_screen() ) {
-        console.log("home");
+    	$(".nav nav a").css("color", "white");
+        $(".nav nav a:nth-child(1)").css("color", "var(--sec)");
         $(".scrolldown").attr("src", "scrolldown.svg");
         document.title = "Teodor Anthony's portfolio";  
     } else if (target_about.is_on_screen() ) {
-        console.log("about");
+        $(".nav nav a").css("color", "white");
+        $(".nav nav a:nth-child(2)").css("color", "var(--sec)");
         $(".scrolldown").attr("src", "scrolldown_about.svg");
         document.title = "ABOUT ME";  
     } else if (target_work.is_on_screen() ) {
-    	console.log("work");
+    	$(".nav nav a").css("color", "white");
+        $(".nav nav a:nth-child(3)").css("color", "var(--sec)");
         $(".scrolldown").attr("src", "scrolldown_work.svg");
         document.title = "MY WORK";  
     }
@@ -502,6 +527,43 @@ $(".gallerij_fotos img").hover(function() {
 }, function() {
 	$(".gallerij_fotos img").not(this).removeClass("filter");
 });
+
+// Select all links with hashes
+$('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+      && 
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          };
+        });
+      }
+    }
+  });
 
 </script>
 </html>
