@@ -185,8 +185,8 @@ li a {
     position: absolute;
     top: 0;
     left: 0;
-    width: auto;
-    height: 100%;
+    width: 100%;
+    height: auto;
 }
 
 /*		--- 	Features	 --- 	*/
@@ -207,6 +207,7 @@ li a {
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding: 3em;
 }
 
 .features div i {font-size: 35pt;padding:.5em;transition: all .25s ease;}
