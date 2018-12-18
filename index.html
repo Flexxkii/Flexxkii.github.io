@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Teodor Anthony's portfolio</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta content="width=device-width, initial-scale=1" name="viewport" />
 	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 	<script src="https://unpkg.com/scrollreveal"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/zepto/1.2.0/zepto.min.js"></script>
@@ -314,6 +314,7 @@
 		color: white;
 		font-weight: bold;
 		text-decoration: none;
+		z-index:999;
 	}
 
 	#work {
@@ -348,9 +349,45 @@
 		.gallerij_fotos {column-count: 2;}
 	}
 
-	@media (min-width: 320px) and (max-width: 480px) {
-  		.info h2 {font-size: 1em;}
-  		.info h2 span {font-size: 5em;}
+	@media only screen and (max-width: 650px) {
+  		.info h2 {font-size: 2em;}
+  		.info h2 span {font-size: 2em;}
+  		.info div {
+		    font-size: .9em;
+		    width: 275px;
+		    text-align: center;
+		    margin: 1em 0;
+		    line-height: 25px;
+  		}
+
+  		.info {
+	  		align-items: center;
+		    text-align: center;
+		    left: 0vw;
+		    width: 100vw;
+  		}
+
+  		.content {grid-gap:0;}
+  		.knopjes {display: none;}
+  		.figure {left: 10vw;}
+
+  		#about {grid-gap:50px;}
+  		#about p, #about a {grid-column: 2 / 4;}
+  		#work {margin-top:10em;}
+
+  		.loading {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-content: center;
+  		}
+
+  		.loading_tekst {
+  			margin: 2em;
+  			display: flex;
+			flex-direction: column;
+		}
+  		.quotes {display: none}
   
 	}
 
