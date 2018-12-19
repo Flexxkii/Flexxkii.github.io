@@ -280,19 +280,20 @@
 	    font-weight: 800;
 	    z-index: 99;
 	    text-decoration: none;
+	    font-family: 'Space Mono', monospace;
 	}
 
 	.knopjes a {
 	    color: white;
 	    text-decoration: none;
-	    border-bottom: 2px solid white;
+	    border-bottom: 4px solid var(--grijs);
 	    padding: 1em 2em;
 	    margin-right: 2em;
 	    transition: all .25s ease;
 	}
 
 	.knopjes a:hover {
-		border-bottom: 4px solid white;
+		border-bottom: 4px solid var(--sec);
 		opacity: 1;
 	}
 
@@ -312,10 +313,6 @@
   		50% {
     		transform: translateY(-10px);
   		}
-	}
-
-	.contact_me {
-	    opacity: .25
 	}
 
 	#contact {height: 100vh;grid-row: 4;}
@@ -382,6 +379,21 @@
 	#filter {
 		grid-row: 1;
     	grid-column: 2;
+    	cursor: pointer;
+	}
+
+	#filter button {
+		background: none;
+		border: none;
+		color: white;
+		border-bottom: 2px solid var(--grijs);
+		padding: 1em 2em;
+		font-family: 'Space Mono', monospace;
+		transition: border-bottom .25s ease;
+	}
+
+	#filter button:hover {
+		border-bottom: 2px solid var(--sec);
 	}
 
 	.gallerij_fotos {
@@ -561,7 +573,24 @@
 			</div>
 		</div>
 		<div id="contact">
-			
+			<div>
+				<h2>Contact me</h2>
+				<div>
+					<form action="">
+						<label for="formnaam">Name *</label>
+						<input type="text" id="formnaam" name="formnaam" placeholder="Your name" required>
+
+						<label for="company">Company</label>
+						<input type="text" id="company" name="company" placeholder="Your company">
+
+						<label for="email">Email *</label>
+						<input type="email" id="email" name="email" placeholder="example@email.com">
+
+						<label class="formmessage">message</label>
+						<textarea rows="3" id="formmessage" name="formmessage" placeholder="Write something.."></textarea>
+					</form>
+				</div>
+			</div>
 		</div>
 	</div>
 </body>
