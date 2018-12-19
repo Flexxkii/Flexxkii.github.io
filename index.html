@@ -315,7 +315,62 @@
   		}
 	}
 
-	#contact {height: 100vh;grid-row: 4;}
+	#contact {
+		height: auto;
+		grid-row: 4;
+		grid-template-columns: 10vw auto 10vw;
+		display: grid;
+		margin-top: 5em;
+	}
+
+	.contact_content {grid-column: 2;}
+	.contact_content h2 {color: white;}
+	.formpje {width: 100%;height: 420px;}
+
+	.formpje form {
+		display: grid;
+		grid-template-columns: auto auto;
+		color: white;
+		width: auto;
+		position: relative;
+	}
+
+	.sectie {display: flex;flex-direction: column;}
+
+	.formpje form label {
+		margin: 2em 0 1em 0;
+		font-size: .75em;
+		grid-column: 1;
+	}
+
+	.sectie input {
+		padding: 1em;
+		background: var(--grijs);
+		border: none;
+		color: rgba(255, 255, 255, 0.5);
+		grid-column: 1;
+		width: 80%;
+	}
+
+	.formpje form textarea {
+		font-family: "space mono", monosans;
+		padding: 1em;
+		background: var(--grijs);
+		border: none;
+		color: rgba(255, 255, 255, 0.5);
+		grid-column: 2;
+		grid-row: 2;
+	}
+
+	.formpje form input[type="submit"] {
+		margin: 2em 0 1em 0;
+		background: var(--sec);
+		border: none;
+		color: rgb(255, 255, 255);
+		padding: 1em;
+		width: 100%;
+		grid-column: 1 / 3;
+	}
 
 	#about {
 		grid-row: 2;
@@ -578,22 +633,24 @@
 			</div>
 		</div>
 		<div id="contact">
-			<div>
+			<div class="contact_content">
 				<h2>Contact me</h2>
-				<div>
+				<div class="formpje">
 					<form method="POST" action="https://formspree.io/tedytorres112@gmail.com">
-						<label for="formnaam">Name *</label>
-						<input type="text" id="formnaam" name="formnaam" placeholder="Your name" required>
+						<div class="sectie">
+							<label for="formnaam">Name *</label>
+							<input type="text" id="formnaam" name="formnaam" placeholder="Your name" required>
 
-						<label for="company">Company</label>
-						<input type="text" id="company" name="company" placeholder="Your company">
+							<label for="company">Company</label>
+							<input type="text" id="company" name="company" placeholder="Your company">
 
-						<label for="email">Email *</label>
-						<input type="email" id="email" name="email" placeholder="example@email.com">
-
-						<label class="formmessage">message</label>
-						<textarea rows="3" id="formmessage" name="formmessage" placeholder="Write something.."></textarea>
-
+							<label for="email">Email *</label>
+							<input type="email" id="email" name="email" placeholder="example@email.com">
+						</div>
+						<div class="sectie">
+							<label class="formmessage">message</label>
+							<textarea rows="3" id="formmessage" name="formmessage" placeholder="Write something.."></textarea>
+						</div>
 						<input type="submit" name="submit" value="submit">
 					</form>
 				</div>
