@@ -302,6 +302,16 @@
 	    right: 5vw;
 	    z-index: 99;
 	    width: 3vw;
+	    animation: bounce 2s infinite cubic-bezier(.79,.14,.15,.86);
+	}
+
+	@keyframes bounce {
+  		0%, 100% {
+    		transform: translateY(0);
+  		}
+  		50% {
+    		transform: translateY(-10px);
+  		}
 	}
 
 	.contact_me {
@@ -561,10 +571,10 @@
 		$(".loading img, .quotes, .loading_tekst, .socials" ).animate({opacity: 1}, 4000, function() {
 			$(".loading_tekst").css("animation-name", "none");
 			$(".loading_tekst span:nth-child(2)").css("opacity", "1");
-	  		$(".loading").delay(2000).animate({opacity: 0}, 2000, function() {
+	  		$(".loading").delay(2000).animate({opacity: 0}, 1000, function() {
 	  			$(".content").css("display", "grid");
-				$(".nav img").animate({opacity: 1}, 2500,);
-				$(".nav, .content, .nav-mini").animate({opacity: 1}, 3000,);
+				$(".nav img").animate({opacity: 1}, 1000,);
+				$(".nav, .content, .nav-mini").animate({opacity: 1}, 1000,);
 	  		});
   		});
 			var timeoutScroll,
