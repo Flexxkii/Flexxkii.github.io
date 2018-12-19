@@ -3,6 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Teodor Anthony's portfolio</title>
+	<link rel="shortcut icon" type="image/png" href="logo.png"/>
+	<link rel="shortcut icon" type="image/png" href="logo.png"/>
 	<meta name="theme-color" content="#2962ff">
 	<meta content="width=device-width, initial-scale=1" name="viewport" />
 	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
@@ -305,7 +307,7 @@
 	    right: 5vw;
 	    z-index: 99;
 	    width: 3vw;
-	    animation: bounce 2s infinite cubic-bezier(.79,.14,.15,.86);
+	    animation: bounce 4s infinite cubic-bezier(.79,.14,.15,.86);
 	}
 
 	@keyframes bounce {
@@ -313,7 +315,7 @@
     		transform: translateY(0);
   		}
   		50% {
-    		transform: translateY(-10px);
+    		transform: translateY(-20px);
   		}
 	}
 
@@ -658,7 +660,7 @@
 		</div>
 		<div id="contact">
 			<div class="contact_content">
-				<h2>Contact me</h2>
+				<h2>Write me a message  👌😁</h2>
 				<div class="formpje">
 					<form method="POST" action="https://formspree.io/tedytorres112@gmail.com">
 						<div class="sectie">
@@ -703,6 +705,8 @@ $(document).ready(function() {
 			$(".nav, .content, .nav-mini").animate({opacity: 1}, 1000,);
 	  	});
   	});
+  	
+
 	var timeoutScroll,
 		$navbar = $('.nav'),
 		$window = $(window);
@@ -773,32 +777,31 @@ $.fn.is_on_screen = function(){
  var target_home = $("#home p");
  var target_about = $("#about p");
  var target_work = $(".gallerij_fotos");
- var target_contact = $("#contact");
+ var target_contact = $(".contact_content h2");
 
 $(window).scroll(function(){
-	if( target_home.length > 0 ) {
-	    if( target_home.is_on_screen() ) {
+	    if( target_home.is_on_screen()) {
 	    	$(".nav nav a").css("color", "white");
 	        $(".nav nav a:nth-child(1)").css("color", "var(--sec)");
 	        $(".scrolldown").attr("src", "scrolldown.svg");
-	        document.title = "Teodor Anthony's portfolio";  
-	    } else if (target_about.is_on_screen() ) {
+	        document.title = "Teodor Anthony's portfolio";
+	    } else if (target_about.is_on_screen()) {
 	        $(".nav nav a").css("color", "white");
 	        $(".nav nav a:nth-child(2)").css("color", "var(--sec)");
 	        $(".scrolldown").attr("src", "scrolldown_about.svg");
 	        document.title = "ABOUT ME";  
-	    } else if (target_work.is_on_screen() ) {
+	    } else if (target_work.is_on_screen()) {
 	    	$(".nav nav a").css("color", "white");
 	        $(".nav nav a:nth-child(3)").css("color", "var(--sec)");
 	        $(".scrolldown").attr("src", "scrolldown_work.svg");
-	        document.title = "MY WORK";  
-	    } else if (target_contact.is_on_screen() ) {
+	        document.title = "MY WORK"; 
+	    }
+	    if (target_contact.is_on_screen() == true) {
 	    	$(".nav nav a").css("color", "white");
 	        $(".nav nav a:nth-child(4)").css("color", "var(--sec)");
 	        $(".scrolldown").attr("src", "scrolldown_contact.svg");
-	        document.title = "CONTACT ME"; 
+	        document.title = "MESSAGE ME";
 	    }
-	}
 });
 
 $(".gallerij_fotos img").hover(function() {
