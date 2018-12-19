@@ -366,6 +366,11 @@
 		font-weight: bold;
 		text-decoration: none;
 		z-index:1;
+		transition: color .25s ease;
+	}
+
+	#about a:hover {
+		color: var(--sec);
 	}
 
 	#work {
@@ -576,7 +581,7 @@
 			<div>
 				<h2>Contact me</h2>
 				<div>
-					<form action="">
+					<form method="POST" action="https://formspree.io/tedytorres112@gmail.com">
 						<label for="formnaam">Name *</label>
 						<input type="text" id="formnaam" name="formnaam" placeholder="Your name" required>
 
@@ -588,6 +593,8 @@
 
 						<label class="formmessage">message</label>
 						<textarea rows="3" id="formmessage" name="formmessage" placeholder="Write something.."></textarea>
+
+						<input type="submit" name="submit" value="submit">
 					</form>
 				</div>
 			</div>
