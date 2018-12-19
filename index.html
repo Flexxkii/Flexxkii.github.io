@@ -99,7 +99,6 @@
 	}
 
 	nav {
-	    width: 33%;
 	    display: flex;
 	}
 
@@ -110,7 +109,7 @@
 		top: 13px;
 	}
 
-	.nav-mini a span {
+	.nav-mini .aftertekst {
 		font-size: .5em;
 	    background: rgba(0, 0, 0, 0.25);
 	    color: rgba(255, 255, 255, 0.9);
@@ -163,6 +162,33 @@
 	}
 
 	.nav-mini nav a:hover {border-bottom: 2px solid white;}
+
+	.hamburg {
+		position: absolute;
+		top: 19px;
+		left: 17px;
+		width: 20px;
+		height: auto;
+		display: flex;
+		flex-direction: column;
+		grid-gap: 5px;
+		opacity: 0;
+		transition: opacity .25s ease;
+
+	}
+
+	.hamburg:hover {
+		opacity: 1;
+	}
+
+	.streep {
+		background: white;
+		width: 100%;
+		height: 4px;
+		padding: 0;
+		margin: 0;
+		border-radius: 0;
+	}
 
 	.content {
 		opacity: 0;
@@ -414,7 +440,17 @@
 
   		.quotes {display: none}
   		.scrolldown {right: 2vw;width: 7vw;}
-  		.nav nav {font-size: .7em;}
+  		nav {font-size: .8em;}
+  		.nav-mini .hamburg {opacity: .25}
+  		.nav-mini nav {
+			font-size: 1em;
+			top: 55px;
+			position: absolute;
+			left: 0;
+			width: 100%;
+			display: none;
+			background: var(--grijs);
+  		}
   		.naam {
   			margin: 0;
 		    position: absolute;
@@ -439,9 +475,14 @@
 		<div class="donkerbg"></div>
 	</div>
 	<div class="nav">
+		<div class="hamburg">
+			<span class="streep"></span>
+			<span class="streep"></span>
+			<span class="streep"></span>
+		</div>
 		<a href="#home">
 			<img class="logo" src="logo.svg">
-			<span class="naam">Teodor Anthony's <span>PORTFOLIO</span></span>
+			<span class="naam aftertekst">Teodor Anthony's <span class="aftertekst">PORTFOLIO</span></span>
 		</a>
 		<nav>
 			<a href="#home">HOME</a>
@@ -660,5 +701,9 @@ $(document).ready(function() {
     return false;
   });
 });
+
+$(".hamburg").click(function() {
+	$('.nav-mini nav').slideToggle( "slow" );
+})
 </script>
 </html>
