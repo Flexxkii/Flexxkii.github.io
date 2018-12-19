@@ -14,7 +14,9 @@
 	:root {
 		--grijs: #242a30;
 		--donkergrijs: #18191c;
-		--sec: #2962ff;
+		--sec: #448AFF;
+	    --third: #009688;
+	    --forth: #F44336;
 	}
 
 ::-webkit-scrollbar
@@ -335,7 +337,7 @@
 		position: relative;
 	}
 
-	.sectie {display: flex;flex-direction: column;}
+	.sectie {display: flex;flex-direction: column;width: 100%}
 
 	.formpje form label {
 		margin: 2em 0 1em 0;
@@ -344,20 +346,24 @@
 	}
 
 	.sectie input {
-		padding: 1em;
+		padding: 1em 0 1em 1em;
 		background: var(--grijs);
 		border: none;
 		color: rgba(255, 255, 255, 0.5);
 		grid-column: 1;
-		width: 80%;
 	}
 
-	#formnaam:after {
-		content: " ";
-		background: red;
-		width: 20px;
+	.sectie div span {
+		width: 100%;
+		background: var(--donkergrijs);
 		height: 5px;
-		position: absolute;
+		transition: background .5s ease;
+	}
+
+	.sectie div {
+		display: flex;
+    	flex-direction: column;
+    	padding-right: 1em;
 	}
 
 	.formpje form textarea {
@@ -368,6 +374,7 @@
 		color: rgba(255, 255, 255, 0.5);
 		grid-column: 2;
 		grid-row: 2;
+		height: 100%;
 	}
 
 	.formpje form input[type="submit"] {
@@ -646,18 +653,27 @@
 				<div class="formpje">
 					<form method="POST" action="https://formspree.io/tedytorres112@gmail.com">
 						<div class="sectie">
+							<div>
 							<label for="formnaam">Name *</label>
 							<input type="text" id="formnaam" name="formnaam" placeholder="Your name" required>
+							<span></span>
+							</div>
 
+							<div>
 							<label for="company">Company</label>
 							<input type="text" id="company" name="company" placeholder="Your company">
+							<span></span>
+							</div>
 
+							<div>
 							<label for="email">Email *</label>
 							<input type="email" id="email" name="email" placeholder="example@email.com">
+							<span></span>
+							</div>
 						</div>
 						<div class="sectie">
 							<label class="formmessage">message</label>
-							<textarea rows="3" id="formmessage" name="formmessage" placeholder="Write something.."></textarea>
+							<textarea id="formmessage" name="formmessage" placeholder="Write something.."></textarea>
 						</div>
 						<input type="submit" name="submit" value="submit">
 					</form>
@@ -668,45 +684,64 @@
 </body>
 
 <script type="text/javascript">
-	$(document).ready(function() {
-		$(".loading img, .quotes, .loading_tekst, .socials" ).animate({opacity: 1}, 4000, function() {
-			$(".loading_tekst").css("animation-name", "none");
-			$(".loading_tekst span:nth-child(2)").css("opacity", "1");
-	  		$(".loading").delay(2000).animate({opacity: 0}, 1000, function() {
-	  			$(".content").css("display", "grid");
-				$(".nav img").animate({opacity: 1}, 1000,);
-				$(".nav, .content, .nav-mini").animate({opacity: 1}, 1000,);
-	  		});
-  		});
-			var timeoutScroll,
-				    $navbar = $('.nav'),
-				    $window = $(window);
+$(document).ready(function() {
+	$(".loading img, .quotes, .loading_tekst, .socials" ).animate({opacity: 1}, 4000, function() {
+		$(".loading_tekst").css("animation-name", "none");
+		$(".loading_tekst span:nth-child(2)").css("opacity", "1");
+	  	$(".loading").delay(2000).animate({opacity: 0}, 1000, function() {
+	  		$(".content").css("display", "grid");
+			$(".nav img").animate({opacity: 1}, 1000,);
+			$(".nav, .content, .nav-mini").animate({opacity: 1}, 1000,);
+	  	});
+  	});
+	var timeoutScroll,
+		$navbar = $('.nav'),
+		$window = $(window);
 
-			function setOffset() {bannerH = $('.nav').height();}
+	function setOffset() {bannerH = $('.nav').height();}
 			
-			function navTop() {
-				if ($window.scrollTop() > bannerH) {
-				    $navbar.addClass("nav-mini");
-				    $(".logo").removeClass("on");
-				    $(".logo").addClass("off");
-				    $(".naam").removeClass("off");
-				    $(".naam").addClass("on");
+	function navTop() {
+		if ($window.scrollTop() > bannerH) {
+			$navbar.addClass("nav-mini");
+			$(".logo").removeClass("on");
+			$(".logo").addClass("off");
+			$(".naam").removeClass("off");
+			$(".naam").addClass("on");
+		} else {
+			$navbar.removeClass("nav-mini");
+			$(".logo").removeClass("off");
+			$(".logo").addClass("on");
+			$(".naam").removeClass("on");
+			$(".naam").addClass("off");
+		}
+	}
 
-				} else {
-				        $navbar.removeClass("nav-mini");
-				        $(".logo").removeClass("off");
-				        $(".logo").addClass("on");
-				        $(".naam").removeClass("on");
-				    	$(".naam").addClass("off");
-				    }
-				}
+	setOffset();
 
-				setOffset();
+	$window.scroll(function () {
+		clearTimeout(timeoutScroll);
+		timeoutScroll = setTimeout(navTop, 10);
+	});
 
-				$window.scroll(function () {
-				    clearTimeout(timeoutScroll);
-				    timeoutScroll = setTimeout(navTop, 10);
-				});	
+	$('#filter button').click(function() {
+    	var ourClass = $(this).attr('class');
+		if(ourClass == 'all') {
+    		$('.gallerij_fotos').children('a').show();
+    	} else if(ourClass == 'instas') {
+    		$('.gallerij_fotos').children('a').show();
+    		$('.gallerij_fotos').children('a:not(.' + ourClass + ')').hide();
+    		$('.gallerij_fotos').children('a' + ourClass).show();
+    	} else if(ourClass == 'designs') {
+    		$('.gallerij_fotos').children('a').show();
+    		$('.gallerij_fotos').children('a:not(.' + ourClass + ')').hide();
+    		$('.gallerij_fotos').children('a' + ourClass).show();
+    	} else if(ourClass == 'logos') {
+    		$('.gallerij_fotos').children('a').show();
+    		$('.gallerij_fotos').children('a:not(.' + ourClass + ')').hide();
+    		$('.gallerij_fotos').children('a' + ourClass).show();
+    	}
+    	return false;
+  	});
 });
 
 $.fn.is_on_screen = function(){
@@ -715,6 +750,7 @@ $.fn.is_on_screen = function(){
         top : win.scrollTop(),
         left : win.scrollLeft()
     };
+
     viewport.right = viewport.left + win.width();
     viewport.bottom = viewport.top + win.height();
 
@@ -731,29 +767,29 @@ $.fn.is_on_screen = function(){
  var target_contact = $("#contact");
 
 $(window).scroll(function(){
-if( target_home.length > 0 ) {
-    if( target_home.is_on_screen() ) {
-    	$(".nav nav a").css("color", "white");
-        $(".nav nav a:nth-child(1)").css("color", "var(--sec)");
-        $(".scrolldown").attr("src", "scrolldown.svg");
-        document.title = "Teodor Anthony's portfolio";  
-    } else if (target_about.is_on_screen() ) {
-        $(".nav nav a").css("color", "white");
-        $(".nav nav a:nth-child(2)").css("color", "var(--sec)");
-        $(".scrolldown").attr("src", "scrolldown_about.svg");
-        document.title = "ABOUT ME";  
-    } else if (target_work.is_on_screen() ) {
-    	$(".nav nav a").css("color", "white");
-        $(".nav nav a:nth-child(3)").css("color", "var(--sec)");
-        $(".scrolldown").attr("src", "scrolldown_work.svg");
-        document.title = "MY WORK";  
-    } else if (target_contact.is_on_screen() ) {
-    	$(".nav nav a").css("color", "white");
-        $(".nav nav a:nth-child(4)").css("color", "var(--sec)");
-        $(".scrolldown").attr("src", "scrolldown_contact.svg");
-        document.title = "CONTACT ME"; 
-    }
-}
+	if( target_home.length > 0 ) {
+	    if( target_home.is_on_screen() ) {
+	    	$(".nav nav a").css("color", "white");
+	        $(".nav nav a:nth-child(1)").css("color", "var(--sec)");
+	        $(".scrolldown").attr("src", "scrolldown.svg");
+	        document.title = "Teodor Anthony's portfolio";  
+	    } else if (target_about.is_on_screen() ) {
+	        $(".nav nav a").css("color", "white");
+	        $(".nav nav a:nth-child(2)").css("color", "var(--sec)");
+	        $(".scrolldown").attr("src", "scrolldown_about.svg");
+	        document.title = "ABOUT ME";  
+	    } else if (target_work.is_on_screen() ) {
+	    	$(".nav nav a").css("color", "white");
+	        $(".nav nav a:nth-child(3)").css("color", "var(--sec)");
+	        $(".scrolldown").attr("src", "scrolldown_work.svg");
+	        document.title = "MY WORK";  
+	    } else if (target_contact.is_on_screen() ) {
+	    	$(".nav nav a").css("color", "white");
+	        $(".nav nav a:nth-child(4)").css("color", "var(--sec)");
+	        $(".scrolldown").attr("src", "scrolldown_contact.svg");
+	        document.title = "CONTACT ME"; 
+	    }
+	}
 });
 
 $(".gallerij_fotos img").hover(function() {
@@ -764,64 +800,58 @@ $(".gallerij_fotos img").hover(function() {
 
 // Select all links with hashes
 $('a[href*="#"]')
-  // Remove links that don't actually link to anything
-  .not('[href="#"]')
-  .not('[href="#0"]')
-  .click(function(event) {
-    // On-page links
-    if (
-      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
-      && 
-      location.hostname == this.hostname
-    ) {
-      // Figure out element to scroll to
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-      // Does a scroll target exist?
-      if (target.length) {
-        // Only prevent default if animation is actually gonna happen
-        event.preventDefault();
-        $('html, body').animate({
-          scrollTop: target.offset().top
-        }, 1000, function() {
-          // Callback after animation
-          // Must change focus!
-          var $target = $(target);
-          $target.focus();
-          if ($target.is(":focus")) { // Checking if the target was focused
-            return false;
-          } else {
-            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
-            $target.focus(); // Set focus again
-          };
-        });
-      }
-    }
-  });
+// Remove links that don't actually link to anything
+.not('[href="#"]')
+.not('[href="#0"]')
+.click(function(event) {
+	// On-page links
+	if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+	    // Figure out element to scroll to
+	    var target = $(this.hash);
+	    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+	    // Does a scroll target exist?
+	    if (target.length) {
+	    	// Only prevent default if animation is actually gonna happen
+	        event.preventDefault();
+	        $('html, body').animate({
+	          	scrollTop: target.offset().top
+	        }, 1000, function() {
+	        	// Callback after animation
+	          	// Must change focus!
+	          	var $target = $(target);
+	          	$target.focus();
+	          	if ($target.is(":focus")) { // Checking if the target was focused
+	            	return false;
+	          	} else {
+	            	$target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+	            	$target.focus(); // Set focus again
+	          	};
+	        });
+	    }
+	}
+});
+
 $(document).ready(function() {
-  $('#filter button').click(function() {
-    var ourClass = $(this).attr('class');
-	if(ourClass == 'all') {
-    	$('.gallerij_fotos').children('a').show();
-    } else if(ourClass == 'instas') {
-    	$('.gallerij_fotos').children('a').show();
-    	$('.gallerij_fotos').children('a:not(.' + ourClass + ')').hide();
-    	$('.gallerij_fotos').children('a' + ourClass).show();
-    } else if(ourClass == 'designs') {
-    	$('.gallerij_fotos').children('a').show();
-    	$('.gallerij_fotos').children('a:not(.' + ourClass + ')').hide();
-    	$('.gallerij_fotos').children('a' + ourClass).show();
-    } else if(ourClass == 'logos') {
-    	$('.gallerij_fotos').children('a').show();
-    	$('.gallerij_fotos').children('a:not(.' + ourClass + ')').hide();
-    	$('.gallerij_fotos').children('a' + ourClass).show();
-    }
-    return false;
-  });
+  	
 });
 
 $(".hamburg").click(function() {
 	$('.nav-mini nav').slideToggle( "slow" );
 })
+
+
+
+$('.sectie div input').on('input', function() {
+    console.log("test");
+    $(this).next('span').css("background", "var(--sec)");
+    $(this).on('change', function() {
+	    if ($(this).is(':valid')) { 
+	  		$(this).next('span').css("background", "var(--third)");
+		} else {
+			$(this).next('span').css("background", "var(--forth)");
+		}
+	});
+});
+
 </script>
 </html>
