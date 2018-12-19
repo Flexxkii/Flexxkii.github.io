@@ -318,7 +318,8 @@
 	}
 
 	#contact {
-		height: auto;
+		height: 100vh;
+		align-content: center;
 		grid-row: 4;
 		grid-template-columns: 10vw auto 10vw;
 		display: grid;
@@ -842,12 +843,13 @@ $(".hamburg").click(function() {
 
 
 $('.sectie div input').on('input', function() {
-    console.log("test");
     $(this).next('span').css("background", "var(--sec)");
     $(this).on('change', function() {
 	    if ($(this).is(':valid')) { 
+	    	$(this).css("color", "var(--sec)");
 	  		$(this).next('span').css("background", "var(--third)");
 		} else {
+			$(this).css("color", "var(--sec)");
 			$(this).next('span').css("background", "var(--forth)");
 		}
 	});
