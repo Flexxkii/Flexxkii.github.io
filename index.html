@@ -188,7 +188,25 @@
 	  	animation: flickerAnimation 2s infinite;
 	}
 
-	.loading_tekst span {
+	.loading_tekst span:nth-child(1)::before {
+		position: absolute;
+			content: " ";
+			width: 10%;
+			height: 5px;
+			top:0px;
+			left: 0px;
+			background: var(--sec);
+			animation: loadbar 4s;
+			animation-fill-mode: forwards;
+		}
+
+		@keyframes loadbar {
+	  	0%   { width: 0%; }
+	  	50%  { width:40%; }
+	  	100% { width:100%; }
+		}
+
+	.loading_tekst span:nth-child(2) {
 		color: var(--sec);
 		opacity: 0;
 		transition: opacity 1s ease;
@@ -322,6 +340,12 @@
 		height: auto;
 		display: grid;
 		grid-template-columns: 10vw auto 10vw;
+		grid-gap: 50px 0;
+	}
+
+	#filter {
+		grid-row: 1;
+    	grid-column: 2;
 	}
 
 	.gallerij_fotos {
@@ -329,6 +353,7 @@
 	    column-count: 3;
 	    column-gap: 1em;
 	    grid-column: 2;
+	    grid-row: 2;
 	}
 
 	.gallerij_fotos div {overflow: hidden;}
@@ -369,7 +394,7 @@
 
   		.content {grid-gap:0;}
   		.knopjes {display: none;}
-  		.figure {left: 20%;}
+  		.figure {left: 0;width: 100%;}
 
   		#about p, #about a {grid-column: 2 / 4;margin: 3em 0;}
   		#work {margin-top:10em;}
@@ -386,6 +411,7 @@
   			display: flex;
 			flex-direction: column;
 		}
+
   		.quotes {display: none}
   		.scrolldown {right: 2vw;width: 7vw;}
   		.nav nav {font-size: .7em;}
@@ -409,7 +435,7 @@
 			<span>- Blinksit</span>
 		</div>
 
-<div class="loading_tekst">loading <span>Done</span></div>
+		<div class="loading_tekst"><span>loading</span><span>Done</span></div>
 		<div class="donkerbg"></div>
 	</div>
 	<div class="nav">
@@ -452,7 +478,7 @@
 			<p>
 				My name is Teodor Anthony, and I’m 20 years old, and I live in the Netherlands. I’ve been passionated about webdesign since I was young, the process of a professional webdesign really fascinated me and I became more intrigued about flat & modern design.
 				<br><br>
-				As a hobby I love coding since it gives me the power to create something useful, I have experiences in Javascript, JQuery, PHP and Python. I’ve been combining this knowledge with my webdesign skills to make my design come to life.
+				As a hobby I love coding since it gives me the power to create something useful, I have experiences in <span class="bold">Javascript, JQuery, PHP and Python.</span> I’ve been combining this knowledge with my webdesign skills to make my design come to life.
 				<br><br>
 				At the moment I’m studying Media Design at the Deltion College in Zwolle, it’s my third year and currently looking for an internship at a company as a designer and a further career in Media design. Also I’m bilingual both English and Dutch.
 			</p>
@@ -460,19 +486,25 @@
 			<div class="square"></div>
 		</div>
 		<div id="work">
+			<div id="filter">
+				<button class="all">All</button>
+				<button class="instas">Photographs</button>
+				<button class="designs">Webdesigns</button>
+				<button class="logos">Logo's</button>
+			</div>
 			<div class="gallerij_fotos">
-				<a href="#"><img src="https://i.imgur.com/zKHwka0.jpg"></a>
-				<a href="#"><img src="https://i.imgur.com/zKHwka0.jpg"></a>
-				<a href="#"><img src="https://i.imgur.com/zKHwka0.jpg"></a>
-				<a href="#"><img src="https://i.imgur.com/zKHwka0.jpg"></a>
-				<a href="#"><img src="https://i.imgur.com/zKHwka0.jpg"></a>
-				<a href="#"><img src="https://i.imgur.com/zKHwka0.jpg"></a>
-				<a href="#"><img src="https://i.imgur.com/zKHwka0.jpg"></a>
-				<a href="#"><img src="https://i.imgur.com/zKHwka0.jpg"></a>
-				<a href="#"><img src="https://i.imgur.com/zKHwka0.jpg"></a>
-				<a href="#"><img src="https://i.imgur.com/zKHwka0.jpg"></a>
-				<a href="#"><img src="https://i.imgur.com/zKHwka0.jpg"></a>
-				<a href="#"><img src="https://i.imgur.com/zKHwka0.jpg"></a>
+				<a href="#" class="instas"><img src="https://i.imgur.com/BgUYhtA.jpg"></a>
+				<a href="#" class="instas"><img src="https://i.imgur.com/i2lKdOY.jpg"></a>
+				<a href="#" class="instas"><img src="https://i.imgur.com/nRbGISY.jpg"></a>
+				<a href="#" class="designs"><img src="https://i.imgur.com/DpgwiMq.png"></a>
+				<a href="#" class="designs"><img src="https://i.imgur.com/zKHwka0.jpg"></a>
+				<a href="#" class="designs"><img src="https://i.imgur.com/zKHwka0.jpg"></a>
+				<a href="#" class="designs"><img src="https://i.imgur.com/BgUYhtA.jpg"></a>
+				<a href="#" class="instas"><img src="https://i.imgur.com/i2lKdOY.jpg"></a>
+				<a href="#" class="instas"><img src="https://i.imgur.com/nRbGISY.jpg"></a>
+				<a href="#" class="logos"><img src="https://i.imgur.com/NSXjYzf.png"></a>
+				<a href="#" class="logos"><img src="https://i.imgur.com/H3gWzpl.png"></a>
+				<a href="#" class="logos"><img src="https://i.imgur.com/LOfPYXg.png"></a>
 			</div>
 		</div>
 		<div id="contact">
@@ -485,7 +517,7 @@
 	$(document).ready(function() {
 		$(".loading img, .quotes, .loading_tekst, .socials" ).animate({opacity: 1}, 4000, function() {
 			$(".loading_tekst").css("animation-name", "none");
-			$(".loading_tekst span").css("opacity", "1");
+			$(".loading_tekst span:nth-child(2)").css("opacity", "1");
 	  		$(".loading").delay(2000).animate({opacity: 0}, 2000, function() {
 	  			$(".content").css("display", "grid");
 				$(".nav img").animate({opacity: 1}, 2500,);
@@ -607,6 +639,26 @@ $('a[href*="#"]')
       }
     }
   });
-
+$(document).ready(function() {
+  $('#filter button').click(function() {
+    var ourClass = $(this).attr('class');
+	if(ourClass == 'all') {
+    	$('.gallerij_fotos').children('a').show();
+    } else if(ourClass == 'instas') {
+    	$('.gallerij_fotos').children('a').show();
+    	$('.gallerij_fotos').children('a:not(.' + ourClass + ')').hide();
+    	$('.gallerij_fotos').children('a' + ourClass).show();
+    } else if(ourClass == 'designs') {
+    	$('.gallerij_fotos').children('a').show();
+    	$('.gallerij_fotos').children('a:not(.' + ourClass + ')').hide();
+    	$('.gallerij_fotos').children('a' + ourClass).show();
+    } else if(ourClass == 'logos') {
+    	$('.gallerij_fotos').children('a').show();
+    	$('.gallerij_fotos').children('a:not(.' + ourClass + ')').hide();
+    	$('.gallerij_fotos').children('a' + ourClass).show();
+    }
+    return false;
+  });
+});
 </script>
 </html>
