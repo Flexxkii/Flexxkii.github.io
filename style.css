@@ -260,6 +260,7 @@
 
 	.on {opacity: 1!important}
 	.off {opacity: 0!important}
+	.displaynone {display: none;}
 
 	#home {height: 100vh;grid-row: 1;}
 
@@ -486,7 +487,7 @@
     	grid-column: 2;
     	position: sticky;
     	top: -13px;
-    	z-index: 2;
+    	z-index: 998;
 	}
 
 	#filter {
@@ -638,7 +639,7 @@
   		.quotes {display: none}
   		.scrolldown {right: 2vw;width: 7vw;}
   		nav {
-  			font-size: .8em;
+  			font-size: .6em;
   			position: absolute;
     		right: 10vw;
   		}

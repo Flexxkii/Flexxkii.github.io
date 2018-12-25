@@ -11,11 +11,13 @@ function navTop() {
         $navbar.addClass("nav-mini");
         $(".logo").removeClass("on");
         $(".logo").addClass("off");
+        $(".logo").addClass("displaynone");
         $(".naam").removeClass("off");
         $(".naam").addClass("on");
     } else {
         $navbar.removeClass("nav-mini");
         $(".logo").removeClass("off");
+        $(".logo").removeClass("displaynone");
         $(".logo").addClass("on");
         $(".naam").removeClass("on");
         $(".naam").addClass("off");
@@ -163,7 +165,6 @@ var colors = [
 var $div = $(':root');
 
 setInterval(function() {
-	console.log("test");
     var testje = colors[(counter++)%colors.length];
     $div.get(0).style.setProperty("--sec", testje);
 }, 20000);
