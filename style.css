@@ -484,16 +484,17 @@
 	.work_header {
 		grid-row: 1;
     	grid-column: 2;
+    	position: sticky;
+    	top: -13px;
+    	z-index: 2;
 	}
 
 	#filter {
 		justify-content: space-between;
     	cursor: pointer;
-    	position: sticky;
     	display: flex;
     	width: 100%;
     	flex-wrap: wrap;
-		top: 55px;
 		background: var(--donkergrijs);
 		z-index: 99;
 	}
