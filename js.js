@@ -71,26 +71,31 @@ var target_home = $("#home p");
 var target_about = $("#about p");
 var target_work = $(".gallerij_fotos");
 var target_contact = $(".contact_content h2");
+var $div = $(':root');
 
 $(window).scroll(function() {
     if (target_home.is_on_screen()) {
         $(".nav nav a").css("color", "white");
+		$div.get(0).style.setProperty("--sec", "#009688");
         $(".nav nav a:nth-child(1)").css("color", "var(--sec)");
         $(".scrolldown").attr("src", "scrolldown.svg");
         document.title = "Teodor Anthony's portfolio";
     } else if (target_about.is_on_screen()) {
         $(".nav nav a").css("color", "white");
+        $div.get(0).style.setProperty("--sec", "#F44336");
         $(".nav nav a:nth-child(2)").css("color", "var(--sec)");
         $(".scrolldown").attr("src", "scrolldown_about.svg");
         document.title = "ABOUT ME";
     } else if (target_work.is_on_screen()) {
         $(".nav nav a").css("color", "white");
+        $div.get(0).style.setProperty("--sec", "#e91e63");
         $(".nav nav a:nth-child(3)").css("color", "var(--sec)");
         $(".scrolldown").attr("src", "scrolldown_work.svg");
         document.title = "MY WORK";
     }
     if (target_contact.is_on_screen() == true) {
         $(".nav nav a").css("color", "white");
+        $div.get(0).style.setProperty("--sec", "#2196f3");
         $(".nav nav a:nth-child(4)").css("color", "var(--sec)");
         $(".scrolldown").attr("src", "scrolldown_contact.svg");
         document.title = "MESSAGE ME";
@@ -127,6 +132,7 @@ $('a[href*="#"]')
             }
         }
     });
+    
 $(".hamburg").click(function() {
 	if ($('.hamburg span:nth-child(1)')[0].style.width == "75%")
     {
@@ -148,26 +154,11 @@ $('.sectie div input').on('input', function() {
             $(this).next('span').css("background", "var(--third)");
         } else {
             $(this).css("color", "var(--forth)");
+            $("#submitbutton").addClass("error");
             $(this).next('span').css("background", "var(--forth)");
         }
     });
 });
-
-var counter = 0;
-var colors = [
-	"#2ecc71",
-	"#3498db",
-	"#f1c40f",
-	"#e74c3c",
-	"hotpink"      
-];
-
-var $div = $(':root');
-
-setInterval(function() {
-    var testje = colors[(counter++)%colors.length];
-    $div.get(0).style.setProperty("--sec", testje);
-}, 20000);
 
 $(document).ready(function() {
 	var numall = $('.gallerij_fotos a').length;
@@ -180,14 +171,14 @@ $(document).ready(function() {
 	$("#filter .logos").append("<span class='nums'>"+numlogos+"</span")
 })
 
-$('.figure, .square').tilt({
+$('.figure, .logo, .square, .instas img').tilt({
 	maxTilt:        20,
 	perspective:    500,   // Transform perspective, the lower the more extreme the tilt gets.
 	easing:         "ease",    // Easing on enter/exit.
 	scale:          1.1,      // 2 = 200%, 1.5 = 150%, etc..
 	speed:          1000,    // Speed of the enter/exit transition.
 	transition:     true,   // Set a transition on enter/exit.
-	reset:          true,   // If the tilt effect has to be reset on exit.
+	reset:          false,   // If the tilt effect has to be reset on exit.
 	glare:          true,  // Enables glare effect
 	maxGlare:       .05       // From 0 - 1.
 });

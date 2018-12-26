@@ -398,7 +398,7 @@
 
 	.formpje form input[type="submit"] {
 		margin: 2em 0 1em 0;
-		background: var(--sec);
+		background-color: var(--sec);
 		border: none;
 		color: rgb(255, 255, 255);
 		padding: 1em;
@@ -549,7 +549,7 @@
 
 	.opacity {opacity: 1;}
 
-	.gallerij
+	.error {background-color: var(--forth)!important;cursor: not-allowed!important;}
 
 	.gallerij_fotos div {overflow: hidden;}
 
