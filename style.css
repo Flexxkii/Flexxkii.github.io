@@ -504,6 +504,7 @@
 		background: none;
 		border: none;
 		color: white;
+		cursor: pointer;
 		border-bottom: 2px solid var(--grijs);
 		padding: 1em 2em;
 		font-family: 'Space Mono', monospace;
@@ -529,7 +530,7 @@
 	.gallerij_fotos {
 	    line-height: 0;
 	    column-count: 3;
-	    column-gap: 1em;
+	    column-gap: 2.5em;
 	    grid-column: 2;
 	    grid-row: 2;
 	}
@@ -556,7 +557,7 @@
 	.gallerij_fotos img {
 	    width: 100% !important;
 	    height: auto !important;
-	    padding-bottom: 1em;
+	    padding-bottom: 2.5em;
 	    transition: all .5s ease;
 	}
 

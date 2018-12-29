@@ -1,3 +1,14 @@
+enterView({
+    selector: '.gallerij_fotos a img',
+    offset: 0.5,
+    enter: function(el) {
+        el.classList.add('entered');
+    },
+    exit: function(el) {
+        el.classList.remove('entered');
+    },
+});
+
 var timeoutScroll,
     $navbar = $('.nav'),
     $window = $(window);
