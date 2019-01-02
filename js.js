@@ -1,14 +1,3 @@
-enterView({
-    selector: '.gallerij_fotos a img',
-    offset: 0.5,
-    enter: function(el) {
-        el.classList.add('entered');
-    },
-    exit: function(el) {
-        el.classList.remove('entered');
-    },
-});
-
 var timeoutScroll,
     $navbar = $('.nav'),
     $window = $(window);
@@ -94,12 +83,30 @@ $(window).scroll(function() {
     } else if (target_about.is_on_screen()) {
         $(".nav nav a").css("color", "white");
         $div.get(0).style.setProperty("--sec", "#F44336");
+        $('.gallerij_fotos img').each(function(index) {
+            var that = this;
+            setTimeout(function() {
+                $(that).removeClass('inview');
+            }, 10 * index);
+        });
         $(".nav nav a:nth-child(2)").css("color", "var(--sec)");
         $(".scrolldown").attr("src", "scrolldown_about.svg");
         document.title = "ABOUT ME";
     } else if (target_work.is_on_screen()) {
         $(".nav nav a").css("color", "white");
         $div.get(0).style.setProperty("--sec", "#e91e63");
+        $('.gallerij_fotos img').each(function(index) {
+            var that = this;
+            setTimeout(function() {
+                $(that).addClass('inview');
+            }, 10 * index);
+        });
+        $('.sectie').each(function(index) {
+            var that = this;
+            setTimeout(function() {
+                $(that).removeClass('inview');
+            }, 10 * index);
+        });
         $(".nav nav a:nth-child(3)").css("color", "var(--sec)");
         $(".scrolldown").attr("src", "scrolldown_work.svg");
         document.title = "MY WORK";
@@ -107,6 +114,18 @@ $(window).scroll(function() {
     if (target_contact.is_on_screen() == true) {
         $(".nav nav a").css("color", "white");
         $div.get(0).style.setProperty("--sec", "#2196f3");
+        $('.gallerij_fotos img').each(function(index) {
+            var that = this;
+            setTimeout(function() {
+                $(that).removeClass('inview');
+            }, 10 * index);
+        });
+        $('.sectie').each(function(index) {
+            var that = this;
+            setTimeout(function() {
+                $(that).addClass('inview');
+            }, 10 * index);
+        });
         $(".nav nav a:nth-child(4)").css("color", "var(--sec)");
         $(".scrolldown").attr("src", "scrolldown_contact.svg");
         document.title = "MESSAGE ME";

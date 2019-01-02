@@ -355,7 +355,13 @@
 		position: relative;
 	}
 
-	.sectie {display: flex;flex-direction: column;width: 100%}
+	.sectie {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	    opacity: 0;
+    	transition: all 1s ease;
+    }
 
 	.formpje form label {
 		margin: 2em 0 1em 0;
@@ -554,16 +560,26 @@
 
 	.gallerij_fotos div {overflow: hidden;}
 
+	.inview {
+		transform: translateY(0px)!important;
+		opacity: 1!important;
+	}
+
 	.gallerij_fotos img {
 	    width: 100% !important;
 	    height: auto !important;
 	    padding-bottom: 2.5em;
-	    transition: all .5s ease;
+	    transition: .5s ease;
+	    transition-property: transform, filter, opacity; 
+	    transform: translateY(50px);
+	    opacity: 0;
 	}
+
+	
 
 	.filter {
 		filter:grayscale(1);
-		opacity: .25;
+		opacity: .25!important;
 	}
 
 	.handje {
