@@ -20,7 +20,9 @@
 			justify-content: space-around;
 			align-content: center;
 			align-items: center;
-			margin: 2em 0 1em 0;
+			margin: 0;
+			height: 10vh;
+			box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.1);
 		}
 
 		.navheader nav a {
@@ -30,11 +32,40 @@
 			font-weight: bold;
 			font-size: .8em;
 		}
+
+		.jumbo {
+			height: 90vh;
+			background-color: rgba(0, 0, 0, 0.1);
+			justify-content: center;
+			display: flex;
+			flex-direction: column;
+			align-content: center;
+			align-items: center;
+		}
+
+		.jumbo h1 {
+			font-size: 3em;
+			padding: 1em 2em;
+			opacity: .5;
+		}
+
+		.jumbo p {opacity: .75;}
+
+		.jumbo button {
+			color: white;
+			background: #f07;
+			border: none;
+			padding: 1em;
+			border-radius: 10px;
+			box-shadow: 0px 5px 10px rgba(0, 0, 0, .3);
+			font-weight: bold;
+			margin: 2em;
+		}
 	</style>
 </head>
 <body>
 	<div class="navheader">
-		<div class="logo" style="width: 33%;">
+		<div class="logo" style="width: 20%;">
 			<img src="logo.svg" >
 		</div>
 		<nav>
