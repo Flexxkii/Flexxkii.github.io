@@ -15,15 +15,23 @@
 		}
 
 		.navheader {
-			display: flex;
-			flex-direction: row;
+			display: grid;
+			grid-template-columns: 1fr 4fr;
+			position: fixed;
+			background: white;
+			z-index: 100;
 			justify-content: space-around;
 			align-content: center;
 			align-items: center;
 			margin: 0;
 			height: 10vh;
+			width: 100%;
 			box-shadow: 0px 1px 20px rgba(0, 0, 0, 0.1);
 		}
+
+		.navheader .logo {padding:0 0 0 2em;}
+
+		.navheader nav {justify-self: center;}
 
 		.navheader nav a {
 			padding: 1em;
@@ -65,7 +73,7 @@
 </head>
 <body>
 	<div class="navheader">
-		<div class="logo" style="width: 20%;">
+		<div class="logo">
 			<img src="logo.svg" >
 		</div>
 		<nav>
