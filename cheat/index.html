@@ -162,11 +162,21 @@
 		.footer {
 			height: 25vh;
 		    background-color: rgba(0, 0, 0, 0.1);
-		    display: flex;
-		    flex-direction: row;
+		    display: grid;
+		    grid-template-columns: 2fr 2fr 1fr;
 		    align-items: center;
-		    justify-content: space-evenly;
+		    justify-items: center;
+		    padding-top: 1em;
 		}
+
+		.footer img {width: 50%;}
+
+		.about_footer {padding: 0 2em; align-self: start;}
+		.company_footer {display: flex; flex-direction: column; align-self: start;}
+		.about_footer h3, .company_footer h3 {margin-bottom: 0}
+
+		.company_footer nav {display: flex; flex-direction: column; padding-top: 1em;}
+		.company_footer nav a {font-size: .75em; padding-bottom: .5em;text-decoration: none;}
 	</style>
 </head>
 <body>
@@ -211,6 +221,9 @@
 						The bot is simple to setup, with just a few steps that are easy to follow through our video documentation.
 					</p>
 				</div>
+			</div>
+			<div class="screenshots">
+				<img src="#">
 			</div>
 		</div>
 		<div class="pricing">

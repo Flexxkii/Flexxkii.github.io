@@ -176,7 +176,7 @@ $(".hamburg").click(function() {
 });
 
 
-$('.sectie div input').on('input', function() {
+$('.sectie div input').on('focus', function() {
     $(this).next('span').css("background", "var(--sec)");
     $(this).on('change', function() {
         if ($(this).is(':valid')) {
