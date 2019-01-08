@@ -43,7 +43,6 @@
 
 		.jumbo {
 			height: 90vh;
-			background-color: rgba(0, 0, 0, 0.1);
 			justify-content: center;
 			display: flex;
 			flex-direction: column;
@@ -71,6 +70,7 @@
 		}
 
 		.about {
+			background-color: rgba(0, 0, 0, 0.1);
 			height: 75vh;
 		    justify-content: center;
 		    display: flex;
@@ -99,6 +99,40 @@
 
 		.feature span {margin:1em 0 0 0;}
 		.feature p {line-height: 25px; opacity: .75}
+
+		.pricing {
+			height: 75vh;
+		    background-color: rgba(0, 0, 0, 0.1);
+		    display: flex;
+		    flex-direction: row;
+		    align-items: center;
+		    justify-content: space-evenly;
+		}
+
+		.package {
+			background: white;
+		    padding: 2em;
+		    border-radius: 5px;
+		    display: flex;
+		    flex-direction: column;
+		    box-shadow: 0px 5px 25px rgba(0, 0, 0, .2);
+		}
+
+		.package_header {
+			display: flex;
+    		flex-direction: column;
+    		align-items: center;
+		}
+
+		.package_header h2 {
+			margin: 0;
+   			opacity: .75;
+		}
+
+		.package_header p {
+			margin: 0;
+    		opacity: .5;
+		}
 	</style>
 </head>
 <body>
@@ -146,32 +180,32 @@
 			</div>
 		</div>
 		<div class="pricing">
-			<div>
-				<div>
-					<div>
-						<h2>Package 1</h2>
-						<p>$10 / month</p>
-					</div>
-					<div>
-						<ul>
-							<li>blah 1</li>
-							<li>blah 2</li>
-							<li>blah 3</li>
-						</ul>
-						<div>Start now!</div>
-					</div>
-					<div>
-						<h2>Package 2</h2>
-						<p>$20 / month</p>
-					</div>
-					<div>
-						<ul>
-							<li>blah 1</li>
-							<li>blah 2</li>
-							<li>blah 3</li>
-						</ul>
-						<div>Start now!</div>
-					</div>
+			<div class="package">
+				<div class="package_header">
+					<h2>Package 1</h2>
+					<p>$10 / month</p>
+				</div>
+				<div class="list">
+					<ul>
+						<li>blah 1</li>
+						<li>blah 2</li>
+						<li>blah 3</li>
+					</ul>
+					<div>Start now!</div>
+				</div>
+			</div>
+			<div class="package">
+				<div class="package_header">
+					<h2>Package 2</h2>
+					<p>$20 / month</p>
+				</div>
+				<div class="list">
+					<ul>
+						<li>blah 1</li>
+						<li>blah 2</li>
+						<li>blah 3</li>
+					</ul>
+					<div>Start now!</div>
 				</div>
 			</div>
 		</div>
