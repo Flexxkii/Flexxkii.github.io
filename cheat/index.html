@@ -69,6 +69,36 @@
 			font-weight: bold;
 			margin: 2em;
 		}
+
+		.about {
+			height: 75vh;
+		    justify-content: center;
+		    display: flex;
+		    flex-direction: column;
+		    align-content: center;
+		    align-items: center;
+		}
+
+		.about h1 {
+			opacity: .5;
+    		font-weight: 500;
+    		margin: 3em 0;
+		}
+
+		.about .wrapper {
+			display: grid;
+    		grid-template-columns: repeat(3,1fr);
+    		padding: 0 5em;
+		}
+
+		.wrapper .feature {
+			padding: 0 2em;
+    		display: flex;
+    		flex-direction: column;
+		}
+
+		.feature span {margin:1em 0 0 0;}
+		.feature p {line-height: 25px; opacity: .75}
 	</style>
 </head>
 <body>
