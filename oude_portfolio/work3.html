@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>Showcase</title>
+<link rel="shortcut icon" type="image/png" href="https://i.imgur.com/wVJem2n.png"/>
+</head>
+<body>
+<div class="gridsysteem showcasegrid">
+    <div id="content">
+        <div class="head">
+            <div class="hmenu displayin">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <h1 class="teodor"><a href="index.html">TEODOR ANTHONY</a></h1>
+                <nav class="fullnav">
+                    <ul><a href="#home" id="home">Home</a></ul>
+                    <ul><a href="#">About</a></ul>
+                    <ul><a href="#">Work</a></ul>
+                </nav>
+        </div>
+        <content class="content_links work_showcase">
+            <div class="projectinfo">
+                <h3>Front-end designer</h3>
+                <h1>Udemy Ripper</h1>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
+                </p>
+            </div>
+            <div class="graph">
+                <img src="https://i.imgur.com/u9jNWXX.png">
+            </div>
+        </content>
+    </div>
+    <div id="showcase">
+        <div>
+            <img src="https://i.imgur.com/2lTnCYk.png">
+        </div>
+    </div>
+</div>
+
+    <script type="text/javascript">
+        const hmenu = document.querySelector('.hmenu');
+        function addClassMenu() {
+            this.classList.toggle("clickhmenu");
+            $(".fullnav").toggle("displayflex");
+        };
+        hmenu.addEventListener('click', addClassMenu);
+
+
+        $(document).ready(function () {
+            var siz = $( document ).width(),
+                width1 = 852,
+                width2 = 720,
+                width3 = 620;
+            console.log(siz);
+                if (siz < width1) {
+                   $(".teodor a").text("TEODOR");
+                } else {
+                    $(".teodor a").text("TEODOR ANTHONY");
+                }
+        });
+    </script>
+    
+</body>
+</html>
