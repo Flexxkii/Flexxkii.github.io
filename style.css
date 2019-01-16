@@ -215,6 +215,12 @@
 		grid-template-rows: auto auto auto auto;
 	}
 
+	.content2 {
+		grid-gap: 50px;
+    	grid-template-rows: 100px 300px auto;
+    	grid-template-columns: 10vw auto 10vw;
+	}
+
 	.loading_tekst {
 		grid-column: 3 / 4;
 		cursor: crosshair;
@@ -606,6 +612,100 @@
     	height: 150px;
     	background-image: linear-gradient(var(--donkergrijs), transparent);
     	z-index: 99;
+	}
+
+	.informatie {
+		grid-row: 2;
+	    grid-column: 2;
+	    color: white;
+	}
+
+	.informatie h3 {
+		font-size: 3em;
+	}
+
+	.informatie p {
+		opacity: .7;
+	    font-size: .75em;
+	    line-height: 25px;
+	    margin: 2em 0;
+	}
+
+	.info_block {
+		display: flex;
+	    flex-direction: column;
+	    align-items: flex-end;
+	}
+
+	.info_header {
+		border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+    	padding-bottom: .5em;
+    	padding-left: 2em;
+	}
+
+	.arrows {
+		display: flex;
+    	padding: 1em 0;
+	}
+
+	.linker_arrow {
+	    display: flex;
+	    flex-direction: row-reverse;
+	    padding: .25em 0;
+	    justify-content: center;
+	    align-items: center;
+	    transition: all .25s ease!important;
+	    text-decoration: none;
+    	color: white;
+	}
+
+	.linker_arrow span:nth-child(1) {
+		padding: 0 .25em 0 1em;
+	    transition: transform .5s ease;	
+	}
+
+	.linker_arrow .hover {
+		transform: scale(1.25) translateX(-10px);
+	}
+
+	.linker_arrow .hover_text {
+		opacity: 1!important;
+		color: var(--forth);
+	}
+
+	.linker_hover_arrow {transform: scale(1.25) translateX(-10px);}
+	.rechter_hover_arrow {transform: scale(1.25) translateX(10px);}
+
+	.linker_arrow span:nth-child(2) {
+	    font-size: .75em;
+    	opacity: .25;
+	}
+
+	.rechter_arrow {
+		display: flex;
+	    padding: .25em 0;
+	    justify-content: center;
+	    align-items: center;
+	    text-decoration: none;
+    	color: white;
+	}
+
+	.rechter_arrow span:nth-child(1) {
+	    padding: 0 1em 0 .25em;
+	}
+
+	.rechter_arrow span:nth-child(2) {
+	    font-size: .75em;
+    	opacity: .25;
+	}
+
+	.preview {
+		grid-row: 3;
+    	grid-column: 2;
+	}
+
+	.preview img {
+		width:100%;
 	}
 
 	@media only screen and (max-width: 900px) {
