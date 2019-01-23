@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BUUF - Breng buren samen!</title>
+	<link rel="icon" href="img/Logo (1).png">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
+	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700" rel="stylesheet">
+	<style type="text/css">
+	body {
+	    font-family: "Montserrat", sans-serif;
+	    background-color: #F5F5F5;
+	    display: grid;
+	    grid-template-columns: 50% 50%;
+	    margin: 0;
+	    height: 100vh;
+	}
+
+	.links {margin: 3em 0 0 3em;z-index: 1;}
+	.links h1 {font-size: 5vw;margin-left: 0em;    margin-top: 50px;}
+
+	.logo {
+		position: sticky;
+		top: 25px;
+		display: flex;
+	    align-items: center;
+	    width: auto;
+	    height: auto;
+	}
+
+	.logo img {width: 75px; height: 75px;}
+	.logo span {font-size: 2em; margin: 0 .5em; font-family: 'Bitter', serif;}
+	h1 {font-size: 3em; text-transform: uppercase;}
+
+	.descriptie {
+		line-height: 37px;
+	    font-weight: 500;
+	    font-size: 2.25vw;
+	    opacity: .7;
+	}
+
+	.downloadvakje {
+		margin: 0;
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    width: 100%;
+	    justify-content: center;
+	    justify-items: center;
+	    justify-self: center;
+	    height: 250px;
+	}
+	.downloadvakje span {opacity: .7}
+	.knopjes {display: flex; margin: 2em;z-index: 1;}
+	.knopjes a img {
+		height: 50px;
+   		margin: 0 1em;
+	}
+
+	.credits {
+		position: fixed;
+	    bottom: 20px;
+	    left: 20px;
+	    opacity: .5;
+	}
+
+	.content_links {
+		position: absolute;
+	    top: 0;
+	    display: grid;
+	    grid-template-rows: 700px 1fr;
+	}
+
+	.stappenplan {
+		grid-row: 2;
+    	display: grid;
+    	grid-template-rows: 100vh 20vh 100vh 20vh 100vh;
+	}
+
+	.stappen {
+	    position: sticky;
+    	top: 100px;
+	}
+	.stappen:nth-child(1) {grid-row: 1}
+	.stappen:nth-child(2) {grid-row: 3}
+	.stappen:nth-child(3) {grid-row: 5}
+
+	.stappen:nth-child(2) p {margin-top: 5em;}
+	.stappen:nth-child(3) p {margin-top: 7.5em;}
+
+	.stappen h2 {
+	    font-size: 7vw;
+	    letter-spacing: 10px;
+	    font-weight: 900;
+	    text-transform: uppercase;
+	    padding: .25em .5em;
+	    color: white;
+	    background: #ff7f50;
+		background: -moz-linear-gradient(-45deg,  #ff7f50 0%, #cc4b4b 100%);
+		background: -webkit-linear-gradient(-45deg,  #ff7f50 0%,#cc4b4b 100%);
+		background: linear-gradient(135deg,  #ff7f50 0%,#cc4b4b 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7f50', endColorstr='#cc4b4b',GradientType=1 );
+	}
+
+	.stappen p {font-size: 2.5vw;opacity: .7;text-align: left;}
+
+	.rechts {
+		padding-bottom: 2em;
+		border-left: 150px solid #F5F5F5;
+		background: #ff7f50;
+		background: -moz-linear-gradient(top,  #ff7f50 0%, #cc4b4b 100%);
+		background: -webkit-linear-gradient(top,  #ff7f50 0%,#cc4b4b 100%);
+		background: linear-gradient(to bottom,  #ff7f50 0%,#cc4b4b 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7f50', endColorstr='#cc4b4b',GradientType=0 );
+	}
+	.element {
+		margin-left:-5em;
+    	padding-top: 5em;
+    	height: 700px;
+	}
+
+	.iphone {width: 90%; transition: all 1s cubic-bezier(0.67, -0.27, 0, 1.43);;}
+	.iphone:hover {transform: translateY(-50px);}
+
+	.voorbeeld {
+	    display: grid;
+	    justify-content: center;
+	    grid-template-rows: 100vh 20vh 100vh 20vh 100vh;
+	}
+
+	.stappen_voorbeeld:nth-child(1) {grid-row: 1}
+	.stappen_voorbeeld:nth-child(2) {grid-row: 3}
+	.stappen_voorbeeld:nth-child(3) {grid-row: 5}
+
+	.stappen_voorbeeld {
+		position: sticky;
+    	top: 25px;
+	}
+
+	.stappen_voorbeeld img {
+		height: 100vh;
+    	justify-content: center;
+	}
+
+	.stappen > .stappen_voorbeeld {display: none;}
+
+@media only screen and (max-width: 768px) {
+    body {grid-template-columns: 100%;}
+    .logo {margin-left: 1em;}
+   	.rechts {display: none;}
+   	.links {margin: 0em;}
+   	.stappen {text-align: center;position: relative;}
+   	.stappen p {font-size: 5vw;margin: 1em;}
+   	.stappen > .stappen_voorbeeld {display: initial;}
+   	.stappen > .stappen_voorbeeld img {height: 80vh;}
+   	.content_links {position: relative;grid-template-rows: 1fr;}
+   	.descriptie {font-size: 5vw;margin-left: 1em;}
+   	.links h1 {margin-left: 1em;}
+
+   	.stappen:nth-child(2) p {margin-top: 0em;}
+	.stappen:nth-child(3) p {margin-top: 0em;}
+}
+
+	</style>
+</head>
+<body>
+	<div class="links">
+		<div class="logo">
+			<img src="https://i.imgur.com/0ZTdRvb.png">
+			<span>BUUF.</span>
+		</div>
+		<h1>Connect met je buren via BUUF!</h1>
+		<p class="descriptie">Chat met elkaar, hou elkaar op de hoogte en wees zelf ook op de hoogte van alle dingen in jouw buurt.</p>
+		<div class="downloadvakje">
+			<span>Download nu op</span>
+			<div class="knopjes">
+				<a href="app.html"><img src="ios.svg"></a>
+				<a href="app.html"><img src="android.svg"></a>
+			</div>
+		</div>
+		<div class="content_links">
+			<div class="stappenplan">
+				<div class="stappen">
+					<h2>Stap 1</h2>
+					<p><i class="fas fa-download"></i> Download de app en maak een account aan</p>
+					<div class="stappen_voorbeeld"><img src="https://i.imgur.com/xyHugZX.png"></div>
+				</div>
+				<div class="stappen">
+					<h2>Stap 2</h2>
+					<p><i class="fab fa-delicious"></i> Kies in welke categorie je wilt chatten</p>
+					<div class="stappen_voorbeeld"><img src="https://i.imgur.com/MODsazT.png"></div>
+				</div>
+				<div class="stappen">
+					<h2>Stap 3</h2>
+					<p><i class="fas fa-comment"></i> Chatten!</p>
+					<div class="stappen_voorbeeld"><img src="https://i.imgur.com/H5HVy5r.png"></div>
+					<div class="downloadvakje">
+						<span>Download nu op</span>
+						<div class="knopjes">
+							<a href="app.html"><img src="ios.svg"></a>
+							<a href="app.html"><img src="android.svg"></a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="credits"><span>© 2018 BUUF. </span><a href="app.html">Privacy en cookiebeleid</a></div>
+	</div>
+	<div class="rechts">
+		<div class="element">
+			<img class="iphone" src="https://i.imgur.com/E5TddYF.png">
+		</div>
+		<div class="content_rechts">
+			<div class="voorbeeld">
+				<div class="stappen_voorbeeld"><img src="https://i.imgur.com/xyHugZX.png"></div>
+				<div class="stappen_voorbeeld"><img src="https://i.imgur.com/MODsazT.png"></div>
+				<div class="stappen_voorbeeld"><img src="https://i.imgur.com/H5HVy5r.png"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
