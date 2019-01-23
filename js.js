@@ -1,20 +1,46 @@
+$(".linker_arrow").hover( function() {
+    $(this).find("span:nth-child(1)").addClass("hover");
+}, function() {
+    $(this).find("span:nth-child(1)").removeClass("hover");
+})
+
+$(".rechter_arrow").hover( function() {
+    $(this).find("span:nth-child(1)").addClass("hover");
+}, function() {
+    $(this).find("span:nth-child(1)").removeClass("hover");
+})
+
 $(".rechter_arrow").on("click", function() {
-    var test = $(this).parent().parent().parent().parent();
-    var test2 = $(this).parent().parent().parent().parent().next();
-    test.removeClass("displaygrid");
-    test.addClass("displaynone");
-    test2.addClass("displaygrid");
-    test2.removeClass("displaynone");
+    var thiscontent = $(this).parent().parent().parent().parent();
+    var nextcontent = $(this).parent().parent().parent().parent().next();
+    var firstcontent = $(".oned");
+    if(nextcontent.is('div')) {
+        thiscontent.removeClass("displaygrid");
+        thiscontent.addClass("displaynone");
+        nextcontent.addClass("displaygrid");
+        nextcontent.removeClass("displaynone");
+    } else {
+        thiscontent.removeClass("displaygrid");
+        thiscontent.addClass("displaynone");
+        firstcontent.addClass("displaygrid");
+        firstcontent.removeClass("displaynone");
+    };
 });
 
 $(".linker_arrow").on("click", function() {
-    console.log("test");
-    var test = $(this).parent().parent().parent().parent();
-    var test2 = $(this).parent().parent().parent().parent().prev();
-    test.removeClass("displaygrid");
-    test.addClass("displaynone");
-    test2.addClass("displaygrid");
-    test2.removeClass("displaynone");
+    var thiscontent = $(this).parent().parent().parent().parent();
+    var prevcontent = $(this).parent().parent().parent().parent().prev();
+    var firstcontent = $(".projecten_full div:last-child");
+    if(prevcontent.is('div')) {
+        thiscontent.removeClass("displaygrid");
+        thiscontent.addClass("displaynone");
+        prevcontent.addClass("displaygrid");
+        prevcontent.removeClass("displaynone");
+    } else {
+        thiscontent.removeClass("displaygrid");
+        thiscontent.addClass("displaynone");
+        firstcontent.removeClass("displaynone");
+    };
 });
 
 $(".one").on("click", function() {
@@ -29,6 +55,13 @@ $(".two").on("click", function() {
     $(".content2").removeClass("displaygrid");
     $(".content2").addClass("displaynone");
     $(".twod").addClass("displaygrid");
+});
+
+$(".three").on("click", function() {
+    $(".projecten_full").addClass("showit");
+    $(".content2").removeClass("displaygrid");
+    $(".content2").addClass("displaynone");
+    $(".threed").addClass("displaygrid");
 });
 
 $(".cross").on("click", function() {

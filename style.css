@@ -439,7 +439,7 @@
 		align-self: center;
 		font-size: 3em;
 		color: white;
-		margin: 0;
+		margin:2em 0;
 		z-index: 2;
 		border-left: 10px solid var(--sec);
     	padding-left: 25px;
@@ -694,19 +694,12 @@
 	.linker_arrow span:nth-child(1) {
 		padding: 0 .25em 0 1em;
 	    transition: transform .5s ease;	
+	    color: var(--sec);
 	}
 
 	.linker_arrow .hover {
-		transform: scale(1.25) translateX(-10px);
+		transform: translateX(-5px);
 	}
-
-	.linker_arrow .hover_text {
-		opacity: 1!important;
-		color: var(--forth);
-	}
-
-	.linker_hover_arrow {transform: scale(1.25) translateX(-10px);}
-	.rechter_hover_arrow {transform: scale(1.25) translateX(10px);}
 
 	.linker_arrow span:nth-child(2) {
 	    font-size: .75em;
@@ -724,6 +717,12 @@
 
 	.rechter_arrow span:nth-child(1) {
 	    padding: 0 1em 0 .25em;
+	    transition: transform .5s ease;
+	    color: var(--sec);
+	}
+
+	.rechter_arrow .hover {
+		transform: translateX(5px);
 	}
 
 	.rechter_arrow span:nth-child(2) {
