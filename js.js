@@ -64,6 +64,13 @@ $(".three").on("click", function() {
     $(".threed").addClass("displaygrid");
 });
 
+$(".four").on("click", function() {
+    $(".projecten_full").addClass("showit");
+    $(".content2").removeClass("displaygrid");
+    $(".content2").addClass("displaynone");
+    $(".fourd").addClass("displaygrid");
+});
+
 $(".cross").on("click", function() {
     $(".projecten_full").removeClass("showit");
     $('.gallerij_fotos img').each(function(index) {
