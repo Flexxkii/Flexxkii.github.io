@@ -1,4 +1,4 @@
-	* {outline:0;transition: color 2s ease;}
+* {outline:0;transition: color 2s ease;}
 	:root {
 		--grijs: #242a30;
 		--donkergrijs: #18191c;
@@ -211,14 +211,13 @@
     	left: 0;
     	top: 0;
     	z-index: 2;
-    	grid-gap: 100px;
 		grid-template-rows: auto auto auto auto;
 	}
 
 	.content2 {
-		grid-gap: 50px;
-    	grid-template-rows: 100px 300px auto;
-    	grid-template-columns: 10vw auto 10vw;
+		width: 100%;
+    	grid-template-rows: 100px auto auto;
+    	grid-template-columns: auto;
 	}
 
 	.loading_tekst {
@@ -266,7 +265,8 @@
 
 	.on {opacity: 1!important}
 	.off {opacity: 0!important}
-	.displaynone {display: none;}
+	.displaynone {display: none!important;}
+	.displaygrid {display: grid!important;}
 
 	#home {height: 100vh;grid-row: 1;}
 
@@ -491,7 +491,6 @@
 		height: auto;
 		display: grid;
 		grid-template-columns: 10vw auto 10vw;
-		grid-gap: 50px 0;
 	}
 
 	.work_header {
@@ -540,15 +539,15 @@
 	}
 
 	.gallerij_fotos {
-	    line-height: 0;
 	    column-count: 3;
 	    column-gap: 2.5em;
 	    grid-column: 2;
 	    grid-row: 2;
+	    margin-top: 5em;
 	}
 
 
-	.gallerij_fotos a span {
+	.gallerij_fotos div span {
 		position: absolute;
 		margin-top: 20px;
 		margin-left: -100px;
@@ -606,22 +605,46 @@
 		position: absolute;
 	}
 
-	.poep {
+	.fade {
 		position: fixed;
     	width: 100%;
     	height: 150px;
     	background-image: linear-gradient(var(--donkergrijs), transparent);
-    	z-index: 99;
+    	z-index: 9;
 	}
 
 	.informatie {
-		grid-row: 2;
-	    grid-column: 2;
+	    grid-row: 2;
+	    grid-column: 1;
 	    color: white;
+	}
+
+	.informatie a {
+		color: white;
+	    text-decoration: none;
+	    font-weight: 800;
+	    padding-bottom: .2em;
+	    border-bottom: 2px solid var(--sec);
+	}
+
+	.cross {
+		z-index: 99;
+	    color: var(--sec);
+    	font-size: 2em;
+    	align-self: center;
+	}
+
+	.cross i {
+		transition: transform .25s ease;
+	}
+
+	.cross i:hover {
+		transform: rotate(90deg) scale(1.25);
 	}
 
 	.informatie h3 {
 		font-size: 3em;
+    	margin-top: .25em;
 	}
 
 	.informatie p {
@@ -701,16 +724,40 @@
 
 	.preview {
 		grid-row: 3;
-    	grid-column: 2;
+    	grid-column: 1;
 	}
 
 	.preview img {
 		width:100%;
 	}
 
+	.projecten_full {
+	    top: 0px;
+	    width: 100%;
+	    height: 100%;
+	    opacity: 0;
+	    grid-row: 2;
+	    grid-column: 2;
+	    z-index: -9;
+	    background: var(--donkergrijs);
+	    transition: all .25s ease;
+	}
+
+	.showit {
+		opacity: 1!important;
+		z-index: 9!important;
+	}
+
 	@media only screen and (max-width: 900px) {
 		.socials {display: none;}
 		.gallerij_fotos {column-count: 2;}
+	}
+
+	@media only screen and (max-height: 700px) {
+		.knopjes {
+			right: 10vw;
+			left: unset;
+		}
 	}
 
 	@media only screen and (max-width: 650px) {
@@ -733,7 +780,6 @@
 		    width: 100vw;
   		}
 
-  		.content {grid-gap:0;}
   		.knopjes {display: none;}
   		.figure {left: 0;width: 100%;}
 

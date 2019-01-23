@@ -1,3 +1,81 @@
+$(".rechter_arrow").on("click", function() {
+    var test = $(this).parent().parent().parent().parent();
+    var test2 = $(this).parent().parent().parent().parent().next();
+    test.removeClass("displaygrid");
+    test.addClass("displaynone");
+    test2.addClass("displaygrid");
+    test2.removeClass("displaynone");
+});
+
+$(".linker_arrow").on("click", function() {
+    console.log("test");
+    var test = $(this).parent().parent().parent().parent();
+    var test2 = $(this).parent().parent().parent().parent().prev();
+    test.removeClass("displaygrid");
+    test.addClass("displaynone");
+    test2.addClass("displaygrid");
+    test2.removeClass("displaynone");
+});
+
+$(".one").on("click", function() {
+    $(".projecten_full").addClass("showit");
+    $(".content2").removeClass("displaygrid");
+    $(".content2").addClass("displaynone");
+    $(".oned").addClass("displaygrid");
+});
+
+$(".two").on("click", function() {
+    $(".projecten_full").addClass("showit");
+    $(".content2").removeClass("displaygrid");
+    $(".content2").addClass("displaynone");
+    $(".twod").addClass("displaygrid");
+});
+
+$(".three").on("click", function() {
+    $(".projecten_full").addClass("showit");
+    $(".content2").removeClass("displaygrid");
+    $(".content2").addClass("displaynone");
+    $(".threed").addClass("displaygrid");
+});
+
+$(".four").on("click", function() {
+    $(".projecten_full").addClass("showit");
+    $(".content2").removeClass("displaygrid");
+    $(".content2").addClass("displaynone");
+    $(".fourd").addClass("displaygrid");
+});
+
+$(".five").on("click", function() {
+    $(".projecten_full").addClass("showit");
+    $(".content2").removeClass("displaygrid");
+    $(".content2").addClass("displaynone");
+    $(".fived").addClass("displaygrid");
+});
+
+$(".six").on("click", function() {
+    $(".projecten_full").addClass("showit");
+    $(".content2").removeClass("displaygrid");
+    $(".content2").addClass("displaynone");
+    $(".sixd").addClass("displaygrid");
+});
+
+$(".seven").on("click", function() {
+    $(".projecten_full").addClass("showit");
+    $(".content2").removeClass("displaygrid");
+    $(".content2").addClass("displaynone");
+    $(".sevend").addClass("displaygrid");
+});
+
+$(".cross").on("click", function() {
+    $(".projecten_full").removeClass("showit");
+    $('.gallerij_fotos img').each(function(index) {
+        var that = this;
+        setTimeout(function() {
+            $(that).addClass('inview');
+        }, 10 * index);
+    });
+});
+
 var timeoutScroll,
     $navbar = $('.nav'),
     $window = $(window);
@@ -33,19 +111,27 @@ $window.scroll(function() {
 $('#filter button').click(function() {
     var ourClass = $(this).attr('class');
     if (ourClass == 'all') {
-        $('.gallerij_fotos').children('a').show();
+        $("#filter button").css("border-bottom", "2px solid var(--grijs)");
+        $("#filter .all").css("border-bottom", "2px solid var(--sec)");
+        $('.gallerij_fotos').children('div').show();
     } else if (ourClass == 'instas') {
-        $('.gallerij_fotos').children('a').show();
-        $('.gallerij_fotos').children('a:not(.' + ourClass + ')').hide();
-        $('.gallerij_fotos').children('a' + ourClass).show();
+        $("#filter button").css("border-bottom", "2px solid var(--grijs)");
+        $("#filter .instas").css("border-bottom", "2px solid var(--sec)");
+        $('.gallerij_fotos').children('div').show();
+        $('.gallerij_fotos').children('div:not(.' + ourClass + ')').hide();
+        $('.gallerij_fotos').children('div' + ourClass).show();
     } else if (ourClass == 'designs') {
-        $('.gallerij_fotos').children('a').show();
-        $('.gallerij_fotos').children('a:not(.' + ourClass + ')').hide();
-        $('.gallerij_fotos').children('a' + ourClass).show();
+        $("#filter button").css("border-bottom", "2px solid var(--grijs)");
+        $("#filter .designs").css("border-bottom", "2px solid var(--sec)");
+        $('.gallerij_fotos').children('div').show();
+        $('.gallerij_fotos').children('div:not(.' + ourClass + ')').hide();
+        $('.gallerij_fotos').children('div' + ourClass).show();
     } else if (ourClass == 'logos') {
-        $('.gallerij_fotos').children('a').show();
-        $('.gallerij_fotos').children('a:not(.' + ourClass + ')').hide();
-        $('.gallerij_fotos').children('a' + ourClass).show();
+        $("#filter button").css("border-bottom", "2px solid var(--grijs)");
+        $("#filter .logos").css("border-bottom", "2px solid var(--sec)");
+        $('.gallerij_fotos').children('div').show();
+        $('.gallerij_fotos').children('div:not(.' + ourClass + ')').hide();
+        $('.gallerij_fotos').children('div' + ourClass).show();
     }
     return false;
 });
@@ -213,7 +299,7 @@ $('.figure, .logo, .square, .instas img').tilt({
 	maxGlare:       .05       // From 0 - 1.
 });
 
-$(".gallerij_fotos a").hover(function() {
+$(".gallerij_fotos div").hover(function() {
 	$(this).children("span").css("opacity","1");
 }, function() {
 	$(this).children("span").css("opacity","0");
