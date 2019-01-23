@@ -31,41 +31,6 @@ $(".two").on("click", function() {
     $(".twod").addClass("displaygrid");
 });
 
-$(".three").on("click", function() {
-    $(".projecten_full").addClass("showit");
-    $(".content2").removeClass("displaygrid");
-    $(".content2").addClass("displaynone");
-    $(".threed").addClass("displaygrid");
-});
-
-$(".four").on("click", function() {
-    $(".projecten_full").addClass("showit");
-    $(".content2").removeClass("displaygrid");
-    $(".content2").addClass("displaynone");
-    $(".fourd").addClass("displaygrid");
-});
-
-$(".five").on("click", function() {
-    $(".projecten_full").addClass("showit");
-    $(".content2").removeClass("displaygrid");
-    $(".content2").addClass("displaynone");
-    $(".fived").addClass("displaygrid");
-});
-
-$(".six").on("click", function() {
-    $(".projecten_full").addClass("showit");
-    $(".content2").removeClass("displaygrid");
-    $(".content2").addClass("displaynone");
-    $(".sixd").addClass("displaygrid");
-});
-
-$(".seven").on("click", function() {
-    $(".projecten_full").addClass("showit");
-    $(".content2").removeClass("displaygrid");
-    $(".content2").addClass("displaynone");
-    $(".sevend").addClass("displaygrid");
-});
-
 $(".cross").on("click", function() {
     $(".projecten_full").removeClass("showit");
     $('.gallerij_fotos img').each(function(index) {
@@ -277,10 +242,10 @@ $('.sectie div input').on('focus', function() {
 });
 
 $(document).ready(function() {
-	var numall = $('.gallerij_fotos a').length;
-	var numinstas = $('.gallerij_fotos .instas').length;
-	var numdesigns = $('.gallerij_fotos .designs').length;
-	var numlogos = $('.gallerij_fotos .logos').length;
+    var numinstas = $('.gallerij_fotos .instas').length;
+    var numdesigns = $('.gallerij_fotos .designs').length;
+    var numlogos = $('.gallerij_fotos .logos').length;
+	var numall = numinstas+numdesigns+numlogos;
 	$("#filter .all").append("<span class='nums'>"+numall+"</span")
 	$("#filter .instas").append("<span class='nums'>"+numinstas+"</span")
 	$("#filter .designs").append("<span class='nums'>"+numdesigns+"</span")
