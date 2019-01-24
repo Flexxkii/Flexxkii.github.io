@@ -184,6 +184,7 @@ $(window).scroll(function() {
         $(".scrolldown").attr("src", "scrolldown_about.svg");
         document.title = "ABOUT ME";
     } else if (target_work.is_on_screen()) {
+        $(".work_header").css("top", "-13px");
         $(".nav nav a").css("color", "white");
         $div.get(0).style.setProperty("--sec", "#e91e63");
         $('.gallerij_fotos img').each(function(index) {
@@ -203,6 +204,7 @@ $(window).scroll(function() {
         document.title = "MY WORK";
     }
     if (target_contact.is_on_screen() == true) {
+        $(".work_header").css("top", "-65px");
         $(".nav nav a").css("color", "white");
         $div.get(0).style.setProperty("--sec", "#2196f3");
         $('.gallerij_fotos img').each(function(index) {
