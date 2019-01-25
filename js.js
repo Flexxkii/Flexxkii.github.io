@@ -10,7 +10,8 @@ $(".rechter_arrow").hover( function() {
     $(this).find("span:nth-child(1)").removeClass("hover");
 })
 
-$(".rechter_arrow").on("click", function() {
+var fun = function() {
+    console.log("test3");
     var thiscontent = $(this).parent().parent().parent().parent();
     var nextcontent = $(this).parent().parent().parent().parent().next();
     var firstcontent = $(".oned");
@@ -25,7 +26,52 @@ $(".rechter_arrow").on("click", function() {
         firstcontent.addClass("displaygrid");
         firstcontent.removeClass("displaynone");
     };
+}
+
+
+var rechts = function() {
+    var thiscontent = $(".projecten_full .displaygrid");
+    var nextcontent = thiscontent.next();
+    var firstcontent = $(".oned");
+    if(nextcontent.is('div')) {
+        thiscontent.removeClass("displaygrid");
+        thiscontent.addClass("displaynone");
+        nextcontent.addClass("displaygrid");
+        nextcontent.removeClass("displaynone");
+    } else {
+        thiscontent.removeClass("displaygrid");
+        thiscontent.addClass("displaynone");
+        firstcontent.addClass("displaygrid");
+        firstcontent.removeClass("displaynone");
+    };
+}
+
+var links = function() {
+    var thiscontent = $(".projecten_full .displaygrid");
+    var prevcontent = thiscontent.prev();
+    var firstcontent = $(".projecten_full div:last-child");
+    if(prevcontent.is('div')) {
+        thiscontent.removeClass("displaygrid");
+        thiscontent.addClass("displaynone");
+        prevcontent.addClass("displaygrid");
+        prevcontent.removeClass("displaynone");
+    } else {
+        thiscontent.removeClass("displaygrid");
+        thiscontent.addClass("displaynone");
+        firstcontent.removeClass("displaynone");
+    };
+}    
+
+$(document).keydown(function(e) {
+    if ( event.which == 39 ) {
+        rechts();
+    } else if (event.which == 37) {
+        links();
+    }
 });
+
+$(".rechter_arrow").on("keypress click", rechts);
+
 
 $(".linker_arrow").on("click", function() {
     var thiscontent = $(this).parent().parent().parent().parent();

@@ -439,13 +439,13 @@
 		align-self: center;
 		font-size: 3em;
 		color: white;
-		margin:2em 0;
 		z-index: 2;
 		border-left: 10px solid var(--sec);
     	padding-left: 25px;
 	}
 
 	#about p {
+		padding-top: 2.5em;
 		grid-column: 2;
 		line-height: 25px;
 		color: white;
