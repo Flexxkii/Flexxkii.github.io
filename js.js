@@ -10,24 +10,6 @@ $(".rechter_arrow").hover( function() {
     $(this).find("span:nth-child(1)").removeClass("hover");
 })
 
-var fun = function() {
-    console.log("test3");
-    var thiscontent = $(this).parent().parent().parent().parent();
-    var nextcontent = $(this).parent().parent().parent().parent().next();
-    var firstcontent = $(".oned");
-    if(nextcontent.is('div')) {
-        thiscontent.removeClass("displaygrid");
-        thiscontent.addClass("displaynone");
-        nextcontent.addClass("displaygrid");
-        nextcontent.removeClass("displaynone");
-    } else {
-        thiscontent.removeClass("displaygrid");
-        thiscontent.addClass("displaynone");
-        firstcontent.addClass("displaygrid");
-        firstcontent.removeClass("displaynone");
-    };
-}
-
 
 var rechts = function() {
     var thiscontent = $(".projecten_full .displaygrid");
@@ -47,18 +29,22 @@ var rechts = function() {
 }
 
 var links = function() {
+    console.log("links");
     var thiscontent = $(".projecten_full .displaygrid");
     var prevcontent = thiscontent.prev();
-    var firstcontent = $(".projecten_full div:last-child");
+    var lastcontent = $(".projecten_full .displaynone:last-of-type");
     if(prevcontent.is('div')) {
+        console.log("test23");
         thiscontent.removeClass("displaygrid");
         thiscontent.addClass("displaynone");
         prevcontent.addClass("displaygrid");
         prevcontent.removeClass("displaynone");
     } else {
+        console.log("test");
         thiscontent.removeClass("displaygrid");
         thiscontent.addClass("displaynone");
-        firstcontent.removeClass("displaynone");
+        lastcontent.addClass("displaygrid");
+        lastcontent.removeClass("displaynone");
     };
 }    
 
@@ -71,23 +57,8 @@ $(document).keydown(function(e) {
 });
 
 $(".rechter_arrow").on("keypress click", rechts);
+$(".linker_arrow").on("keypress click", links);
 
-
-$(".linker_arrow").on("click", function() {
-    var thiscontent = $(this).parent().parent().parent().parent();
-    var prevcontent = $(this).parent().parent().parent().parent().prev();
-    var firstcontent = $(".projecten_full div:last-child");
-    if(prevcontent.is('div')) {
-        thiscontent.removeClass("displaygrid");
-        thiscontent.addClass("displaynone");
-        prevcontent.addClass("displaygrid");
-        prevcontent.removeClass("displaynone");
-    } else {
-        thiscontent.removeClass("displaygrid");
-        thiscontent.addClass("displaynone");
-        firstcontent.removeClass("displaynone");
-    };
-});
 
 $(".one").on("click", function() {
     $(".projecten_full").addClass("showit");
