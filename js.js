@@ -29,35 +29,45 @@ var rechts = function() {
 }
 
 var links = function() {
-    console.log("links");
     var thiscontent = $(".projecten_full .displaygrid");
     var prevcontent = thiscontent.prev();
     var lastcontent = $(".projecten_full .displaynone:last-of-type");
     if(prevcontent.is('div')) {
-        console.log("test23");
         thiscontent.removeClass("displaygrid");
         thiscontent.addClass("displaynone");
         prevcontent.addClass("displaygrid");
         prevcontent.removeClass("displaynone");
     } else {
-        console.log("test");
         thiscontent.removeClass("displaygrid");
         thiscontent.addClass("displaynone");
         lastcontent.addClass("displaygrid");
         lastcontent.removeClass("displaynone");
     };
-}    
+}
+
+var cross = function() {
+    $(".projecten_full").removeClass("showit");
+    $('.gallerij_fotos img').each(function(index) {
+        var that = this;
+        setTimeout(function() {
+            $(that).addClass('inview');
+        }, 10 * index);
+    });
+} 
 
 $(document).keydown(function(e) {
     if ( event.which == 39 ) {
         rechts();
     } else if (event.which == 37) {
         links();
+    } else if (event.which == 27) {
+        cross();
     }
 });
 
-$(".rechter_arrow").on("keypress click", rechts);
-$(".linker_arrow").on("keypress click", links);
+$(".rechter_arrow").on("click", rechts);
+$(".linker_arrow").on("click", links);
+$(".cross").on("click", cross);
 
 
 $(".one").on("click", function() {
@@ -102,15 +112,6 @@ $(".six").on("click", function() {
     $(".sixd").addClass("displaygrid");
 });
 
-$(".cross").on("click", function() {
-    $(".projecten_full").removeClass("showit");
-    $('.gallerij_fotos img').each(function(index) {
-        var that = this;
-        setTimeout(function() {
-            $(that).addClass('inview');
-        }, 10 * index);
-    });
-});
 
 var timeoutScroll,
     $navbar = $('.nav'),
@@ -198,13 +199,13 @@ var $div = $(':root');
 $(window).scroll(function() {
     if (target_home.is_on_screen()) {
         $(".nav nav a").css("color", "white");
-		$div.get(0).style.setProperty("--sec", "#009688");
+        document.documentElement.style.setProperty("--sec", "#009688");
         $(".nav nav a:nth-child(1)").css("color", "var(--sec)");
         $(".scrolldown").attr("src", "scrolldown.svg");
         document.title = "Teodor Anthony's portfolio";
     } else if (target_about.is_on_screen()) {
         $(".nav nav a").css("color", "white");
-        $div.get(0).style.setProperty("--sec", "#F44336");
+        document.documentElement.style.setProperty("--sec", "#F44336");
         $('.gallerij_fotos img').each(function(index) {
             var that = this;
             setTimeout(function() {
@@ -217,7 +218,7 @@ $(window).scroll(function() {
     } else if (target_work.is_on_screen()) {
         $(".work_header").css("top", "-13px");
         $(".nav nav a").css("color", "white");
-        $div.get(0).style.setProperty("--sec", "#e91e63");
+        document.documentElement.style.setProperty("--sec", "#e91e63");
         $('.gallerij_fotos img').each(function(index) {
             var that = this;
             setTimeout(function() {
@@ -237,7 +238,7 @@ $(window).scroll(function() {
     if (target_contact.is_on_screen() == true) {
         $(".work_header").css("top", "-65px");
         $(".nav nav a").css("color", "white");
-        $div.get(0).style.setProperty("--sec", "#2196f3");
+        document.documentElement.style.setProperty("--sec", "#2196f3");
         $('.gallerij_fotos img').each(function(index) {
             var that = this;
             setTimeout(function() {
