@@ -306,7 +306,7 @@
 	.knopjes a {
 	    color: white;
 	    text-decoration: none;
-	    border-bottom: 4px solid #242a30;
+	    border-bottom: 4px solid #242a30!important;
 	    padding: 1em 2em;
 	    margin-right: 2em;
 	    transition: all .25s ease;
