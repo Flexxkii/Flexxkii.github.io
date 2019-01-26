@@ -1,3 +1,7 @@
+$('#submitbutton').click(function(event){
+    event.preventDefault();
+});
+
 $(".linker_arrow").hover( function() {
     $(this).find("span:nth-child(1)").addClass("hover");
 }, function() {
