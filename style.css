@@ -2,7 +2,7 @@
 	:root {
 		--grijs: #242a30;
 		--donkergrijs: #18191c;
-		--sec: #f1c40f;
+		--sec: #009688;
 	    --third: #009688;
 	    --forth: #F44336;
 	}
@@ -306,7 +306,7 @@
 	.knopjes a {
 	    color: white;
 	    text-decoration: none;
-	    border-bottom: 4px solid var(--grijs);
+	    border-bottom: 4px solid #242a30;
 	    padding: 1em 2em;
 	    margin-right: 2em;
 	    transition: all .25s ease;
