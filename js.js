@@ -1,7 +1,3 @@
-$('#submitbutton').click(function(event){
-    event.preventDefault();
-});
-
 $(".linker_arrow").hover( function() {
     $(this).find("span:nth-child(1)").addClass("hover");
 }, function() {
@@ -218,9 +214,9 @@ $(window).scroll(function() {
         });
         $(".nav nav a:nth-child(2)").css("color", "var(--sec)");
         $(".scrolldown").attr("src", "scrolldown_about.svg");
-        document.title = "ABOUT ME";
+        document.title = "Over mij";
     } else if (target_work.is_on_screen()) {
-        $(".work_header").css("top", "-13px");
+        $(".work_header").css("top", "-20px");
         $(".nav nav a").css("color", "white");
         document.documentElement.style.setProperty("--sec", "#e91e63");
         $('.gallerij_fotos img').each(function(index) {
@@ -237,7 +233,7 @@ $(window).scroll(function() {
         });
         $(".nav nav a:nth-child(3)").css("color", "var(--sec)");
         $(".scrolldown").attr("src", "scrolldown_work.svg");
-        document.title = "MY WORK";
+        document.title = "Mijn projecten";
     }
     if (target_contact.is_on_screen() == true) {
         $(".work_header").css("top", "-65px");
@@ -257,7 +253,7 @@ $(window).scroll(function() {
         });
         $(".nav nav a:nth-child(4)").css("color", "var(--sec)");
         $(".scrolldown").attr("src", "scrolldown_contact.svg");
-        document.title = "MESSAGE ME";
+        document.title = "Stuur mij een bericht";
     }
 });
 
