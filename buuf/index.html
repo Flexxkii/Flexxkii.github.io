@@ -9,6 +9,7 @@
 	<script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
 	<link href="https://fonts.googleapis.com/css?family=Bitter:400,400i,700" rel="stylesheet">
 	<style type="text/css">
+	::-webkit-scrollbar{display: none}
 	body {
 	    font-family: "Montserrat", sans-serif;
 	    background-color: #F5F5F5;
@@ -70,7 +71,7 @@
 		position: absolute;
 	    top: 0;
 	    display: grid;
-	    grid-template-rows: 700px 1fr;
+	    grid-template-rows: 100vh 1fr;
 	}
 
 	.stappenplan {
@@ -116,9 +117,10 @@
 		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff7f50', endColorstr='#cc4b4b',GradientType=0 );
 	}
 	.element {
-		margin-left:-5em;
-    	padding-top: 5em;
-    	height: 700px;
+		margin-left: -5em;
+	    display: grid;
+	    height: 100vh;
+	    align-items: center;
 	}
 
 	.iphone {width: 90%; transition: all 1s cubic-bezier(0.67, -0.27, 0, 1.43);;}
