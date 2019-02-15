@@ -1,3 +1,5 @@
+::-webkit-scrollbar{display: none;}
+
 body, html {
     font-family: 'Montserrat', sans-serif;
     height: 100%;
@@ -523,7 +525,7 @@ nav ul a:hover {
 
 .graph img {width: 85%;}
 
-@media only screen and (max-width: 899px) {
+@media only screen and (max-width: 914px) {
     #skills {
         justify-content: center;
         padding: 0;
@@ -547,7 +549,7 @@ nav ul a:hover {
         grid-template-columns: 1fr 1fr;
     }
 }
-@media only screen and (max-width: 750px) {
+@media only screen and (max-width: 914px) {
     .gridsysteem {grid-template-columns: 100%!important;}
     #BG {display: none!important;}
     .showcasegrid {grid-template-columns: 1fr;}
