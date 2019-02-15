@@ -742,18 +742,7 @@
     	opacity: .25;
 	}
 
-	.preview {
-	    grid-row: 3;
-	    grid-column: 1;
-	    color: white;
-	    display: grid;
-	    width: 80vw;
-	    grid-template-columns: repeat(2, 1fr);
-	}
-
-	.preview div {
-		grid-column: 1 / 4;
-	}
+	.preview {color: white;}
 
 	.preview img {
 		width:100%;
