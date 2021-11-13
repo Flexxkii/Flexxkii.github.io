@@ -1,21 +1,24 @@
-
+// converts HEX to HSL
 function getColor(hex) {
     let color = HexToHSL(hex)
     return 'hsl(' + color.h + ', ' + color.s + '%, ' + color.l + '%)';
 }
 
+// converts HEX to HSL + 10% brightness
 function getLighterColor(hex) {
     let color = HexToHSL(hex)
     var colorLighter = color.l + 10;
     return 'hsl(' + color.h + ', ' + color.s + '%, ' + colorLighter + '%)';
 }
 
+// converts HEX to HSL + 30% brightness
 function getMuchLighterColor(hex) {
     let color = HexToHSL(hex)
     var colorLighter = color.l + 30;
     return 'hsl(' + color.h + ', ' + color.s + '%, ' + colorLighter + '%)';
 }
 
+// function to convert HEX to HSL
 function HexToHSL(hex) {
     var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
 
@@ -50,6 +53,7 @@ function HexToHSL(hex) {
     return {h, s, l};
 }
 
+// function to convert HEX to RGBA
 function hexToRgbA(hex){
     var c;
     if(/^#([A-Fa-f0-9]{3}){1,2}$/.test(hex)){
@@ -63,6 +67,7 @@ function hexToRgbA(hex){
     throw new Error('Bad Hex');
 }
 
+// function to append styling to head
 function setStyling(setcolor, bgcolor) {
     $("head").append(`
     <style class="bieding_widget_stylesheet" type="text/css">
@@ -334,12 +339,15 @@ function setStyling(setcolor, bgcolor) {
     `);
 }
 
+// Get House ID from current URL
 var currentpath = window.location.href;
 var currentpath_split = currentpath.split('/');
 var currentpath_last = currentpath_split[currentpath_split.length - 1];
-var sw24_path = 'https://www.streetwise24.com/version-test/login_test?unique_id=';
+
+// Bieding website link
 var sw24_api = 'https://www.streetwise24.com/version-test/customer_dashboard';
 
+// Variables
 var startprice_el = $('.bied_startprijs_value');
 var bid_btn = $('.bied_action a');
 var bid_block = $('.bied_balk');
@@ -349,6 +357,7 @@ var agency_obj_id;
 var object_color;
 var object_btn_color;
 
+// Widget HTML object
 var object_item = ( sw24_url, waarde, datum_start, datum_end ) => `
 <div class="bied_balk">
     <div class="bied_container">
@@ -393,6 +402,7 @@ var object_item = ( sw24_url, waarde, datum_start, datum_end ) => `
 </div>
 `;
 
+// Widget loading function
 function load_widget() {
     $.ajax({
         url: 'https://www.streetwise24.com/version-test/api/1.1/obj/properties',
@@ -406,8 +416,11 @@ function load_widget() {
             
             $.each(data.response.results, function (value, item) {
                 var house_id = this.house_id;
+                // if house id exist
                 if(typeof house_id !== 'undefined') {
+                    // if house id equals URL house id
                     if(house_id == currentpath_last) {
+                        // set object agency id
                         agency_obj_id = this.Agency;
                     }
                 }
@@ -421,17 +434,19 @@ function load_widget() {
                 },
                 type: 'GET',
                 success: function (result) {
+                    console.log(result.response.results);
                     
                     $.each(result.response.results, function(value, item) {
                         var this_id = this._id;
                         var this_btn_color = this.button_color;
                         var this_color = this.Color;
                         
+                        // if agency id equals object agency id
                         if(this_id == agency_obj_id) {
                             object_color = this_color;
                             object_btn_color = this_btn_color;
+                            // appends stylesheet
                             setStyling(object_color, object_btn_color);
-                            console.log('It matches!');
                         }
                     });
                 },
@@ -447,26 +462,23 @@ function load_widget() {
                         var house_date_end_formatted = `${house_date_end.getDate()}/${house_date_end.getMonth()}/${house_date_end.getFullYear()}`;
                         var enable_bidding = this.Bids_property;
                         
-                        // if house_id exist;
+                        // if house_id exist
                         if(typeof house_id !== 'undefined') {
-                            // if house_id is the same as the object the user is viewing
+                            // if house_id equals URL house id
                             if(house_id == currentpath_last) {
-                                // agency_obj_id = this.Agency;
                                 console.log(house_date_start_formatted);
                                 console.log(house_date_end_formatted);
                                 console.log(enable_bidding);
                                 console.log(this.start_date_bid);
                                 console.log(this.end_date_bid);
-                                // You can place a bid!
+                                // appends widget object to body
                                 $('body').prepend(object_item(sw24_api, start_price_formatted, house_date_start_formatted, house_date_end_formatted));
-                                $(bid_block).show();
-                            } else {
-                                console.log('this house doesnt allow bidding')
-                                $(bid_block).remove();
+                                // $(bid_block).show();
                             }
                         }
                     });
                     
+                    // Clicking the big round icon dismisses the widget
                     $('.bied_venster_btn').on('click', function() {
                         $('.bied_balk').toggleClass('foldedup');
                     });
@@ -476,6 +488,7 @@ function load_widget() {
     });
 }
 
+// Load the widget when the document has been loaded, for performance
 document.addEventListener("DOMContentLoaded",function(){
     console.log('document ready');
     load_widget(); 
