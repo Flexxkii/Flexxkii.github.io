@@ -490,6 +490,5 @@ function load_widget() {
 
 // Load the widget when the document has been loaded, for performance
 document.addEventListener("DOMContentLoaded",function(){
-    console.log('document ready');
     load_widget(); 
 });
