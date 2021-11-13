@@ -17,6 +17,85 @@ var object_color;
 var object_btn_color;
 var fetch_obj;
 var fetch_agency;
+var bgcolor;
+
+//CSS variables for dark mode
+function activateDarkMode(object_color_var, object_btn_color_var) {
+  const rootElement = document.querySelector(':root')
+  const darkTheme = {
+    '--background-gradient-1': '#1F252C',
+    '--background-gradient-2': '#262d34',
+    '--label-color': '#bcbcbc',
+    '--value-color': '#FFFFFF',
+    '--help-btn-background': '#181d23',
+    '--help-btn-background-hover': '#0e1115',
+    '--help-btn-color': '#e5e7eb',
+    '--bid-btn-boxshadow': '0px 10px 10px 0 rgba(0,0,0,0.25)',
+    '--bid-btn-boxshadow-hover': '0px 15px 15px 0' + hexToRgbA(object_btn_color_var),
+    '--venster-btn-boxshadow': '0px 10px 10px 0 rgba(0,0,0,0.25)',
+    '--tooltip-bgcolor': '#1F252C transparent transparent transparent'
+  }
+  for(k in darkTheme) {
+    rootElement.style.setProperty(k, darkTheme[k])
+  }
+}
+
+//CSS variables for light mode
+function activateLightMode(object_color_var, object_btn_color_var) {
+  const rootElement = document.querySelector(':root')
+  const lightTheme = {
+    '--background-gradient-1': '#EFEFEF',
+    '--background-gradient-2': '#FFFFFF',
+    '--label-color': '#111111',
+    '--value-color': object_color_var,
+    '--help-btn-background': '#e1e1e1',
+    '--help-btn-background-hover': '#cbcbcb',
+    '--help-btn-color': '#333333',
+    '--bid-btn-boxshadow': '0px 10px 10px 0 ' + hexToRgbA(object_btn_color_var),
+    '--bid-btn-boxshadow-hover': '0px 15px 15px 0 ' + hexToRgbA(object_btn_color_var),
+    '--venster-btn-boxshadow': '0px 10px 10px 0 ' + hexToRgbA(object_color_var),
+    '--tooltip-bgcolor': '#EFEFEF transparent transparent transparent'
+  }
+  for(k in lightTheme) {
+    rootElement.style.setProperty(k, lightTheme[k])
+  }
+}
+
+// Sets a color scheme for the website.
+// If browser supports "prefers-color-scheme" it will respect the setting for light or dark mode
+// otherwise it will set a dark theme during night time
+function setColorScheme(object_color_var, object_btn_color_var) {
+    console.log('setColorScheme()');
+  const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
+  const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
+  const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
+  const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified;
+
+  window.matchMedia("(prefers-color-scheme: dark)").addListener(e => e.matches && activateDarkMode(object_color_var, object_btn_color_var))
+  window.matchMedia("(prefers-color-scheme: light)").addListener(e => e.matches && activateLightMode(object_color_var, object_btn_color_var))
+
+//   if(isDarkMode) activateDarkMode(object_color_var, object_btn_color_var)
+//   if(isLightMode) activateLightMode(object_color_var, object_btn_color_var)
+//   if(isNotSpecified || hasNoSupport) {
+//     console.log('You specified no preference for a color scheme or your browser does not support it. I schedule dark mode during night time.')
+//     now = new Date();
+//     hour = now.getHours();
+//     if (hour < 4 || hour >= 16) {
+//       activateDarkMode(object_color_var, object_btn_color_var);
+//     }
+//   }
+
+    var now = new Date();
+    var hour = now.getHours();
+    
+    // if it's evening use dark mode
+    if (hour < 9 || hour >= 22) {
+        activateDarkMode(object_color_var, object_btn_color_var);
+    } else {
+        activateLightMode(object_color_var, object_btn_color_var)
+    }
+  document.head.insertAdjacentHTML("beforeend", setStyling(object_color_var, object_btn_color_var));
+}
 
 // converts HEX to HSL
 function getColor(hex) {
@@ -96,16 +175,18 @@ function setStyling(setcolor, bgcolor) {
             position: fixed;
             bottom: 20px;
             left: 0;
-            height: 100px;
+            height: 110px;
             width: 100%;
             z-index: 9999;
             opacity: 1;
             padding: 0 20px;
             filter: drop-shadow(0px 10px 10px rgb(0 0 0 / 15%));
-            transition: transform 1s cubic-bezier(0.5, 0, 0.5, 1);
+            transition: all 1s cubic-bezier(0.5, 0, 0.5, 1);
         }
         
-        .bied_balk.foldedup {transform: translateY(120px);}
+        .bied_balk.expand_window {height: 600px;}
+        .bied_balk.foldedup {transform: translateY(130px);}
+        .bied_balk.expand_window.foldedup {transform: translateY(620px);}
         
         .bied_container {
             display: grid;
@@ -114,16 +195,16 @@ function setStyling(setcolor, bgcolor) {
             align-items: center;
             height: 0%;
             width: 100%;
-            background: linear-gradient(0deg, #EFEFEF, #FFFFFF);
-            padding: 0 150px;
-            border-radius: 5px 5px 20px 20px;
+            background: linear-gradient(0deg, var(--background-gradient-1), var(--background-gradient-2));
+            padding: 0px 150px;
+            border-radius: 10px 10px 20px 20px;
             animation-name: heightslide;
             animation-duration: 1s;
             animation-delay: 1s;
             animation-iteration-count: 1;
             animation-timing-function: ease-in-out;
             animation-fill-mode: forwards;
-            transition: transform .5s ease;
+            transition: all .5s ease;
         }
         
         .bied_info {
@@ -160,16 +241,16 @@ function setStyling(setcolor, bgcolor) {
             display: flex;
             flex-direction: row;
             align-items: center;
-            gap: 20px;
         }
         
         .bied_venster_btn {
+            position: relative;
             height: 100px;
             width: 100px;
             border-radius: 100%;
             margin-top: 0px;
             background: linear-gradient(45deg, ${getColor(setcolor)}, ${getMuchLighterColor(setcolor)});
-            box-shadow: 0px 10px 10px 0 ${hexToRgbA(setcolor)};
+            box-shadow: var(--venster-btn-boxshadow);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -183,8 +264,10 @@ function setStyling(setcolor, bgcolor) {
             animation-timing-function: ease-in-out;
             
             animation-fill-mode: forwards;
-            transition: transform .5s ease;
+            transition: all 1s ease;
         }
+        
+        .bied_balk.expand_window .bied_venster_btn {margin-bottom: 70px;}
         
         .bied_venster_btn svg {
             transform: scale(1.5);
@@ -194,6 +277,45 @@ function setStyling(setcolor, bgcolor) {
         
         .bied_venster_btn:hover .bied_venster_btn_svg {transform: scale(1.75);}
         
+        .bid_tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            font-size: 11pt;
+            font-weight: 400;
+            background: linear-gradient(0deg, var(--background-gradient-1), var(--background-gradient-2));
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 0;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .bid_tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: var(--tooltip-bgcolor);
+        }
+
+        @media (hover: hover) {
+            .bied_venster_btn:hover .bid_tooltiptext,
+            .bied_action_info:hover .bid_tooltiptext, 
+            .bied_action_bid:hover .bid_tooltiptext {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+        
         .bied_startprijs svg,
         .bied_datum svg {
             fill: #bcbcbc!important;
@@ -202,14 +324,18 @@ function setStyling(setcolor, bgcolor) {
         .bied_startprijs_label {
             font-size: 1.2em;
             font-weight: bold;
+            color: var(--label-color);
         }
         
         .bied_startprijs_value {
-            color: ${setcolor};
+            color: var(--value-color);
             font-size: 2em;
         }
         
-        .bied_datum_value {font-style: italic;}
+        .bied_datum_value {
+            font-style: italic;
+            color: var(--value-color);
+        }
         
         .bied_startprijs_container {
             display: flex;
@@ -228,11 +354,18 @@ function setStyling(setcolor, bgcolor) {
         .bied_datum_end_label {
             font-size: .75em;
             font-weight: bold;
+            color: var(--label-color);
+        }
+        
+        .bied_datum_start_value,
+        .bied_datum_end_value {
+            color: var(--label-color);
         }
         
         .bied_icon {
             border-right: 2px solid rgb(0 0 0 / 5%);
             padding-right: 20px;
+            margin-right: 20px;
         }
         
         .bied_action {
@@ -246,13 +379,13 @@ function setStyling(setcolor, bgcolor) {
         .bied_action_bid {
             color: white;
             background: ${getColor(bgcolor)};
-            box-shadow: 0px 10px 10px 0 ${hexToRgbA(bgcolor)};
+            box-shadow: var(--bid-btn-boxshadow);
             transition: all .5s ease;
         }
         
-        .bied_action_help {
-            color: #333333;
-            background: #e1e1e1;
+        .bied_action_info {
+            color: var(--help-btn-color)!important;
+            background: var(--help-btn-background);
             transition: all .25s ease;
         }
         
@@ -260,23 +393,37 @@ function setStyling(setcolor, bgcolor) {
             padding: 10px 40px;
             border-radius: 10px;
             font-weight: bold;
+            position: relative;
         }
         
         .bied_action_bid:hover {
             background: ${getLighterColor(bgcolor)};
-            box-shadow: 0px 15px 15px 0 ${hexToRgbA(bgcolor)};
+            box-shadow: var(--bid-btn-boxshadow-hover);
             color: white;
             text-decoration: none;
             transform: translateY(-5px);
-            transition: all .5s ease;
+            transition: all 1s ease;
         }
         
-        .bied_action_help:hover {
-            color: #333333;
+        .bied_action_info:hover {
+            color: var(--help-btn-color)!important;
             text-decoration: none;
-            background: #cbcbcb;
+            background: var(--help-btn-background-hover);
         }
         
+        .bied_detail {
+            grid-column: 1 / 3;
+            grid-row: 2;
+            background: rgba(0,0,0,0.15);
+            color: white;
+            padding: 20px;
+            border-radius: 20px;
+            height: 0;
+            opacity:0;
+            transition: all 1s ease;
+        }
+        
+        .bied_balk.expand_window .bied_detail {opacity:1;height: 350px;}
         
         
         
@@ -294,7 +441,8 @@ function setStyling(setcolor, bgcolor) {
             
             .bied_container {
                 grid-template-columns: 100px auto;
-                padding: 0 10px;
+                padding: 0px 10px;
+                animation-name: heightslideMobile;
             }
             
             .bied_info {
@@ -318,8 +466,14 @@ function setStyling(setcolor, bgcolor) {
                 grid-row: 1;
                 align-self: end;
                 margin-bottom: 10px;
+                margin-top: 70px;
                 flex-direction: column;
                 gap: 10px;
+            }
+            
+            .bied_icon {
+                padding-right: 10px;
+                margin-right: 10px;
             }
             
             .bied_action a {padding: 10px 30px;}
@@ -327,20 +481,27 @@ function setStyling(setcolor, bgcolor) {
             .bied_balk.foldedup {transform: translateY(220px);}
             
             .bied_venster_btn {
-                margin-top: -250px;
+                margin-top: -275px;
                 animation-name: fadeInAnimationMobile;
             }
             
+            .bied_balk.expand_window .bied_venster_btn { margin-bottom: 30px; }
+            
             @keyframes fadeInAnimationMobile {
                 from {
-                    margin-top: -250px;
+                    margin-top: -275px;
                     opacity: 0;
                 }
                 to {
-                    margin-top: -175px;
+                    margin-top: -250px;
                     opacity: 1;
                 }
             }
+            
+            @keyframes heightslideMobile {
+                from {height: 0%;padding: 0px 10px 0px 10px;}
+                to {height: 100%;padding: 20px 10px 0px 10px;}
+            } 
         }
         
         
@@ -412,7 +573,7 @@ function setStyling(setcolor, bgcolor) {
                 opacity: 0;
             }
             to {
-                margin-top: -100px;
+                margin-top: -150px;
                 opacity: 1;
             }
         }
@@ -423,8 +584,8 @@ function setStyling(setcolor, bgcolor) {
         }
         
         @keyframes heightslide {
-            from {height: 0%;}
-            to {height: 100%;}
+            from {height: 0%;padding: 0px 150px;}
+            to {height: 100%;padding: 20px 150px;}
         } 
     </style>
     `;
@@ -435,6 +596,7 @@ var object_item = ( sw24_url, waarde, datum_start, datum_end ) => `
 <div class="bied_balk">
     <div class="bied_container">
         <div class="bied_venster_btn">
+            <span class="bid_tooltiptext">Schuif naar beneden</span>
             <svg class="bied_venster_btn_svg" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="30" height="30" viewBox="0 0 30 30" style=" fill:#000000;">    <path d="M 15.980469 1.9902344 A 1.0001 1.0001 0 0 0 15.292969 2.2929688 L 9.2929688 8.2929688 A 1.0001 1.0001 0 1 0 10.707031 9.7070312 L 16.707031 3.7070312 A 1.0001 1.0001 0 0 0 15.980469 1.9902344 z M 18 5 A 1 1 0 0 0 17.287109 5.2988281 L 12.328125 10.261719 A 1 1 0 0 0 12 11 A 1 1 0 0 0 12.355469 11.765625 L 18.285156 17.699219 A 1 1 0 0 0 19 18 A 1 1 0 0 0 19.708984 17.705078 L 24.697266 12.716797 A 1 1 0 0 0 25 12 A 1 1 0 0 0 24.701172 11.287109 L 18.716797 5.3027344 A 1 1 0 0 0 18.705078 5.2910156 A 1 1 0 0 0 18 5 z M 26.980469 12.990234 A 1.0001 1.0001 0 0 0 26.292969 13.292969 L 20.292969 19.292969 A 1.0001 1.0001 0 1 0 21.707031 20.707031 L 27.707031 14.707031 A 1.0001 1.0001 0 0 0 26.980469 12.990234 z M 13.292969 15.292969 L 3.7714844 23.423828 A 2 2 0 0 0 3 25 A 2 2 0 0 0 5 27 A 2 2 0 0 0 6.5546875 26.257812 A 2 2 0 0 0 6.5644531 26.246094 L 6.5664062 26.244141 L 14.707031 16.707031 L 13.292969 15.292969 z"></path></svg>
         </div>
         <div class="bied_info">
@@ -469,8 +631,17 @@ var object_item = ( sw24_url, waarde, datum_start, datum_end ) => `
             </div>
         </div>
         <div class="bied_action">
-            <a class="bied_action_help" target="_blank" href="google.com">Help</a>
-            <a class="bied_action_bid" target="_blank" href="${sw24_url}">Bied</a>
+            <a class="bied_action_info">
+                <span class="bid_tooltiptext">Toon info</span>
+                <span>info</span>
+            </a>
+            <a class="bied_action_bid" target="_blank" href="${sw24_url}">
+                <span class="bid_tooltiptext">Ga naar bieding</span>
+                <span>Bied</span>
+            </a>
+        </div>
+        <div class="bied_detail">
+            <span>Detail window</span>
         </div>
     </div>
 </div>
@@ -519,7 +690,8 @@ function load_widget() {
                     object_btn_color = this_btn_color;
                     
                     // appends stylesheet
-                    document.head.insertAdjacentHTML("beforeend", setStyling(object_color, object_btn_color));
+                    setColorScheme(this_color, this_btn_color);
+                    
                 }
             }); 
         }).catch(function(error) {
@@ -553,13 +725,20 @@ function load_widget() {
                     }
                 }
             }); 
+        // When everything is complete
         }).then(function() {
             window_button = document.querySelector('.bied_venster_btn');
+            help_button = document.querySelector('.bied_action_info');
             window_balk = document.querySelector('.bied_balk');
             
             // Clicking the big round icon dismisses the widget
-            window_button.addEventListener('mousedown', function() {
+            window_button.addEventListener('click', function() {
                 window_balk.classList.toggle('foldedup');
+            })
+            
+            // Clicking the info button expands the window
+            help_button.addEventListener('click', function() {
+                window_balk.classList.toggle('expand_window');
             })
         })
     })
@@ -567,6 +746,3 @@ function load_widget() {
 
 // initialize widget
 load_widget();
-
-
-
