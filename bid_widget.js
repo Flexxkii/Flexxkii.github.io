@@ -8,8 +8,6 @@ var currentpath_last = currentpath_split[currentpath_split.length - 1];
 var sw24_api = 'https://www.streetwise24.com/version-test/customer_dashboard';
 
 // Variables
-var head = document.head || document.getElementsByTagName('head')[0];
-var body = document.body || document.getElementsByTagName('body')[0];
 var window_button;
 var bid_block;
 var object_date;
@@ -521,7 +519,7 @@ function load_widget() {
                     object_btn_color = this_btn_color;
                     
                     // appends stylesheet
-                    head.insertAdjacentHTML("beforeend", setStyling(object_color, object_btn_color));
+                    document.head.insertAdjacentHTML("beforeend", setStyling(object_color, object_btn_color));
                 }
             }); 
         }).catch(function(error) {
