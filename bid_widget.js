@@ -551,7 +551,7 @@ function load_widget() {
                         console.log(value.end_date_bid);
                         
                         // appends widget object to body
-                        body.insertAdjacentHTML("beforeend", object_item(sw24_api, start_price_formatted, house_date_start_formatted, house_date_end_formatted));
+                        document.body.insertAdjacentHTML("beforeend", object_item(sw24_api, start_price_formatted, house_date_start_formatted, house_date_end_formatted));
                     }
                 }
             }); 
