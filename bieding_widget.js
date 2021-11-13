@@ -68,54 +68,54 @@ function setStyling(setcolor, bgcolor) {
     <style class="bieding_widget_stylesheet" type="text/css">
         
 .bied_balk {
-	position: fixed;
-	bottom: 20px;
-	left: 0;
-	height: 100px;
-	width: 100%;
-	z-index: 9999;
-	opacity: 1;
-	padding: 0 20px;
-	filter: drop-shadow(0px 10px 10px rgb(0 0 0 / 15%));
-	transition: transform .5s ease;
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    height: 100px;
+    width: 100%;
+    z-index: 9999;
+    opacity: 1;
+    padding: 0 20px;
+    filter: drop-shadow(0px 10px 10px rgb(0 0 0 / 15%));
+    transition: transform .5s ease;
 }
 
 .bied_balk.foldedup {transform: translateY(110px);}
 
 .bied_container {
-	display: grid;
-	grid-template-columns: 100px auto auto;
-	justify-content: space-between;
-	align-items: center;
-	height: 100%;
-	width: 100%;
-	background: linear-gradient(0deg, #EFEFEF, #FFFFFF);
-	padding: 0 150px;
-	border-radius: 5px 5px 20px 20px;
-	animation-name: heightslide;
-	animation-duration: 1s;
-	animation-iteration-count: 1;
-	animation-timing-function: ease-in-out;
-	animation-fill-mode: forwards;
-	transition: transform .5s ease;
+    display: grid;
+    grid-template-columns: 100px auto auto;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: linear-gradient(0deg, #EFEFEF, #FFFFFF);
+    padding: 0 150px;
+    border-radius: 5px 5px 20px 20px;
+    animation-name: heightslide;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+    transition: transform .5s ease;
 }
 
 .bied_info {
-	display: flex;
-	gap: 25px;
-	grid-column: 2;
-	grid-row: 1;
+    display: flex;
+    gap: 25px;
+    grid-column: 2;
+    grid-row: 1;
 }
 
 .bied_info,
 .bied_action {
-	opacity: 0;
-	animation-name: fadeIn;
-	animation-duration: 1s;
-	animation-iteration-count: 1;
-	animation-timing-function: ease-in-out;
-	animation-delay: 1s;
-	animation-fill-mode: forwards;
+    opacity: 0;
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
 }
 
 .bied_datum {
@@ -127,111 +127,111 @@ function setStyling(setcolor, bgcolor) {
 .bied_startprijs,
 .bied_datum_start,
 .bied_datum_end {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	gap: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
 }
 
 .bied_venster_btn {
-	height: 100px;
-	width: 100px;
-	border-radius: 100%;
-	margin-top: 0px;
-	background: linear-gradient(45deg, ${getColor(setcolor)}, ${getMuchLighterColor(setcolor)});
-	box-shadow: 0px 10px 10px 0 ${hexToRgbA(setcolor)};
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	grid-column: 1;
-	grid-row: 1;
-	cursor: pointer;
-	opacity: 0;
-	animation-name: fadeInAnimation;
-	animation-duration: 1s;
-	animation-iteration-count: 1;
-	animation-timing-function: ease-in-out;
-	animation-delay: 1s;
-	animation-fill-mode: forwards;
-	transition: transform .5s ease;
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    margin-top: 0px;
+    background: linear-gradient(45deg, ${getColor(setcolor)}, ${getMuchLighterColor(setcolor)});
+    box-shadow: 0px 10px 10px 0 ${hexToRgbA(setcolor)};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-column: 1;
+    grid-row: 1;
+    cursor: pointer;
+    opacity: 0;
+    animation-name: fadeInAnimation;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    transition: transform .5s ease;
 }
 
 .bied_venster_btn svg {
-	transform: scale(1.5);
-	transition: transform .5s ease;
-	fill: white!important;
+    transform: scale(1.5);
+    transition: transform .5s ease;
+    fill: white!important;
 }
 
 .bied_venster_btn:hover .bied_venster_btn_svg {transform: scale(1.75);}
 
 .bied_startprijs svg,
 .bied_datum svg {
-	fill: #bcbcbc!important;
+    fill: #bcbcbc!important;
 }
 
 .bied_startprijs_label {
-	font-size: 1.2em;
-	font-weight: bold;
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
 .bied_startprijs_value {
-	color: ${setcolor};
-	font-size: 2em;
+    color: ${setcolor};
+    font-size: 2em;
 }
 
 .bied_datum_value {font-style: italic;}
 
 .bied_startprijs_container {
-	display: flex;
-	flex-direction: column;
-	border-right: 2px solid rgb(0 0 0 / 5%);
-	padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    border-right: 2px solid rgb(0 0 0 / 5%);
+    padding-right: 20px;
 }
 
 .bied_datum_start_container,
 .bied_datum_end_container{
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .bied_datum_start_label,
 .bied_datum_end_label {
-	font-size: .75em;
-	font-weight: bold;
+    font-size: .75em;
+    font-weight: bold;
 }
 
 .bied_icon {
-	border-right: 2px solid rgb(0 0 0 / 5%);
-	padding-right: 20px;
+    border-right: 2px solid rgb(0 0 0 / 5%);
+    padding-right: 20px;
 }
 
 .bied_action {
-	grid-column: 3;
-	grid-row: 1;
-	transition: all .5s ease;
+    grid-column: 3;
+    grid-row: 1;
+    transition: all .5s ease;
 }
 
 .bied_action a {
-	padding: 10px 40px;
-	background: ${getColor(bgcolor)};
-	border-radius: 10px;
-	color: white;
-	font-weight: bold;
-	box-shadow: 0px 10px 10px 0 ${hexToRgbA(bgcolor)};
-	transition: all .5s ease;
+    padding: 10px 40px;
+    background: ${getColor(bgcolor)};
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0px 10px 10px 0 ${hexToRgbA(bgcolor)};
+    transition: all .5s ease;
 }
 
 .bied_action a:hover {
     background: ${getLighterColor(bgcolor)};
     box-shadow: 0px 15px 15px 0 ${hexToRgbA(bgcolor)};
-	color: white;
-	text-decoration: none;
+    color: white;
+    text-decoration: none;
 }
 
 .bied_action:hover {
-	
-	transform: translateY(-5px);
-	transition: all .5s ease;
+    
+    transform: translateY(-5px);
+    transition: all .5s ease;
 }
 
 
@@ -310,14 +310,14 @@ function setStyling(setcolor, bgcolor) {
 
 
 @keyframes fadeInAnimation {
-	from {
-		margin-top: 0px;
-		opacity: 0;
-	}
-	to {
-		margin-top: -100px;
-		opacity: 1;
-	}
+    from {
+        margin-top: 0px;
+        opacity: 0;
+    }
+    to {
+        margin-top: -100px;
+        opacity: 1;
+    }
 }
 
 @keyframes fadeIn {
@@ -392,7 +392,8 @@ var object_item = ( sw24_url, waarde, datum_start, datum_end ) => `
     </div>
 </div>
 `;
-    
+
+function load_widget() {
     $.ajax({
         url: 'https://www.streetwise24.com/version-test/api/1.1/obj/properties',
         data: {
@@ -473,7 +474,8 @@ var object_item = ( sw24_url, waarde, datum_start, datum_end ) => `
             });
         }
     });
+}
 
-
-
-
+$(document).ready(function() {
+   load_widget(); 
+});
