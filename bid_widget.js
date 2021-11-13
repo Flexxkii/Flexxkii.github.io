@@ -448,6 +448,8 @@ function setStyling(setcolor, bgcolor) {
             .bied_info {
                 gap: 0;
                 flex-direction: column;
+                justify-content: space-between;
+                padding-bottom: 20px;
             }
             
             .bied_datum {
@@ -746,3 +748,4 @@ function load_widget() {
 
 // initialize widget
 load_widget();
+
