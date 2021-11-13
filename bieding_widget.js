@@ -476,6 +476,7 @@ function load_widget() {
     });
 }
 
-$(document).ready(function() {
-   load_widget(); 
+document.addEventListener("DOMContentLoaded",function(){
+    console.log('document ready');
+    load_widget(); 
 });
