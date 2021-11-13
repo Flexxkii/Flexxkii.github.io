@@ -558,10 +558,6 @@ function load_widget() {
             window_balk = document.querySelector('.bied_balk');
             
             // Clicking the big round icon dismisses the widget
-            // window_button.addEventListener('click', event => {
-            //     window_balk.classList.toggle('foldedup');
-            // });
-            
             window_button.addEventListener('mousedown', function() {
                 window_balk.classList.toggle('foldedup');
             })
