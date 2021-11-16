@@ -788,7 +788,7 @@ function load_widget() {
                 
                 // if agency id equals object agency id
                 if(this_id == agency_obj_id) {
-                    object_color = this_color || '#ff9a02';
+                    object_color = this_color || '#013579';
                     object_btn_color = this_btn_color || '#ff9a02';
                     bid_info = this_info || 'Er is geen descriptie tekst';
                     
