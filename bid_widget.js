@@ -747,7 +747,7 @@ var object_item = ( sw24_url, waarde, datum_start, datum_end, this_info) => `
 
 // Widget API & appending loading function
 function load_widget() {
-    consolelog('Load widget');
+    console.log('Load widget');
     // API request to Properties
     fetch('https://www.streetwise24.com/version-test/api/1.1/obj/properties').then(function(response) {
         return response.json();
@@ -788,7 +788,7 @@ function load_widget() {
                 var this_color = value.Color;
                 var this_info = value.bids_information;
                 
-                console.log(this_id);
+                console.log("Agency ID: " + this_id);
                 
                 // if agency id equals object agency id
                 if(this_id == agency_obj_id) {
