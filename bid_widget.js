@@ -780,7 +780,7 @@ function load_widget() {
             fetch_agency.results.forEach(function (value, index) {
                 var this_id = value._id;
                 var this_btn_color = value.button_color;
-                var this_color = value.Color';
+                var this_color = value.Color;
                 var this_info = value.bids_information;
                 
                 console.log("Agency ID: " + this_id);
