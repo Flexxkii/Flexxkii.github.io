@@ -784,6 +784,7 @@ function load_widget() {
                 var this_info = value.bids_information;
                 
                 console.log("Agency ID: " + this_id);
+                console.log("Object agency ID: " + agency_obj_id);
                 
                 // if agency id equals object agency id
                 if(this_id == agency_obj_id) {
@@ -792,9 +793,9 @@ function load_widget() {
                     bid_info = this_info || 'Er is geen descriptie tekst';
                     
                     // appends stylesheet
+                    setColorScheme();
+                    
                 }
-                
-                setColorScheme();
             }); 
         }).catch(function(error) {
             console.log('API error');
