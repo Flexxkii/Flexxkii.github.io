@@ -97,11 +97,6 @@ function setColorScheme() {
     var fontcolor = ratio < 1/contrastRatio ? '#FFFFFF' : '#181d23';
     var fontcolor2 = ratio2 < 1/contrastRatio ? '#FFFFFF' : '#181d23';
     var fontcolor3 = ratio2 < 1/contrastRatio ? object_color : '#181d23';
-    
-    console.log(fontcolor3);
-
-    window.matchMedia("(prefers-color-scheme: dark)").addListener(e => e.matches && activateDarkMode(object_color, object_btn_color))
-    window.matchMedia("(prefers-color-scheme: light)").addListener(e => e.matches && activateLightMode(object_color, object_btn_color, fontcolor3))
 
 //   if(isDarkMode) activateDarkMode(object_color_var, object_btn_color_var)
 //   if(isLightMode) activateLightMode(object_color_var, object_btn_color_var)
@@ -797,9 +792,9 @@ function load_widget() {
                     bid_info = this_info || 'Er is geen descriptie tekst';
                     
                     // appends stylesheet
-                    setColorScheme();
-                    
                 }
+                
+                setColorScheme();
             }); 
         }).catch(function(error) {
             console.log('API error');
