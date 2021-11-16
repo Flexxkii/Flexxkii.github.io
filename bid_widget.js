@@ -70,6 +70,7 @@ function activateLightMode(object_color_var, object_btn_color_var, fontcolor3) {
 // If browser supports "prefers-color-scheme" it will respect the setting for light or dark mode
 // otherwise it will set a dark theme during night time
 function setColorScheme() {
+    console.log('set color scheme');
     const isDarkMode = window.matchMedia("(prefers-color-scheme: dark)").matches
     const isLightMode = window.matchMedia("(prefers-color-scheme: light)").matches
     const isNotSpecified = window.matchMedia("(prefers-color-scheme: no-preference)").matches
@@ -222,6 +223,7 @@ function hexToRgb(hex) {
 
 // function to append styling to head
 function setStyling(setcolor, bgcolor, fontcolor, fontcolor2) {
+    console.log('set styling');
     return `
     <style class="bieding_widget_stylesheet">
         .tekst-title {color:yellow;}
@@ -745,12 +747,14 @@ var object_item = ( sw24_url, waarde, datum_start, datum_end, this_info) => `
 
 // Widget API & appending loading function
 function load_widget() {
+    consolelog('Load widget');
     // API request to Properties
     fetch('https://www.streetwise24.com/version-test/api/1.1/obj/properties').then(function(response) {
         return response.json();
     }).then(function(obj) {
         fetch_obj = obj.response.results;
         console.log(fetch_obj);
+        console.log('Fetch properties');
 
         // Loop each results
         fetch_obj.forEach(function (value, index) {
@@ -775,6 +779,7 @@ function load_widget() {
         }).then(function(agency_obj) {
             fetch_agency = agency_obj.response;
             console.log(fetch_agency);
+            console.log('Fetch Agency');
             
             // Loop each results
             fetch_agency.results.forEach(function (value, index) {
@@ -801,6 +806,8 @@ function load_widget() {
             console.log(error);
         }).then(function() {
             
+            console.log('Fetch loop');
+            
             // Loop each results
             fetch_obj.forEach(function (value, index) {
                 var house_id = value.house_id;
@@ -817,6 +824,7 @@ function load_widget() {
                     console.log(value);
                     // if house_id equals URL house id
                     if(house_id == currentpath_last && enable_bidding) {
+                        console.log('Appending widget');
                         
                         // appends widget object to body
                         document.body.insertAdjacentHTML("beforeend", object_item(agency, start_price_formatted, house_date_start_formatted, house_date_end_formatted, bid_info));
@@ -843,5 +851,6 @@ function load_widget() {
 }
 
 // initialize widget
+console.log('load widget function');
 load_widget();
 
