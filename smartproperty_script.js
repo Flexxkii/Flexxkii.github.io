@@ -9,3 +9,5 @@ block_1.on('hover', function() {
 block_2.on('hover', function() {
 	logo_block.attr('src', 'https://irp.cdn-website.com/5ec89aa2/dms3rep/multi/SP+Projecten+Logo.svg');
 });
+
+console.log('custom script loaded');
